@@ -59,24 +59,28 @@
       font-size: 30px
     }
 
-    .a ul li:nth-child(4),
-    .a ul li:nth-child(5),
-    .a ul li:nth-child(6),
-    .a ul li:nth-child(7) {
+    .a li:nth-child(4),
+    .a li:nth-child(5),
+    .a li:nth-child(6),
+    .a li:nth-child(7) {
       color: red;
     }
 
-    .b ul li:nth-child(-n+25) {
+    .b li:nth-child(-n+25) {
       color: red;
     }
 
-    ul li:nth-child(n+35) ul li:nth-child(-n+60) {
-      color: blue;
-    }
 
-    .b ul li:nth-child(n+65) {
+
+    ul li:nth-child(n+65) {
       color: green;
     }
+
+    .b li:nth-child(n+35):nth-child(-n+50) {
+      color: blue
+    }
+
+    .prime li: {}
   </style>
 </head>
 
