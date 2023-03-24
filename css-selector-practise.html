@@ -6,26 +6,28 @@
   <title>Document</title>
 
   <style>
-    p {
+    body>:first-child {
       color: red;
     }
 
-    .a {
-      color: #000000
-    }
+
+
 
     p[tabindex]:hover {
       color: red;
 
     }
 
+
+
     p[tabindex]:active {
       color: green;
     }
 
-    .a:focus {
+    p[tabindex]:focus {
       color: blue;
     }
+
 
     span {
       color: red;
@@ -86,6 +88,7 @@
 
 
 
+
     .prime li:nth-child(6n+1) {
       color: blue
     }
@@ -103,13 +106,11 @@
       color: blue
     }
 
-    .prime li:nth-of-type(5) {
-      color: blue
-    }
 
     .prime li:nth-child(5n) {
       color: #000000;
     }
+
 
     .prime li:nth-of-type(5) {
       color: blue
