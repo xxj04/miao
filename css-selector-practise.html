@@ -6,10 +6,14 @@
   <title>Document</title>
 
   <style>
-    body>:first-child {
+    body>p:first-child {
       color: red;
     }
 
+
+    p[tabindex]:focus {
+      color: blue;
+    }
 
 
 
@@ -20,13 +24,12 @@
 
 
 
+
     p[tabindex]:active {
       color: green;
     }
 
-    p[tabindex]:focus {
-      color: blue;
-    }
+
 
 
     span {
@@ -82,38 +85,8 @@
       color: blue
     }
 
-    .prime ul li:first-child {
-      color: red
-    }
-
-
-
-
-    .prime li:nth-child(6n+1) {
-      color: blue
-    }
-
-
-    .prime li:nth-child(6n-1) {
-      color: blue
-    }
-
-    .prime li:nth-of-type(2) {
-      color: blue
-    }
-
-    .prime li:nth-of-type(3) {
-      color: blue
-    }
-
-
-    .prime li:nth-child(5n) {
-      color: #000000;
-    }
-
-
-    .prime li:nth-of-type(5) {
-      color: blue
+    .prime ul li:not(first-child):not(:nth-child(2n+4)):not(:nth-child(3n+9)):not(:nth-child(5n+25)):not(:nth-child(7n+49)) {
+      color: red;
     }
   </style>
 </head>
