@@ -8,15 +8,19 @@
   <style>
     /* 设置阴影 */
     h1 {
-      text-shadow: 2px 2px #808080;
-      font-size: 20px;
+      text-shadow: 1px 1px #808080,
+        0.5px 0.5px 0px grey,
+        1px 1px 0px grey,
+        1.5px 1.5px 0px grey,
+        2px 2px 0px grey,
+        2.5px 2.5px 0px grey
     }
 
     /* 设置阴影 */
-    h1 span1 {
+    h1 span {
       color: blue;
       font-weight: 600;
-      text-shadow: 2px 2px #808080;
+
       font-size: 20px;
     }
 
@@ -36,11 +40,16 @@
     }
 
     p>input {
-      font-size: 100%;
+      font: inherit;
+      text-transform: uppercase;
+
     }
 
     h2 {
-      font: bolder small-caps 1.5em "Comic Sans MS"
+      font: bolder small-caps 1.5em "Comic Sans MS";
+
+
+      font-family: "Comic Sans MS", 宋体, serif
     }
 
     .a {
@@ -70,6 +79,7 @@
       letter-spacing: 3px;
       text-indent: 2em;
       word-spacing: 2em;
+      text-align: justify;
     }
 
     /* 设置字号 取消样式 */
