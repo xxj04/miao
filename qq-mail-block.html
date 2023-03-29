@@ -15,22 +15,32 @@
     .a {
       background-color: red;
 
-      width: 100%;
+      width: 100wh;
       height: 150px;
+      border: 1px solid;
+      box-sizing: border-box;
     }
 
     .b {
       background-color: pink;
 
       width: 250px;
-      height: 600px;
+      height: calc(100vh - 150px);
       overflow: auto;
+      border: 1px solid;
+      box-sizing: border-box;
+      border-top: 0px;
     }
 
     .c {
       background-color: tan;
-      height: 600px;
+      height: calc(100vh - 150px);
+      width: calc(100vw - 250px);
       overflow: auto;
+      border: 1px solid;
+      box-sizing: border-box;
+      border-left: 0px;
+      border-top: 0px;
 
     }
 
@@ -40,7 +50,7 @@
     }
 
     .c:nth-child(n+3) {
-      margin-top: -600px;
+      margin-top: calc(150px - 100vh);
 
     }
   </style>
