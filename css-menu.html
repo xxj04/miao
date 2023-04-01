@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en" style="width: 100%;">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=\, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+
+
+    }
+
+
+    .title {
+      width: 1535px;
+      height: 40px;
+      background-color: rgb(38, 38, 38);
+      margin: auto;
+    }
+
+
+    .yiji {
+      font-size: 0px;
+
+    }
+
+    a {
+      text-decoration: none;
+      color: rgb(112, 112, 113);
+    }
+
+    .title a:hover {
+      color: azure;
+    }
+
+    li::marker {
+      content: '';
+    }
+
+
+
+    .yiji>li {
+      font-size: 16px;
+      display: inline-block;
+      xwidth: 80px;
+      height: 40px;
+      border: 1px solid rgb(50, 50, 50);
+      line-height: 40px;
+      text-align: center;
+      background-color: rgb(38, 38, 38);
+      position: relative;
+      box-sizing: border-box;
+      padding: 0 20px;
+    }
+
+    .erji>li::after {
+      content: ">";
+      display: inline-block;
+      padding-left: 50px;
+      position: absolute;
+      z-index: 1;
+      right: 2px;
+    }
+
+    .erji {
+      position: absolute;
+      display: none;
+      width: 100%;
+      left: 0px;
+      top: 39px;
+    }
+
+    .erji>li {
+      background-color: rgb(146, 146, 146);
+      border: 1px solid;
+      position: relative;
+
+    }
+
+
+
+    .yiji>li:hover>ul {
+      display: block;
+    }
+
+    .sanji {
+      display: none;
+      position: absolute;
+      left: 101%;
+      top: 0;
+      width: 100%;
+    }
+
+    .sanji>li {
+      background-color: rgb(199, 199, 199);
+      border: 1px solid;
+      box-sizing: border-box;
+    }
+
+    .erji>li:hover>ul {
+      display: block;
+    }
+
+
+
+
+    .nav {
+      width: 230px;
+      height: 420px;
+      margin-top: 150px;
+      padding: 20px 0;
+    }
+
+    .nav li>a {
+
+      width: 230px;
+      height: 50px;
+      background-color: rgb(165, 163, 163);
+      color: #fff;
+      display: block;
+
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 50px;
+      padding-left: 30px;
+
+    }
+
+    .nav a:hover {
+      background-color: orange;
+    }
+
+    .nav a::after {
+      content: ">";
+      display: inline-block;
+      position: absolute;
+      right: 10px;
+      z-index: 1;
+    }
+
+    .nav li {
+      position: relative;
+    }
+
+    .nav_2 {
+      font-size: 18px;
+      width: 230px;
+      position: absolute;
+      left: 260px;
+      top: 0px;
+      display: none;
+      background-color: rgb(122, 121, 121);
+    }
+
+    .nav_2>li {
+      width: 230px;
+      height: 50px;
+      border: 1px solid;
+      box-sizing: border-box;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    .nav>li:hover>ul {
+      display: block;
+    }
+
+    .nav_2>li::after {
+      content: ">";
+      color: #00000000;
+      position: sticky;
+      overflow: hidden;
+    }
+
+    .nav_3 {
+      width: 230px;
+      xheight: 40px;
+      xborder: 1px solid;
+      position: relative;
+      top: -50.5px;
+      left: 229px;
+      display: none;
+      background-color: rgb(67, 66, 66);
+    }
+
+    .nav_3>li {
+      text-align: center;
+      border: 1px solid;
+      height: 50px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .nav_2>li:hover>ul {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="title">
+    <ul class="yiji">
+      <li><a href="#">小米官网</a>
+        <ul class="erji">
+          <li>11
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>11
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>11
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>11
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+        </ul>
+
+      </li>
+      <li><a href="#">小米商城</a>
+        <ul class="erji">
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#">MIUI</a>
+        <ul class="erji">
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#">loT</a>
+        <ul class="erji">
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#">云服务</a>
+        <ul class="erji">
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#">天星科技</a>
+        <ul class="erji">
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#">有品</a>
+        <ul class="erji">
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#">小爱开放平台</a>
+        <ul class="erji">
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#">企业团购</a>
+        <ul class="erji">
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#">资质证照</a>
+        <ul class="erji">
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#">协议规则</a>
+        <ul class="erji">
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#">下载APP</a>
+        <ul class="erji">
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#">Select Location</a>
+        <ul class="erji">
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+          <li>22
+            <ul class="sanji">
+              <li>111</li>
+              <li>111</li>
+              <li>111</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+
+  </div>
+
+  <div>
+    <ul class="nav">
+      <li>
+        <a href="#">手机</a>
+        <ul class="nav_2">
+          <li>Xiaomi MIX系列
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>Xiaomi 数字系列
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>Xiaomi Civi系列
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>Xiaomi K系列
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">电视</a>
+        <ul class="nav_2">
+          <li>Redmi X65
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>小米拍拍4K高清投屏器
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>Redmi X55
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>小米电视6 55° OLED
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">家电</a>
+        <ul class="nav_2">
+          <li>壁挂式空调
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>立式空调
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>滚筒洗衣机
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>电暖器
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">笔记本 平板</a>
+        <ul class="nav_2">
+          <li>XiaomiBook12.4
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>Redmi Pad
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>Xiaomi Book Air 13
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>Redmi G游戏本
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">出行 穿戴</a>
+        <ul class="nav_2">
+          <li>11
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>11
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>11
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>11
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">耳机 音响</a>
+        <ul class="nav_2">
+          <li>小背包
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>双肩包
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>胸包
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>旅行箱
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">健康 儿童</a>
+        <ul class="nav_2">
+          <li>11
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>11
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>11
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>11
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">生活 箱包</a>
+        <ul class="nav_2">
+          <li>11
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>11
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>11
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>11
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">智能 路由器</a>
+        <ul class="nav_2">
+          <li>11
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>11
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>11
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>11
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">电源 配件</a>
+        <ul class="nav_2">
+          <li>11
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>11
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>11
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+          <li>11
+            <ul class="nav_3">
+              <li>22</li>
+              <li>22</li>
+              <li>22</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+
+</body>
+
+</html>
