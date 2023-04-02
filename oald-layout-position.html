@@ -25,10 +25,13 @@
     }
 
     .box_1>div {
+      height: calc(100% - 120px);
+      width: 250px;
       border-top: 1px solid;
       box-sizing: border-box;
-      position: relative;
-      overflow: scroll;
+      position: fixed;
+      overflow: auto;
+      background-color: aqua
     }
 
     .box_1>h1,
@@ -59,7 +62,7 @@
       width: calc(100% - 750px);
       height: 100%;
       background-color: rgb(133, 247, 133);
-      position: fixed;
+      position: relative;
       top: 0;
       left: 250px;
       border-right: 1px solid;
@@ -75,6 +78,9 @@
 
     .box_2 div {
       border-top: 1px solid;
+      width: calc(100% - 750px);
+      height: calc(100% - 120px);
+      position: fixed;
       overflow: auto;
     }
 
