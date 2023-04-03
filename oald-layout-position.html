@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="width: 100%; height: 100%;">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -7,197 +7,106 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
+    html,
     body {
-      white-space: nowrap;
-      font-size: 0;
-      padding: 0;
-      margin: 0;
       height: 100%;
-
-
+      margin: 0px;
+      padding: 0px;
+      min-width: 100px;
     }
 
-    div {
-      border: 1px solid;
-      width: 100%;
-      height: 100%;
-      box-sizing: border-box;
-    }
-
-    .box_1 {
-      width: calc(100% - 500px);
-      height: 100%;
-      background-color: tan;
-      display: inline-block;
-      font-size: 18px;
-      min-width: 500px;
-      position: relative;
-      border: 0px;
-    }
-
-    .box_2 {
-      width: 500px;
-      background-color: aqua;
-      display: inline-block;
-      font-size: 18px;
+    body>div {
+      min-width: 1000px;
       position: relative;
       height: 100%;
-      vertical-align: top;
-      border: 0px;
     }
 
 
-    .left1 {
-      position: relative;
-      width: 250px;
-      height: 100%;
-    }
-
-    /* .left1>h1,
-    .left1>form,
-    a {
-      width: 230px;
-      position: relative;
-      display: block;
-      text-align: center;
-      text-decoration: none;
-      margin: 10px 0 10px 0;
-      border: 0px;
-    } */
-
-    .left1>h1,
-    .left1>form {
-      width: 250px;
-      position: relative;
-      display: block;
-      text-align: center;
-      text-decoration: none;
-      margin: 10px 0 10px 0;
-      border: 0px;
-      box-sizing: border-box;
-    }
-
-    a {
-      width: 230px;
-      position: relative;
-      display: block;
-      text-align: center;
-      text-decoration: none;
-      margin: 10px 0 10px 0;
-      border: 0px;
-      box-sizing: border-box;
-    }
-
-
-
-    .left1>div {
-      height: calc(100% - 102px);
-      overflow: auto;
-      border: 1px 0 1px 0 solid;
-    }
-
-    .left2 {
-      height: 100%;
+    .left {
       position: absolute;
-      left: 250px;
-      top: 0;
-      border: 0px
-    }
-
-    .left2>h1 {
-      height: 81px;
-      border-bottom: 1px solid;
-
+      left: 0px;
+      top: 0px;
+      bottom: 0px;
+      width: 250px;
+      height: 100%;
+      background-color: palegoldenrod;
+      border-right: 1px solid;
       box-sizing: border-box;
     }
-
-
 
     .right1 {
-      position: relative;
-      width: 250px;
+      position: absolute;
+      top: 0;
+      right: 0px;
+      bottom: 0;
+      width: 249px;
       height: 100%;
-      border: 0px;
+      background-color: palevioletred;
+      border-left: 1px solid;
     }
 
     .right2 {
       position: absolute;
-      width: 250px;
-      height: 100%;
-      right: 0px;
       top: 0;
-      border: 0px;
+      right: 250px;
+      bottom: 0;
+      width: 249px;
+      height: 100%;
+      background-color: violet;
+      border-left: 1px solid;
+    }
+
+    header {
+      position: absolute;
+      top: 0;
+      left: 250px;
+      right: 500px;
+      height: 120px;
+      background-color: blue;
+      border-bottom: 1px solid;
+
+    }
+
+    main {
+      position: absolute;
+      top: 120px;
+      left: 250px;
+      right: 500px;
+      bottom: 0;
+      background-color: tan;
+      border-top: 1px solid;
+      overflow: scroll;
+    }
+
+    form,
+    h1 {
+      text-align: center;
+    }
+
+    .left>div {
+      height: calc(100% - 108px);
+      overflow: scroll;
     }
   </style>
-
 </head>
 
-
-
-
 <body>
-
   <div>
-    <div class="box_1">
-      <div class="left1">
-        <h1>欢迎！</h1>
-        <form action="">
-          <input type="text" name="" id="">
-          <input type="button" value="搜索">
-        </form>
-        <div>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-          <a href="">111</a>
-        </div>
-      </div>
-      <div class="left2">
-
-        <h1>aaaaaaa</h1>
-
-
-      </div>
+    <div class="left">
+      <h1>你好</h1>
+      <form action="">
+        <input type="text">
+        <input type="button" name="" id="" value="搜索">
+      </form>
+      <div>x</div>
     </div>
+    <header>22</header>
+    <main>222</main>
+    <div class="left1">11</div>
+    <div class="right1">11</div>
+    <div class="right2">11</div>
 
-
-
-    <div class="box_2">
-      <div class="right1">3</div>
-      <div class="right2">4</div>
-
-    </div>
   </div>
-
-
-
 
 </body>
 
