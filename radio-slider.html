@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .nav-right {
+      position: relative;
+      width: 1006px;
+      height: 450px;
+    }
+
+    .nav-right input {
+      display: none;
+    }
+
+    .form label {
+      width: 10px;
+      height: 10px;
+
+    }
+
+    .pot {
+      position: relative;
+    }
+
+    .pot img {
+      position: absolute;
+      width: 1006px;
+      height: 450px;
+      display: none;
+      z-index: 10;
+    }
+
+    .pot img {
+      width: 1006px;
+      height: 450px;
+    }
+
+
+
+
+    form>.ckb1:checked~.pot :nth-child(1),
+    form>.ckb2:checked+*+*+*+*+*+*>:nth-child(2),
+    form>.ckb3:checked+*+*+*+*>:nth-child(3),
+    form>.ckb4:checked+*+*>:nth-child(4) {
+      display: block;
+    }
+
+
+
+    label::after {
+      content: ">";
+      line-height: 50px;
+      text-align: center;
+      width: 30px;
+      height: 50px;
+      position: absolute;
+      background-color: rgb(232, 139, 18);
+      right: 0px;
+      top: calc(50% - 25px);
+      display: none;
+      z-index: 9999;
+      cursor: pointer;
+    }
+
+    label::before {
+      content: "<";
+      line-height: 50px;
+      text-align: center;
+      width: 30px;
+      height: 50px;
+      position: absolute;
+      background-color: rgb(206, 133, 37);
+      left: 0px;
+      top: calc(50% - 25px);
+      display: none;
+      z-index: 9999;
+      cursor: pointer;
+    }
+
+    label::before:hover {
+      background-color: aliceblue;
+    }
+
+    label::after:hover {
+      background-color: aliceblue;
+    }
+
+    .ckb1:checked+label::before {
+      display: block;
+    }
+
+    .ckb1:checked+label::after {
+      display: block;
+    }
+
+    .ckb2:checked+label::before {
+      display: block;
+    }
+
+    .ckb2:checked+label::after {
+      display: block;
+    }
+
+    .ckb3:checked+label::before {
+      display: block;
+    }
+
+    .ckb3:checked+label::after {
+      display: block;
+    }
+
+    .ckb4:checked+label::before {
+      display: block;
+    }
+
+    .ckb4:checked+label::after {
+      display: block;
+    }
+
+    .button {
+      position: absolute;
+      z-index: 1111;
+      width: 100px;
+      height: 30px;
+      right: 5px;
+      bottom: 5px;
+      font-size: 0;
+    }
+
+    .button>label {
+      font-size: 18px;
+      width: 5px;
+      height: 5px;
+      display: inline-block;
+      border: 2px solid rgb(114, 114, 114);
+      border-radius: 10px;
+      background-color: rgb(145, 145, 145);
+      cursor: pointer;
+      margin: 0 3px;
+
+    }
+
+
+    label:hover {
+      background-color: wheat;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav-right">
+    <form action="">
+
+
+      <input type="radio" name="ckb" value="" class="ckb1" id="ckb1" checked>
+      <label for="ckb2"></label>
+      <input type="radio" name="ckb" value="" class="ckb2" id="ckb2">
+      <label for="ckb3"></label>
+      <input type="radio" name="ckb" value="" class="ckb3" id="ckb3">
+      <label for="ckb4"></label>
+      <input type="radio" name="ckb" value="" class="ckb4" id="ckb4">
+      <label for="ckb1"></label>
+      <div class="pot">
+        <img
+          src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/08a9d7eec7b055bac247b5068f817b1d.jpg?thumb=1&w=1149&h=431&f=webp&q=90"
+          alt="">
+        <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d7c21d01bbe93eafc7d07d3796a3c59c.jpg?thumb=1&w=1149&h=431&f=webp&q=90
+        " alt="">
+
+
+        <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6494adc68900269b551de5ba96bd10a9.jpg?thumb=1&w=1149&h=431&f=webp&q=90
+          " alt="">
+
+
+        <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0d03df40a5e8ef760731a8f4f3f61172.jpg?w=2452&h=920"
+          alt="">
+
+
+
+      </div>
+      <div class="button">
+
+        <label for="ckb1"></label>
+        <label for="ckb2"></label>
+        <label for="ckb3"></label>
+        <label for="ckb4"></label>
+      </div>
+    </form>
+
+
+  </div>
+</body>
+
+</html>
