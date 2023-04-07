@@ -11,10 +11,17 @@
       position: relative;
       width: 1006px;
       height: 450px;
+      margin: auto;
     }
 
     .nav-right input {
       display: none;
+    }
+
+    .nav-right form {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
     }
 
     .form label {
@@ -24,101 +31,104 @@
     }
 
     .pot {
+      width: 10000px;
+      height: 100%;
       position: relative;
+      xtransition: 0.2s;
+      display: inline-block;
+      font-size: 0px;
     }
 
     .pot img {
-      position: absolute;
-      width: 1006px;
-      height: 450px;
-      display: none;
+      /* position: absolute; */
+      width: 1005px;
+      height: 100%;
+      left: 100%;
       z-index: 10;
-    }
-
-    .pot img {
-      width: 1006px;
-      height: 450px;
+      xtransition: 0.2s;
     }
 
 
+    form :nth-child(1):checked~.pot {
+      margin-left: 0;
 
+      transition: 1s;
 
-    form>.ckb1:checked~.pot :nth-child(1),
-    form>.ckb2:checked+*+*+*+*+*+*>:nth-child(2),
-    form>.ckb3:checked+*+*+*+*>:nth-child(3),
-    form>.ckb4:checked+*+*>:nth-child(4) {
-      display: block;
     }
 
 
 
-    label::after {
-      content: ">";
+
+    form :nth-child(2):checked~.pot {
+      margin-left: -1005px;
+
+      transition: 1s;
+    }
+
+    form :nth-child(3):checked~.pot {
+      margin-left: -2010px;
+      transition: 1s;
+    }
+
+    form :nth-child(4):checked~.pot {
+
+      transition: 1s;
+      margin-left: -3015px;
+    }
+
+
+    /* form :nth-child(1):checked~.pot :nth-child(1),
+    form :nth-child(2):checked~.pot :nth-child(2),
+    form :nth-child(3):checked~.pot :nth-child(3),
+    form :nth-child(4):checked~.pot :nth-child(4) {
+      transition: 0.2s;
+      left: 0;
+
+    } */
+
+    .left-arrows,
+    .right-arrows {
+      width: 40px;
+      height: 80px;
+      position: absolute;
+      background-color: #bababa35;
+
+    }
+
+    label h1 {
+      margin: 0px;
+      line-height: 80px;
+    }
+
+    .left-arrows label,
+    .right-arrows label {
+      width: 40px;
+      height: 80px;
+      position: absolute;
+      z-index: 9999;
       line-height: 50px;
       text-align: center;
-      width: 30px;
-      height: 50px;
-      position: absolute;
-      background-color: rgb(232, 139, 18);
+      display: none;
+      cursor: pointer;
+    }
+
+    .left-arrows {
+      top: calc(50% - 40px);
+    }
+
+    .right-arrows {
+      top: calc(50% - 40px);
       right: 0px;
-      top: calc(50% - 25px);
-      display: none;
-      z-index: 9999;
-      cursor: pointer;
     }
 
-    label::before {
-      content: "<";
-      line-height: 50px;
-      text-align: center;
-      width: 30px;
-      height: 50px;
-      position: absolute;
-      background-color: rgb(206, 133, 37);
-      left: 0px;
-      top: calc(50% - 25px);
-      display: none;
-      z-index: 9999;
-      cursor: pointer;
-    }
-
-    label::before:hover {
-      background-color: aliceblue;
-    }
-
-    label::after:hover {
-      background-color: aliceblue;
-    }
-
-    .ckb1:checked+label::before {
-      display: block;
-    }
-
-    .ckb1:checked+label::after {
-      display: block;
-    }
-
-    .ckb2:checked+label::before {
-      display: block;
-    }
-
-    .ckb2:checked+label::after {
-      display: block;
-    }
-
-    .ckb3:checked+label::before {
-      display: block;
-    }
-
-    .ckb3:checked+label::after {
-      display: block;
-    }
-
-    .ckb4:checked+label::before {
-      display: block;
-    }
-
-    .ckb4:checked+label::after {
+    form :nth-child(1):checked~.left-arrows :nth-child(4),
+    form :nth-child(1):checked~.right-arrows :nth-child(2),
+    form :nth-child(2):checked~.left-arrows :nth-child(1),
+    form :nth-child(2):checked~.right-arrows :nth-child(3),
+    form :nth-child(3):checked~.left-arrows :nth-child(2),
+    form :nth-child(3):checked~.right-arrows :nth-child(4),
+    form :nth-child(4):checked~.left-arrows :nth-child(3),
+    form :nth-child(4):checked~.right-arrows :nth-child(1) {
       display: block;
     }
 
@@ -139,15 +149,24 @@
       display: inline-block;
       border: 2px solid rgb(114, 114, 114);
       border-radius: 10px;
-      background-color: rgb(145, 145, 145);
+      background-color: rgb(226, 226, 226);
       cursor: pointer;
       margin: 0 3px;
 
     }
 
 
+    form :nth-child(1):checked~.button :nth-child(1),
+    form :nth-child(2):checked~.button :nth-child(2),
+    form :nth-child(3):checked~.button :nth-child(3),
+    form :nth-child(4):checked~.button :nth-child(4) {
+      background-color: rgb(97, 98, 97);
+    }
+
+
+
     label:hover {
-      background-color: wheat;
+      background-color: #4e4d4d66;
     }
   </style>
 </head>
@@ -158,13 +177,13 @@
 
 
       <input type="radio" name="ckb" value="" class="ckb1" id="ckb1" checked>
-      <label for="ckb2"></label>
+
       <input type="radio" name="ckb" value="" class="ckb2" id="ckb2">
-      <label for="ckb3"></label>
+
       <input type="radio" name="ckb" value="" class="ckb3" id="ckb3">
-      <label for="ckb4"></label>
+
       <input type="radio" name="ckb" value="" class="ckb4" id="ckb4">
-      <label for="ckb1"></label>
+
       <div class="pot">
         <img
           src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/08a9d7eec7b055bac247b5068f817b1d.jpg?thumb=1&w=1149&h=431&f=webp&q=90"
@@ -172,17 +191,50 @@
         <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d7c21d01bbe93eafc7d07d3796a3c59c.jpg?thumb=1&w=1149&h=431&f=webp&q=90
         " alt="">
 
-
         <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6494adc68900269b551de5ba96bd10a9.jpg?thumb=1&w=1149&h=431&f=webp&q=90
           " alt="">
-
 
         <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0d03df40a5e8ef760731a8f4f3f61172.jpg?w=2452&h=920"
           alt="">
 
-
-
       </div>
+
+      <div class="left-arrows">
+
+        <label for="ckb1">
+          <h1>&lt</h1>
+        </label>
+        <label for="ckb2">
+          <h1>&lt</h1>
+        </label>
+        <label for="ckb3">
+          <h1>&lt</h1>
+        </label>
+        <label for="ckb4">
+          <h1>&lt</h1>
+        </label>
+      </div>
+
+      <div class="right-arrows">
+
+        <label for="ckb1">
+          <h1>&gt </h1>
+        </label>
+
+        <label for="ckb2">
+
+          <h1>&gt </h1>
+        </label>
+
+        <label for="ckb3">
+          <h1>&gt </h1>
+        </label>
+
+        <label for="ckb4">
+          <h1>&gt </h1>
+        </label>
+      </div>
+
       <div class="button">
 
         <label for="ckb1"></label>
