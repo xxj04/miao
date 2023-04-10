@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style type="text/less">
+
+
+    .table{
+      width: 100%;
+      xheight: 200px;
+      border-collapse: collapse;
+
+      thead{
+        tr{
+
+          height: 50px;
+          border-top: 1px solid rgb(226,226,230);
+          border-bottom: 3px solid rgb(226,226,230);
+          text-align: left;
+          th{
+            padding: 12px;
+          }
+        }
+      }
+      tbody{
+        tr{
+          border-top: 1px solid rgb(226,226,230);
+          th{
+            padding: 12px;
+            text-align: left
+
+          }
+          td{
+            padding: 12px;
+            xtext-align: center;
+            text-align: left
+          }
+
+
+        }
+      }
+
+    }
+
+
+
+    .table-dark{
+
+      color: aliceblue;
+      background-color: rgb(28, 27, 27);
+
+      thead{
+        tr{
+          border-color: rgba(156, 158, 158, 0.666);
+        }
+      }
+      tbody{
+        tr{
+          border-color: rgba(156, 158, 158, 0.666);
+        }
+
+      }
+    }
+
+
+
+    .thead-light{
+
+      tr{
+        background-color: #6a6c6f;
+      }
+
+    }
+
+
+    .table-striped{
+      tbody{
+        tr{
+
+          &:nth-child(2n+1){
+          background-color: #6a6c6f;
+
+        }
+
+        }
+      }
+    }
+
+
+    .table-bordered{
+      thead{
+        tr{
+          th{
+          border: 1px solid;
+          }
+        }
+      }
+
+      tbody{
+        tr{
+          th,td{
+          border: 1px solid;
+          }
+          td{
+            &:nth-child(1){
+
+            }
+          }
+        }
+      }
+    }
+
+    .table-hover{
+      tbody{
+        tr{
+          &:hover{
+            background-color: red;
+          }
+        }
+      }
+    }
+
+    .table-sm{
+
+      thead{
+        tr{
+          th{
+            padding: 6px;
+          }
+        }
+      }
+
+      tbody{
+        tr{
+          th{
+            padding: 3px;
+          }
+          td{
+            padding: 3px;
+          }
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <table class="table table-striped  table-dark table-bordered table-hover table-sm">
+    <thead class="">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+<script src="less.js"></script>
+
+</html>
