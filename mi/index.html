@@ -120,10 +120,11 @@
         .button-box{
           position: absolute;
           left: 930px;
-          margin: 60px 0 0;
+          margin: 30px 0 0;
           width: 100px;
-          .button{
-
+          .button1{
+            display: flex;
+            width: 290px;
             button{
               width: 50px;
               height: 43.2px;
@@ -150,6 +151,21 @@
 
     }
 
+    .logo{
+          background-image: url();
+          margin: 25px 0 0 0;
+          width: 56px;
+          height: 56px;
+          position: absolute;
+          a{
+            img{
+              height: 56px;
+              width: 56px;
+
+            }
+          }
+        }
+
 /* 导航栏 */
 
     .nav{
@@ -166,11 +182,11 @@
         position: relative;
         z-index: 1;
         background-color: rgb(165, 163, 163);
-        ul{
+        >ul{
           width: 234px;
           height: 420px;
           padding: 20px 0;
-          li{
+          >li{
             width: 234px;
             height: 42px;
             background-color: rgb(165, 163, 163);
@@ -206,12 +222,31 @@
       .nav-right{
         display: inline-block;
         position: relative;
-        width: 1006px;
-      height: 450px;
-
+        width: 992px;
+        height: 460px;
+        margin-left: -5px;
+        xmargin-top: 10px;
+        vertical-align: bottom;
       }
     }
 
+
+    .nav-left li>ul{
+      position: absolute;
+      width: 990px;
+      left: 234px;
+      top: -20px;
+      background-color: red;
+      height: 460px;
+      li{
+
+        height: 70px;
+
+
+        width: 200px;
+
+      }
+    }
 
     .nav-right input {
       display: none;
@@ -231,18 +266,18 @@
 
     .pot {
       width: 10000px;
-      height: 100%;
+      height: 460px;
       position: relative;
       xtransition: 0.2s;
       display: inline-block;
       font-size: 0px;
-      margin-top: 17px;
+      xmargin-top: 35px;
     }
 
     .pot img {
       /* position: absolute; */
-      width: 1005px;
-      height: 100%;
+      width: 992px;
+      height: 460px;
       left: 100%;
       z-index: 10;
       xtransition: 0.2s;
@@ -314,7 +349,7 @@
 
     .left-arrows {
       top: calc(50% - 40px);
-      left: 16px;
+
     }
 
     .right-arrows {
@@ -336,12 +371,12 @@
     .button {
       position: absolute;
       z-index: 1111;
-      width: 300px;
+      width: 50px;
       height: 30px;
-      xright: 5px;
-      bottom: 5px;
+      right: 25px;
+      bottom: 0;
       font-size: 0;
-      display: flex;
+
     }
 
     .button>label {
@@ -609,6 +644,11 @@
         </div>
 
         <div class="bottom">
+          <div class="logo">
+            <a href="">
+              <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi.com-assets/shop/img/logo-mi2.png" alt="">
+            </a>
+          </div>
           <div class="bottom-box">
             <div class="bottom-nav">
               <img src="" alt="">
@@ -627,7 +667,7 @@
               </ul>
             </div>
             <div class="button-box">
-              <form action="" class="button">
+              <form action="" class="button1">
                 <input type="text">
                 <button>搜索</button>
               </form>
@@ -642,7 +682,52 @@
         <div class="nav-left">
 
           <ul>
-            <li><a href="#">手机</li>
+            <li>
+
+              <a href="#">
+                手机
+                <ul>
+                  <li><a href="">
+                      1
+
+                    </a> </li>
+                  <li><a href="">
+                      1
+                    </a> </li>
+                  <li><a href="">
+                      1
+                    </a> </li>
+                  <li><a href="">
+                      1
+                    </a> </li>
+                  <li><a href="">
+                      1
+                    </a> </li>
+                  <li><a href="">
+                      1
+                    </a> </li>
+                  <li><a href="">
+                      1
+                    </a> </li>
+                  <li><a href="">
+                      1
+                    </a> </li>
+                  <li><a href="">
+                      1
+                    </a> </li>
+                  <li><a href="">
+                      1
+                    </a> </li>
+                  <li><a href="">
+                      1
+                    </a> </li>
+                  <li><a href="">
+                      1
+                    </a> </li>
+                </ul>
+              </a>
+
+            </li>
             <li><a href="#">电视</a></li>
             <li><a href="#">家电</a></li>
             <li><a href="#">笔记本 平板</a></li>
