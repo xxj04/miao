@@ -27,27 +27,31 @@
       margin: 0 -2px -2px 0;
       text-align: center;
       line-height: 100px;
+      position: relative;
     }
 
     li:hover {
       border-color: red;
-      position: relative;
+      z-index: 2;
     }
 
     /* table */
     table {
       width: 300px;
       height: 300px;
-      border: 2px solid blue;
+      xborder: 2px solid blue;
       border-collapse: collapse;
       box-sizing: border-box;
       margin: 100px auto;
     }
 
-
+    col,
+    tr {
+      border: 2px solid blue;
+    }
 
     td {
-      border: 2px solid blue;
+      xborder: 2px solid blue;
       width: 100px;
       line-height: 100px;
       box-sizing: border-box;
@@ -56,12 +60,14 @@
 
 
     td:hover {
-      border-color: red;
-      position: absolute;
-      width: 96px;
-      height: 100px;
-      margin: -2px 0 0 -2px;
-      box-sizing: content-box;
+      xborder: 2.5px solid;
+      border: 2px solid red;
+      xposition: absolute;
+      xwidth: 93px;
+      xheight: 93px;
+      xmargin: -2px 0 0 -2px;
+
+      xbox-sizing: content-box;
     }
 
     .box1 {}
@@ -85,6 +91,9 @@
 
 
   <table>
+    <col>
+    <col>
+    <col>
     <tr>
       <td>1</td>
       <td>2</td>
