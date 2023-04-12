@@ -87,6 +87,7 @@
     .top-box-3::before {
       content: " \E60C";
       position: absolute;
+
     }
 
     .bottom {
@@ -101,35 +102,45 @@
         .bottom-nav{
           xfloat: right;
           margin: 20px 0 0 250px;
-          >ul>li{
-            display: inline-block;
-            font-size: 16px;
+          >ul{
+            font-size: 0px;
+            >li{
+              display: inline-block;
+              font-size: 16px;
 
-            a{
-              color: #040404;
-              padding: 30px 7px 30px;
+              a{
+                color: #040404;
+                padding: 30px 7px 33px;
 
-              &:hover{
-                color: rgb(250,103,0);
+                &:hover{
+                  color: rgb(250,103,0);
+                }
               }
-            }
+             }
           }
+
         }
+
+
+
 
         .bottom-nav{
 
-          >ul>li>div{
-
-
+          div{
+            transition: font-size 0.1s cubic-bezier(.38,.49,.86,.2) , height 0.7s cubic-bezier(.38,.49,.86,.2);
             background-color: red;
             position: absolute;
-            xtop: 85px;
+            top: 137px;
             z-index: 9999;
-            xleft: -230px;
-
+            left: 0px;
+            width: 100%;
+            height: 0px;
+            font-size: 0px;
             ul
             {
             width: 1226px;
+            font-size: 0px;
+            background-color: red;
             margin: auto;
             xdisplay: inline-block;
             }
@@ -141,6 +152,21 @@
 
         }
 
+        .bottom-nav>ul>li:nth-child(1):hover>div,
+        .bottom-nav>ul>li:nth-child(2):hover>div,
+        .bottom-nav>ul>li:nth-child(3):hover>div,
+        .bottom-nav>ul>li:nth-child(4):hover>div,
+        .bottom-nav>ul>li:nth-child(5):hover>div,
+        .bottom-nav>ul>li:nth-child(6):hover>div,
+        .bottom-nav>ul>li:nth-child(7):hover>div{
+          transition: none;
+          height: 200px;
+          font-size: 16px;
+
+          ul{
+            font-size: 16px;
+          }
+        }
 
         .button-box{
 
@@ -758,34 +784,90 @@
                     <li><img src="" alt="">1</li>
                   </ul>
                 </div>
-
               </li>
 
               <li>
                 <a href="">redmi手机</a>
-
+                <div>
+                  <ul>
+                    <li><img src="" alt="">2</li>
+                    <li><img src="" alt="">2</li>
+                    <li><img src="" alt="">2</li>
+                    <li><img src="" alt="">2</li>
+                    <li><img src="" alt="">2</li>
+                    <li><img src="" alt="">2</li>
+                  </ul>
+                </div>
               </li>
 
               <li>
                 <a href="">电视</a>
-
+                <div>
+                  <ul>
+                    <li><img src="" alt="">3</li>
+                    <li><img src="" alt="">3</li>
+                    <li><img src="" alt="">3</li>
+                    <li><img src="" alt="">3</li>
+                    <li><img src="" alt="">3</li>
+                    <li><img src="" alt="">3</li>
+                  </ul>
+                </div>
               </li>
 
               <li>
                 <a href="">笔记本</a>
+                <div>
+                  <ul>
+                    <li><img src="" alt="">4</li>
+                    <li><img src="" alt="">4</li>
+                    <li><img src="" alt="">4</li>
+                    <li><img src="" alt="">4</li>
+                    <li><img src="" alt="">4</li>
+                    <li><img src="" alt="">4</li>
+                  </ul>
+                </div>
               </li>
 
               <li>
                 <a href="">平板</a>
+                <div>
+                  <ul>
+                    <li><img src="" alt="">6</li>
+                    <li><img src="" alt="">6</li>
+                    <li><img src="" alt="">6</li>
+                    <li><img src="" alt="">6</li>
+                    <li><img src="" alt="">6</li>
+                    <li><img src="" alt="">6</li>
+                  </ul>
+                </div>
               </li>
 
               <li>
                 <a href="">家电</a>
-
+                <div>
+                  <ul>
+                    <li><img src="" alt="">7</li>
+                    <li><img src="" alt="">7</li>
+                    <li><img src="" alt="">7</li>
+                    <li><img src="" alt="">7</li>
+                    <li><img src="" alt="">7</li>
+                    <li><img src="" alt="">7</li>
+                  </ul>
+                </div>
               </li>
 
               <li>
                 <a href="">路由器</a>
+                <div>
+                  <ul>
+                    <li><img src="" alt="">8</li>
+                    <li><img src="" alt="">8</li>
+                    <li><img src="" alt="">8</li>
+                    <li><img src="" alt="">8</li>
+                    <li><img src="" alt="">8</li>
+                    <li><img src="" alt="">8</li>
+                  </ul>
+                </div>
 
               </li>
 
@@ -798,6 +880,7 @@
 
               </li>
             </ul>
+
           </div>
 
         </div>
