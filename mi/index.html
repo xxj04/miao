@@ -6,7 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
   <style type="text/less">
+    @font-face {
+      font-family: MIfont;
+      src: url(./mi-icon-font.ttf);
+    }
+
     * {
       margin: 0px;
       padding: 0px;
@@ -17,7 +23,7 @@
     }
 
     body {
-
+font-family: MIfont;
       min-width: 1226px;
     }
     .diyiye{
@@ -87,7 +93,8 @@
     .top-box-3::before {
       content: " \E60C";
       position: absolute;
-
+      left: 10px;
+      font-size: 20px;
     }
 
     .bottom {
@@ -103,7 +110,7 @@
           xfloat: right;
           margin: 20px 0 0 250px;
           >ul{
-            font-size: 0px;
+            xfont-size: 0px;
             >li{
               display: inline-block;
               font-size: 16px;
@@ -127,11 +134,12 @@
         .bottom-nav{
 
           div{
-            transition: font-size 0.1s cubic-bezier(.38,.49,.86,.2) , height 0.7s cubic-bezier(.38,.49,.86,.2);
-            background-color: red;
+            transition: font-size 0.1s cubic-bezier(.38,.49,.86,.2) , height 0.5s cubic-bezier(.38,.49,.86,.2) ;
+            box-shadow: 0 1px 2px #515151;
+            background-color: rgb(255,255,255);;
             position: absolute;
             top: 137px;
-            z-index: 9999;
+            z-index: 9998;
             left: 0px;
             width: 100%;
             height: 0px;
@@ -140,7 +148,7 @@
             {
             width: 1226px;
             font-size: 0px;
-            background-color: red;
+
             margin: auto;
             xdisplay: inline-block;
             }
@@ -162,7 +170,7 @@
           transition: none;
           height: 200px;
           font-size: 16px;
-
+          z-index: 9999;
           ul{
             font-size: 16px;
           }
@@ -181,6 +189,9 @@
             button{
               width: 50px;
               height: 43.2px;
+              font-family: MIfont;
+
+
               &:hover{
                 background-color: orange;
               }
@@ -251,7 +262,9 @@
               background-color: orange;
             }
             &::after{
-              content: ">";
+              content: "\E623";
+              font-size: 15px;
+              font-weight: 700;
               display: inline-block;
               position: absolute;
               right: 10px;
@@ -277,6 +290,7 @@
         margin-left: -5px;
         xmargin-top: 10px;
         vertical-align: bottom;
+        left: -3px;
       }
     }
 
@@ -382,6 +396,7 @@
       display: inline-block;
       font-size: 0px;
       xmargin-top: 35px;
+
     }
 
     .pot img {
@@ -459,7 +474,7 @@
 
     .left-arrows {
       top: calc(50% - 40px);
-
+      left: -3px;
     }
 
     .right-arrows {
@@ -709,7 +724,7 @@
 
 <body>
   <div class="app">
-    <div class="diyiye">
+    <div class="diyiye" id="dinbu">
       <div class="title">
         <div class="top-box">
 
@@ -766,7 +781,7 @@
           <div class="button-box">
             <form action="" class="button1">
               <input type="text">
-              <button>搜索</button>
+              <button>&#xe63A;</button>
             </form>
           </div>
           <div class="bottom-nav">
@@ -1802,36 +1817,36 @@
             <div class="left-arrows">
 
               <label for="ckb1">
-                <h1>&lt</h1>
+                <h1>&#xe628;</h1>
               </label>
               <label for="ckb2">
-                <h1>&lt</h1>
+                <h1>&#xe628;</h1>
               </label>
               <label for="ckb3">
-                <h1>&lt</h1>
+                <h1>&#xe628;</h1>
               </label>
               <label for="ckb4">
-                <h1>&lt</h1>
+                <h1>&#xe628;</h1>
               </label>
             </div>
 
             <div class="right-arrows">
 
               <label for="ckb1">
-                <h1>&gt </h1>
+                <h1>&#xe623; </h1>
               </label>
 
               <label for="ckb2">
 
-                <h1>&gt </h1>
+                <h1>&#xe623; </h1>
               </label>
 
               <label for="ckb3">
-                <h1>&gt </h1>
+                <h1>&#xe623; </h1>
               </label>
 
               <label for="ckb4">
-                <h1>&gt </h1>
+                <h1>&#xe623; </h1>
               </label>
             </div>
 
