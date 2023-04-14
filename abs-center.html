@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      background-color: aqua;
+      width: 200px;
+      height: 200px;
+      line-height: 200px;
+      border: 1px solid;
+      text-align: center;
+    }
+
+    .box>div {
+      display: inline;
+      border: 1px solid;
+      background-color: rgb(255, 98, 0);
+    }
+
+
+    .box1 {
+      display: flex;
+      background-color: aqua;
+      width: 200px;
+      height: 200px;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid;
+    }
+
+    .box1>div {
+      background-color: rgb(255, 98, 0);
+      border: 1px solid;
+    }
+
+    .box2 {
+      position: relative;
+      background-color: aqua;
+      width: 200px;
+      height: 200px;
+      border: 1px solid;
+    }
+
+    .box2>div {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: calc(50% - 10px);
+      left: calc(50% - 10px);
+      background-color: rgb(255, 98, 0);
+      border: 1px solid;
+    }
+
+    .box3 {
+      display: grid;
+      background-color: aqua;
+      width: 200px;
+      height: 200px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid;
+    }
+
+    .box3>div {
+      background-color: rgb(255, 98, 0);
+      border: 1px solid;
+    }
+
+    .box4 {
+
+      background-color: aqua;
+      width: 200px;
+      height: 200px;
+      border: 1px solid;
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    .box4>div {
+      background-color: rgb(255, 98, 0);
+      border: 1px solid;
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div>11</div>
+  </div>
+
+  <div class="box1">
+    <div>22</div>
+  </div>
+
+  <div class="box2">
+    <div>33</div>
+  </div>
+
+  <div class="box3">
+    <div>44</div>
+  </div>
+
+  <div class="box4">
+    <div>55</div>
+
+  </div>
+</body>
+
+</html>
