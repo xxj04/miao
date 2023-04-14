@@ -21,16 +21,22 @@
       white-space: nowrap;
 
     }
-
+    .app{
+      position: relative;
+    }
     body {
 font-family: MIfont;
       min-width: 1226px;
     }
     .diyiye{
       background-color: rgb(255,255,255);
+      position: relative;
+      z-index: 60;
     }
     .dierye{
       background-color: rgb(245,245,245);
+      position: relative;
+      z-index: 49;
     }
 /* 头部 */
     .top-box {
@@ -85,7 +91,30 @@ font-family: MIfont;
           top: 0px;
           left: 1105px;
           background-color: #666;
-         }
+          >div{
+            box-shadow: 0 0 4px #515151;
+            line-height: 90px;
+            text-align: center;
+
+            transition:  font-size 0.2s 0.3s, height 0.2s 0.6s ;
+            xvisibility: hidden;
+            position: absolute;
+            height:0px;
+            width: 300px;
+            background-color: #fff;
+
+            font-size:0px;
+            left:-180px
+          }
+          &:hover>div{
+            transition:  font-size 0.2s 0.6s, height 0.2s 0.3s ;
+
+            xtransition: none;
+            font-size:12px;
+            height:90px;
+            xvisibility: visible;
+          }
+        }
       }
     }
 
@@ -548,10 +577,12 @@ font-family: MIfont;
       height: 170px;
       font-size: 0px;
       white-space: normal;
-      background-color: #958780;
+      background-color: #5f5750;
       display: inline-block;
       vertical-align: top;
-    }
+
+      }
+
 
     .frist-box1 li{
       text-align: center;
@@ -559,16 +590,39 @@ font-family: MIfont;
       display: inline-block;
       width: 76px;
       height: 82px;
-      border: 1px solid;
+
       box-sizing: border-box;
-      padding-top:50px ;
-      border: 1px solid;
-      border-color: rgba(235, 197, 197, 0.24);
+      xpadding-top:50px ;
+      position: relative;
+
       border-bottom: none;
+      img{
+        height: 24px;
+        width: 24px;
+        position: absolute;
+        top:20px;
+        left:26px;
+      }
+      +li{
+        border-left:solid 1px ;
+        border-top: 1px solid;
+        border-color: rgba(235, 197, 197, 0.24);
+      }
+      &:hover>a{
+        color: #d6d6d6;
+      }
+
+
     }
     .frist-box1 a{
-      padding-top: 40px;
-      color: rgb(214, 214, 214);
+      xpadding-top: 40px;
+      color: #b1b1b1;
+      display: inline-block;
+      text-align: center;
+      line-height: 120px;
+      width: 40px;
+      height: 80px;
+
     }
 
 
@@ -717,10 +771,35 @@ font-family: MIfont;
       box-shadow: 1px 1px 15px #a5a1a1;
       transform: translate(0px ,-2px);
     }
+    .right_nav{
+      bottom: 500px;
+      width: 300px;
+      position: fixed;
+      z-index: 60;
+    }
+    .right_nav>ul{
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      background-color: #5f5750;
+      xtop:200px
+    }
+    .return{
+      position: fixed;
+      width: 100px;
+      height: 100px;
+      background-color: #5f5750;
 
+      border: 1px solid;
+      bottom: 260px;
+      z-index: 51;
+    }
+    .return>ul{
 
-
-
+      display: flex;
+      flex-direction: column;
+      background-color: #5f5750;
+    }
   </style>
 </head>
 
@@ -765,7 +844,11 @@ font-family: MIfont;
               <span class="shu">|</span>
               <a href="#">消息通知</a>
             </div>
-            <div class="top-box-3">购物车(0)</div>
+            <div class="top-box-3">购物车(0)
+              <div>
+                购物车中还没有商品，赶紧选购吧！
+              </div>
+            </div>
 
           </div>
         </div>
@@ -1869,12 +1952,27 @@ font-family: MIfont;
       <div class="frist">
         <div class="frist-box1">
           <ul>
-            <li><a href="#">保障服务</a></li>
-            <li><a href="#">米粉卡</a></li>
-            <li><a href="#">企业团购</a></li>
-            <li><a href="#">以旧换新</a></li>
-            <li><a href="#">F码通道</a></li>
-            <li><a href="#">话费充值</a></li>
+            <li><a href="#"><img
+                  src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/82abdba456e8caaea5848a0cddce03db.png?w=48&h=48"
+                  alt=""> 保障服务</a></li>
+            <li><a href="#"><img
+                  src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/806f2dfb2d27978e33fe3815d3851fa3.png?w=48&h=48"
+                  alt=""> 企业团购</a></li>
+            <li><a href="#"><img
+                  src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/eded6fa3b897a058163e2485532c4f10.png?w=48&h=48"
+                  alt=""> F码通道</a></li>
+
+            <li><a href="#"><img
+                  src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/43a3195efa6a3cc7662efed8e7abe8bf.png?w=48&h=48"
+                  alt=""> 米粉卡</a></li>
+
+            <li><a href="#"><img
+                  src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f4846bca6010a0deb9f85464409862af.png?w=48&h=48"
+                  alt=""> 以旧换新</a></li>
+
+            <li><a href="#"><img
+                  src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9a76d7636b08e0988efb4fc384ae497b.png?w=48&h=48"
+                  alt=""> 话费充值</a></li>
           </ul>
         </div>
         <div class="frist-box2">
@@ -1905,9 +2003,20 @@ font-family: MIfont;
         </div>
 
       </div>
+
+
     </div>
 
+    <div class="right_nav">
 
+      <ul>
+        <li>手机APP</li>
+        <li>个人中心</li>
+        <li>售后服务</li>
+        <li>人工客服</li>
+        <li>购物车</li>
+      </ul>
+    </div>
     <div class="dierye">
       <div class="img">
         <a href="#">
@@ -2031,9 +2140,23 @@ font-family: MIfont;
           </ul>
         </div>
       </div>
+
     </div>
+    <div class="right_nav">
 
-
+      <ul>
+        <li>手机APP</li>
+        <li>个人中心</li>
+        <li>售后服务</li>
+        <li>人工客服</li>
+        <li>购物车</li>
+      </ul>
+    </div>
+    <div class="return">
+      <ul>
+        <li><a href="#dinbu">返回</a></li>
+      </ul>
+    </div>
   </div>
 </body>
 <script src="./less.js"></script>
