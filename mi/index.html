@@ -824,6 +824,10 @@ font-family: MIfont;
           text-align: center;
           display: inline-block;
           margin: 0 auto;
+          color: rgb(153,153,153);
+          &:hover{
+            color: orange;
+          }
           &:hover .h_icon{
             display: block;
           }
@@ -855,15 +859,15 @@ font-family: MIfont;
     }
     .return{
       position: fixed;
-      width: 80px;
-      height: 80px;
+
       background-color: #fffffe;
       right: 0px;
-      border: 1px solid;
+      width: 80px;
       bottom: 44px;
       z-index: 51;
-      @media (max-width:500px) {
-        width: 40px;
+      @media (max-width:1350px) {
+        width: 20px;
+        bottom: 110px;
       }
 
     }
@@ -872,7 +876,63 @@ font-family: MIfont;
       display: flex;
       flex-direction: column;
       background-color: #ffffff;
+      border: 1 px solid;
+
+      >li{
+        @media (max-width:1350px){
+            font-size: 0px;
+            width:20px;
+            height:20px;
+
+          }
+
+
+        img{
+          height: 40px;
+          width: 40px;
+          position: absolute;
+          text-align: center;
+          left: -5px;
+          @media (max-width:1350px){
+            left:-22px;
+            width:20px;
+            height:20px;
+
+          }
+
+        }
+
+
+      a{
+        weight: 60px;
+        height: 80px;
+        line-height: 120px;
+        position: relative;
+        text-align: center;
+        display: inline-block;
+        margin: 0 auto;
+        color: rgb(153,153,153);
+        left: 25px;
+        &:hover{
+          color: orange;
+        }
+        &:hover .h_icon{
+          display: block;
+        }
+
+
+       .h_icon{
+
+         display: none;
+        }
+      }
+
     }
+
+
+  }
+
+
   </style>
 </head>
 
@@ -2225,6 +2285,7 @@ font-family: MIfont;
             <img src="https://i8.mifile.cn/b2c-mimall-media/74c4fcb4475af8308e9a670db9c01fdf.png" alt="手机APP"
               title="手机APP" class="icon h_icon">
             手机APP
+
           </a>
 
 
@@ -2274,9 +2335,17 @@ font-family: MIfont;
         </li>
       </ul>
     </div>
-    <div class="return">
+    <div class="return ">
       <ul>
-        <li><a href="#dinbu">返回</a></li>
+        <li>
+
+          <a href="#dinbu">
+            <img src="https://i1.mifile.cn/f/i/2018/home/totop.png" alt="购物车" title="购物车" class="icon">
+            <img src="https://i1.mifile.cn/f/i/2018/home/totop_hover.png" alt="购物车" title="购物车" class="icon h_icon">
+            返回
+          </a>
+
+        </li>
       </ul>
     </div>
   </div>
