@@ -91,6 +91,7 @@ font-family: MIfont;
           top: 0px;
           left: 1105px;
           background-color: #666;
+          transition: 1s 0.2s;
           >div{
             box-shadow: 0 0 4px #515151;
             line-height: 90px;
@@ -113,8 +114,15 @@ font-family: MIfont;
             font-size:12px;
             height:90px;
             xvisibility: visible;
+
+          }
+          &:hover{
+            transition: 1s;
+            background-color: #ffffff;
+            color: orange;
           }
         }
+
       }
     }
 
@@ -772,33 +780,93 @@ font-family: MIfont;
       transform: translate(0px ,-2px);
     }
     .right_nav{
-      bottom: 500px;
-      width: 300px;
+      bottom: 155px;
+      /* width: 300px; */
       position: fixed;
       z-index: 60;
+      right: 0px;
     }
     .right_nav>ul{
-      width: 200px;
+      width: 80px;
+      height: 425px;
       display: flex;
       flex-direction: column;
-      background-color: #5f5750;
-      xtop:200px
+      background-color: #ffffff;
+      xtop: 200px;
+      justify-items: center;
+      align-items: center;
+      >li{
+
+        flex:1 2;
+          img{
+          height: 40px;
+          width: 40px;
+          position: absolute;
+          text-align: center;
+          left: 10px;
+          @media (max-width:800px){
+            left:-12px;
+            width:20px;
+            height:20px;
+          }
+
+        }
+        a{
+          weight: 60px;
+          height: 80px;
+          line-height: 120px;
+          position: relative;
+          text-align: center;
+          display: inline-block;
+          margin: 0 auto;
+          &:hover .h_icon{
+            z-index: 57;
+          }
+          .icon{
+            z-index: 56;
+            }
+
+          .h_icon{
+
+            z-index: 55;
+            }
+          }
+      }
+      @media (max-width:800px) {
+        width: 20px;
+        height: 300px;
+        font-size: 0px;
+
+      }
+
+    }
+    .right_nav>ul>li:nth-child(5)>a>.icon{
+      left: 0;
+      @media (max-width:800px){
+            left:-12px;
+            width:20px;
+            height:20px;
+          }
     }
     .return{
       position: fixed;
-      width: 100px;
-      height: 100px;
-      background-color: #5f5750;
-
+      width: 80px;
+      height: 80px;
+      background-color: #fffffe;
+      right: 0px;
       border: 1px solid;
-      bottom: 260px;
+      bottom: 44px;
       z-index: 51;
+      @media (max-width:500px) {
+        width: 40px;
+      }
+
     }
     .return>ul{
 
       display: flex;
       flex-direction: column;
-      background-color: #5f5750;
+      background-color: #ffffff;
     }
   </style>
 </head>
@@ -2145,11 +2213,56 @@ font-family: MIfont;
     <div class="right_nav">
 
       <ul>
-        <li>手机APP</li>
-        <li>个人中心</li>
-        <li>售后服务</li>
-        <li>人工客服</li>
-        <li>购物车</li>
+        <li>
+          <a href="">
+            <img src="https://i8.mifile.cn/b2c-mimall-media/98a23aae70f25798192693f21c4d4039.png" alt="" class="icon">
+            <img src="https://i8.mifile.cn/b2c-mimall-media/74c4fcb4475af8308e9a670db9c01fdf.png" alt=""
+              class="icon h_icon">
+            手机APP
+          </a>
+
+
+        </li>
+        <li>
+          <a href="">
+            <img src="https://i8.mifile.cn/b2c-mimall-media/55cad219421bee03a801775e7309b920.png" alt="" class="icon">
+            <img src="https://i8.mifile.cn/b2c-mimall-media/41f858550f42eb1770b97faf219ae215.png" alt=""
+              class="icon h_icon">
+            个人中心
+          </a>
+
+        </li>
+        <li>
+          <a href="">
+            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/12eb0965ab33dc8e05870911b90f3f13.png" alt=""
+              class="icon">
+            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/95fbf0081a06eec7be4d35e277faeca0.png" alt=""
+              class="icon h_icon">
+            售后服务
+          </a>
+
+
+        </li>
+        <li>
+          <a href="">
+            <img src="https://i8.mifile.cn/b2c-mimall-media/4f036ae4d45002b2a6fb6756cedebf02.png" alt="" class="icon">
+            <img src="https://i8.mifile.cn/b2c-mimall-media/5e9f2b1b0da09ac3b3961378284ef2d4.png" alt=""
+              class="icon h_icon">
+            人工客服
+
+          </a>
+
+        </li>
+        <li>
+          <a href="">
+            <img src="https://i8.mifile.cn/b2c-mimall-media/d7db56d1d850113f016c95e289e36efa.png" alt="" class="icon">
+            <img src="https://i8.mifile.cn/b2c-mimall-media/692a6c3b0a93a24f74a29c0f9d68ec71.png" alt=""
+              class="icon h_icon">
+            购物车
+
+          </a>
+
+        </li>
       </ul>
     </div>
     <div class="return">
