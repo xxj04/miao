@@ -181,21 +181,34 @@
             left: 0px;
             top: 137px;
             background-color: #ffffff;
-            z-index: 4;
+            z-index: 0;
             transition: 0.3s 0.2s;
             overflow: hidden;
             border-top: 1px solid #ffffff;
-            ul
-            {
-            width: 1226px;
-            font-size: 0px;
 
+            ul{
+            width: 1226px;
+            height: 200px;
+
+
+            font-size: 16px;
             margin: auto;
             xdisplay: inline-block;
             }
             li{
-              width: 204px;
+              width: 202px;
+              height: 100%;
               display: inline-block;
+              text-align: center;
+              border-right: 1px solid;
+              box-sizing: border-box;
+              &:nth-child(6){
+                border: none;
+              }
+              p{
+                line-height: 30px;
+
+              }
             }
           }
 
@@ -210,13 +223,11 @@
         .bottom-nav>ul>li:nth-child(7):hover>div{
           transition: 0.2s;
           height: 200px;
-          z-index: 9999;
+          z-index: 8;
           border-top: 1px solid #c2c2c2;
 
 
-          ul{
-            font-size: 16px;
-          }
+
         }
 
         .button-box{
@@ -842,10 +853,18 @@
       grid-template-rows: 280px 280px;
 
       div{
-        transition: 0.5s;
+        transition: 0.2s;
         &:hover{
           transform: translate(0,-2px);
           box-shadow: 1px 1px 15px #a5a1a1;
+        }
+        &:nth-child(1)>a{
+          width: 235px;
+          height: 550px;
+        }
+        &:nth-child(1) .one1{
+          width: 100%;
+          height: 100%;
         }
         a{
           width: 234px;
@@ -863,6 +882,14 @@
             padding: 30px 0 0 0;
             color: #ffffff00;
           }
+          p{
+
+            margin: 5px 0 0 -3px;
+            font-size: 12px;
+            &:nth-last-of-type(1){
+              color: orange;
+            }
+          }
         }
 
 
@@ -871,7 +898,7 @@
     }
 
      section>div:nth-child(-n+8) {
-      border: 1px solid black;
+
       margin: 5px;
       box-shadow: 0px 0px 4px #515151;
     }
@@ -884,7 +911,7 @@
     }
 
      section>div:nth-child(9)>div {
-      border: 1px solid;
+
       margin: 0 0 10px 0;
       box-shadow: 0px 0px 4px #515151;
     }
@@ -920,6 +947,8 @@
       xtop: 200px;
       justify-items: center;
       align-items: center;
+
+
       >li{
 
         flex:1 1;
@@ -1029,6 +1058,7 @@
       @media (max-width:1350px) {
         width: 20px;
         bottom: 110px;
+        left:calc(50% + 1226px / 2)
       }
 
     }
@@ -1176,12 +1206,43 @@
                 <a href="">xiaomi手机</a>
                 <div>
                   <ul>
-                    <li><img src="" alt="">1</li>
-                    <li><img src="" alt="">1</li>
-                    <li><img src="" alt="">1</li>
-                    <li><img src="" alt="">1</li>
-                    <li><img src="" alt="">1</li>
-                    <li><img src="" alt="">1</li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li><img src="" alt=""><img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li><img src="" alt=""><img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li><img src="" alt=""><img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li><img src="" alt=""><img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li><img src="" alt=""><img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
                   </ul>
                 </div>
               </li>
@@ -1190,12 +1251,48 @@
                 <a href="">redmi手机</a>
                 <div>
                   <ul>
-                    <li><img src="" alt="">2</li>
-                    <li><img src="" alt="">2</li>
-                    <li><img src="" alt="">2</li>
-                    <li><img src="" alt="">2</li>
-                    <li><img src="" alt="">2</li>
-                    <li><img src="" alt="">2</li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
                   </ul>
                 </div>
               </li>
@@ -1204,12 +1301,48 @@
                 <a href="">电视</a>
                 <div>
                   <ul>
-                    <li><img src="" alt="">3</li>
-                    <li><img src="" alt="">3</li>
-                    <li><img src="" alt="">3</li>
-                    <li><img src="" alt="">3</li>
-                    <li><img src="" alt="">3</li>
-                    <li><img src="" alt="">3</li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
                   </ul>
                 </div>
               </li>
@@ -1218,12 +1351,48 @@
                 <a href="">笔记本</a>
                 <div>
                   <ul>
-                    <li><img src="" alt="">4</li>
-                    <li><img src="" alt="">4</li>
-                    <li><img src="" alt="">4</li>
-                    <li><img src="" alt="">4</li>
-                    <li><img src="" alt="">4</li>
-                    <li><img src="" alt="">4</li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
                   </ul>
                 </div>
               </li>
@@ -1232,12 +1401,48 @@
                 <a href="">平板</a>
                 <div>
                   <ul>
-                    <li><img src="" alt="">6</li>
-                    <li><img src="" alt="">6</li>
-                    <li><img src="" alt="">6</li>
-                    <li><img src="" alt="">6</li>
-                    <li><img src="" alt="">6</li>
-                    <li><img src="" alt="">6</li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
                   </ul>
                 </div>
               </li>
@@ -1246,12 +1451,48 @@
                 <a href="">家电</a>
                 <div>
                   <ul>
-                    <li><img src="" alt="">7</li>
-                    <li><img src="" alt="">7</li>
-                    <li><img src="" alt="">7</li>
-                    <li><img src="" alt="">7</li>
-                    <li><img src="" alt="">7</li>
-                    <li><img src="" alt="">7</li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
                   </ul>
                 </div>
               </li>
@@ -1260,12 +1501,48 @@
                 <a href="">路由器</a>
                 <div>
                   <ul>
-                    <li><img src="" alt="">8</li>
-                    <li><img src="" alt="">8</li>
-                    <li><img src="" alt="">8</li>
-                    <li><img src="" alt="">8</li>
-                    <li><img src="" alt="">8</li>
-                    <li><img src="" alt="">8</li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c758eb7e0dce4307c62c47155519bc80.png?thumb=1&w=150&h=103&f=webp&q=90"
+                        alt="">
+                      <p>Xiaomi13</p>
+                      <p>2999</p>
+                    </li>
                   </ul>
                 </div>
 
@@ -2354,13 +2631,69 @@
               </a>
 
             </li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li><a href="#">
+                <img
+                  src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                  alt="">
+                <h3>Redmi Not 12 Turbo</h3>
+                <p>狂暴引擎超强性能释放</p>
+                <p>1999起</p>
+              </a>
+            </li>
+            <li><a href="#">
+                <img
+                  src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                  alt="">
+                <h3>Redmi Not 12 Turbo</h3>
+                <p>狂暴引擎超强性能释放</p>
+                <p>1999起</p>
+              </a>
+            </li>
+            <li><a href="#">
+                <img
+                  src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                  alt="">
+                <h3>Redmi Not 12 Turbo</h3>
+                <p>狂暴引擎超强性能释放</p>
+                <p>1999起</p>
+              </a>
+            </li>
+            <li><a href="#">
+                <img
+                  src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                  alt="">
+                <h3>Redmi Not 12 Turbo</h3>
+                <p>狂暴引擎超强性能释放</p>
+                <p>1999起</p>
+              </a>
+            </li>
+            <li><a href="#">
+                <img
+                  src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                  alt="">
+                <h3>Redmi Not 12 Turbo</h3>
+                <p>狂暴引擎超强性能释放</p>
+                <p>1999起</p>
+              </a>
+            </li>
+            <li><a href="#">
+                <img
+                  src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                  alt="">
+                <h3>Redmi Not 12 Turbo</h3>
+                <p>狂暴引擎超强性能释放</p>
+                <p>1999起</p>
+              </a>
+            </li>
+            <li><a href="#">
+                <img
+                  src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                  alt="">
+                <h3>Redmi Not 12 Turbo</h3>
+                <p>狂暴引擎超强性能释放</p>
+                <p>1999起</p>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -2372,7 +2705,9 @@
           <span>
             手机
             <section>
-              <div>1</div>
+              <div><a href=""><img
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d91bb6cf7da0947e8a6e50e03f4daf06.jpg?thumb=1&w=219&h=576&f=webp&q=90"
+                    alt="" class="one1"></a></div>
               <div><a><img
                     src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
                     alt="">
@@ -2445,11 +2780,13 @@
           </span>
 
           <span>
-            手表
+            机器人
             <section>
-              <div>11</div>
+              <div><a href=""><img
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d91bb6cf7da0947e8a6e50e03f4daf06.jpg?thumb=1&w=219&h=576&f=webp&q=90"
+                    alt="" class="one1"></a></div>
               <div><a><img
-                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/61074d24c93da07f76f756b0a160a99e.jpg?thumb=1&w=188&h=188&f=webp&q=90"
                     alt="">
                   <h3>Redmi Not 12 Turbo</h3>
                   <p>狂暴引擎超强性能释放</p>
@@ -2458,7 +2795,7 @@
               </div>
               <div><a>
                   <img
-                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/61074d24c93da07f76f756b0a160a99e.jpg?thumb=1&w=188&h=188&f=webp&q=90"
                     alt="">
                   <h3>Redmi Not 12 Turbo</h3>
                   <p>狂暴引擎超强性能释放</p>
@@ -2467,7 +2804,7 @@
               </div>
               <div><a>
                   <img
-                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/61074d24c93da07f76f756b0a160a99e.jpg?thumb=1&w=188&h=188&f=webp&q=90"
                     alt="">
                   <h3>Redmi Not 12 Turbo</h3>
                   <p>狂暴引擎超强性能释放</p>
@@ -2477,7 +2814,7 @@
               <div>
                 <a>
                   <img
-                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/61074d24c93da07f76f756b0a160a99e.jpg?thumb=1&w=188&h=188&f=webp&q=90"
                     alt="">
                   <h3>Redmi Not 12 Turbo</h3>
                   <p>狂暴引擎超强性能释放</p>
@@ -2486,7 +2823,7 @@
               </div>
               <div><a>
                   <img
-                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/61074d24c93da07f76f756b0a160a99e.jpg?thumb=1&w=188&h=188&f=webp&q=90"
                     alt="">
                   <h3>Redmi Not 12 Turbo</h3>
                   <p>狂暴引擎超强性能释放</p>
@@ -2495,7 +2832,7 @@
               </div>
               <div><a>
                   <img
-                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/61074d24c93da07f76f756b0a160a99e.jpg?thumb=1&w=188&h=188&f=webp&q=90"
                     alt="">
                   <h3>Redmi Not 12 Turbo</h3>
                   <p>狂暴引擎超强性能释放</p>
@@ -2504,7 +2841,7 @@
               </div>
               <div><a>
                   <img
-                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/61074d24c93da07f76f756b0a160a99e.jpg?thumb=1&w=188&h=188&f=webp&q=90"
                     alt="">
                   <h3>Redmi Not 12 Turbo</h3>
                   <p>狂暴引擎超强性能释放</p>
