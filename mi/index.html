@@ -25,7 +25,7 @@
       position: relative;
     }
     body {
-font-family: MIfont;
+      font-family: MIfont;
       min-width: 1226px;
     }
     .diyiye{
@@ -91,35 +91,33 @@ font-family: MIfont;
           top: 0px;
           left: 1105px;
           background-color: #666;
-          transition: 1s 0.2s;
+          transition: all 0.2s 0.5s  ;
+
           >div{
             box-shadow: 0 0 4px #515151;
             line-height: 90px;
             text-align: center;
+            transition: 0.2s 0.5s ;
+            overflow: hidden;
 
-            transition:  font-size 0.2s 0.3s, height 0.2s 0.6s ;
-            xvisibility: hidden;
             position: absolute;
             height:0px;
             width: 300px;
             background-color: #fff;
-
-            font-size:0px;
             left:-180px
+
           }
+
           &:hover>div{
-            transition:  font-size 0.2s 0.6s, height 0.2s 0.3s ;
-
-            xtransition: none;
-            font-size:12px;
+            transition: 0.2s;
             height:90px;
-            xvisibility: visible;
-
           }
+
           &:hover{
-            transition: 1s;
+            transition: 0.2s;
             background-color: #ffffff;
             color: orange;
+
           }
         }
 
@@ -171,16 +169,22 @@ font-family: MIfont;
         .bottom-nav{
 
           div{
-            transition: font-size 0.1s cubic-bezier(.38,.49,.86,.2) , height 0.5s cubic-bezier(.38,.49,.86,.2) ;
-            box-shadow: 0 1px 2px #515151;
-            background-color: rgb(255,255,255);;
+
+
+
+
+
             position: absolute;
-            top: 137px;
-            z-index: 9998;
-            left: 0px;
-            width: 100%;
             height: 0px;
-            font-size: 0px;
+            width: 100%;
+            margin: auto;
+            left: 0px;
+            top: 137px;
+            background-color: #ffffff;
+            z-index: 4;
+            transition: 0.3s 0.2s;
+            overflow: hidden;
+            border-top: 1px solid #ffffff;
             ul
             {
             width: 1226px;
@@ -204,10 +208,12 @@ font-family: MIfont;
         .bottom-nav>ul>li:nth-child(5):hover>div,
         .bottom-nav>ul>li:nth-child(6):hover>div,
         .bottom-nav>ul>li:nth-child(7):hover>div{
-          transition: none;
+          transition: 0.2s;
           height: 200px;
-          font-size: 16px;
           z-index: 9999;
+          border-top: 1px solid #c2c2c2;
+
+
           ul{
             font-size: 16px;
           }
@@ -259,7 +265,9 @@ font-family: MIfont;
             img{
               height: 56px;
               width: 56px;
-
+              &:active{
+                transform: scale(0.8);
+              }
             }
           }
         }
@@ -623,7 +631,7 @@ font-family: MIfont;
 
     }
     .frist-box1 a{
-      xpadding-top: 40px;
+
       color: #b1b1b1;
       display: inline-block;
       text-align: center;
@@ -652,10 +660,7 @@ font-family: MIfont;
     .frist-box2 img{
       width: 306px;
     }
-    .frist-box2 li{
-      padding-left: 7px;
-      overflow: hidden;
-    }
+
     .frist-box2 li:hover{
       box-shadow: 7px 4px 16px 1px #9d9a9a;
     }
@@ -780,6 +785,124 @@ font-family: MIfont;
       transform: translate(0px ,-2px);
     }
 
+    .card {
+      margin: auto;
+      width: 1226px;
+      height: 700px;
+      position: relative;
+      .tabs {
+        float: right;
+
+        &:hover > span {
+          color: black;
+          transition: none;
+          > section {
+            visibility: hidden;
+            transition: none;
+          }
+        }
+        > span {
+          color: black;
+          transition: 0s 9999s;
+          &:hover {
+            color: red;
+            transition: none;
+            > section {
+              visibility: visible;
+              transition: none;
+            }
+          }
+          > section {
+            visibility: hidden;
+            transition: 0s 9999s;
+            position: absolute;
+
+            left: 0;
+            right: 0;
+
+          }
+        }
+      }
+    }
+
+
+
+
+
+
+
+
+
+    section{
+      margin: auto;
+      display: grid;
+      width: 1220px;
+      height: 560px;
+      grid-template-columns: repeat(auto-fill, 244px);
+      grid-template-rows: 280px 280px;
+
+      div{
+        transition: 0.5s;
+        &:hover{
+          transform: translate(0,-2px);
+          box-shadow: 1px 1px 15px #a5a1a1;
+        }
+        a{
+          width: 234px;
+          height: 270px;
+
+          display: inline-block;
+          overflow: hidden;
+          background-color: rgb(255, 255, 255);
+          text-align: center;
+          color: #050505;
+          img{
+            display: inline-block;
+            width: 160px;
+            height: 160px;
+            padding: 30px 0 0 0;
+            color: #ffffff00;
+          }
+        }
+
+
+      }
+
+    }
+
+     section>div:nth-child(-n+8) {
+      border: 1px solid black;
+      margin: 5px;
+      box-shadow: 0px 0px 4px #515151;
+    }
+
+     section>div:nth-child(9) {
+
+      margin: 5px;
+      display: grid;
+      grid-template-rows: 134px 134px;
+    }
+
+     section>div:nth-child(9)>div {
+      border: 1px solid;
+      margin: 0 0 10px 0;
+      box-shadow: 0px 0px 4px #515151;
+    }
+
+     section>div:nth-child(9)>div:nth-child(2) {
+      margin: 0;
+    }
+
+     section>div:nth-child(1) {
+      grid-row: 1 / 3;
+    }
+
+
+
+
+    span:hover+.box{
+      display: block;
+    }
     .right_nav{
       bottom: 155px;
       /* width: 300px; */
@@ -800,7 +923,7 @@ font-family: MIfont;
       >li{
 
         flex:1 1;
-          img{
+          >a>img{
           height: 40px;
           width: 40px;
           position: absolute;
@@ -817,7 +940,7 @@ font-family: MIfont;
 
 
         a{
-          weight: 60px;
+
           height: 80px;
           line-height: 120px;
           position: relative;
@@ -832,12 +955,50 @@ font-family: MIfont;
             display: block;
           }
 
-
           .h_icon{
 
             display: none;
             }
+
+          div{
+            display: none;
+            position: absolute;
+            width: 150px;
+            height: 190px;
+            text-align: center;
+            right: 70px;
+            top: 0px;
+            background-color: white;
+            line-height: 12px;
+            @media (max-width:1350px) {
+
+              right: 10px;
+              font-size: 0px;
+
+            }
+            img{
+              margin: 10px;
+              width: 130px;
+              height: 130px;
+
+
+            }
+            span{
+              display: block;
+
+              width: 150px;
+              height: 18px;
+              font-size: 12px;
+              white-space: nowrap;
+
+            }
           }
+
+          &:hover .h_icon ~ div{
+            display: block;
+          }
+
+        }
       }
       @media (max-width:1350px) {
         width: 20px;
@@ -887,7 +1048,7 @@ font-family: MIfont;
           }
 
 
-        img{
+        >a>img{
           height: 40px;
           width: 40px;
           position: absolute;
@@ -904,7 +1065,7 @@ font-family: MIfont;
 
 
       a{
-        weight: 60px;
+
         height: 80px;
         line-height: 120px;
         position: relative;
@@ -913,9 +1074,11 @@ font-family: MIfont;
         margin: 0 auto;
         color: rgb(153,153,153);
         left: 25px;
+
         &:hover{
           color: orange;
         }
+
         &:hover .h_icon{
           display: block;
         }
@@ -925,6 +1088,10 @@ font-family: MIfont;
 
          display: none;
         }
+
+
+
+
       }
 
     }
@@ -2197,80 +2364,161 @@ font-family: MIfont;
           </ul>
         </div>
       </div>
-      <div class="box">
-        <div class="box-hd">
-          <div>
-            <h1>手机</h1>
-            <div>
-              <span><a href="#">查看更多</a></span>
-            </div>
-          </div>
 
-        </div>
-        <div class="box-left">
-          <a href="#"><img
-              src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d91bb6cf7da0947e8a6e50e03f4daf06.jpg?thumb=1&w=219&h=576&f=webp&q=90"
-              alt=""></a>
-        </div>
-        <div class="box-right">
-          <ul>
-            <li>
-              <a href="#">
-                <img
-                  src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
-                  alt="">
-                <h3>Redmi Not 12 Turbo</h3>
-                <p>狂暴引擎超强性能释放</p>
-                <p>1999起</p>
-              </a>
 
-            </li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </div>
-      </div>
-      <div class="box">
-        <div class="box-hd">
-          <div>
-            <h1>手机</h1>
-            <div>
-              <span><a href="#">查看更多</a></span>
-            </div>
-          </div>
+      <div class="card">
+        手机
+        <div class="tabs">
+          <span>
+            手机
+            <section>
+              <div>1</div>
+              <div><a><img
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                    alt="">
+                  <h3>Redmi Not 12 Turbo</h3>
+                  <p>狂暴引擎超强性能释放</p>
+                  <p>1999起</p>
+                </a>
+              </div>
+              <div><a>
+                  <img
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                    alt="">
+                  <h3>Redmi Not 12 Turbo</h3>
+                  <p>狂暴引擎超强性能释放</p>
+                  <p>1999起</p>
+                </a>
+              </div>
+              <div><a>
+                  <img
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                    alt="">
+                  <h3>Redmi Not 12 Turbo</h3>
+                  <p>狂暴引擎超强性能释放</p>
+                  <p>1999起</p>
+                </a>
+              </div>
+              <div>
+                <a>
+                  <img
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                    alt="">
+                  <h3>Redmi Not 12 Turbo</h3>
+                  <p>狂暴引擎超强性能释放</p>
+                  <p>1999起</p>
+                </a>
+              </div>
+              <div><a>
+                  <img
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                    alt="">
+                  <h3>Redmi Not 12 Turbo</h3>
+                  <p>狂暴引擎超强性能释放</p>
+                  <p>1999起</p>
+                </a>
+              </div>
+              <div><a>
+                  <img
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                    alt="">
+                  <h3>Redmi Not 12 Turbo</h3>
+                  <p>狂暴引擎超强性能释放</p>
+                  <p>1999起</p>
+                </a>
+              </div>
+              <div><a>
+                  <img
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                    alt="">
+                  <h3>Redmi Not 12 Turbo</h3>
+                  <p>狂暴引擎超强性能释放</p>
+                  <p>1999起</p>
+                </a>
+              </div>
+              <div>
+                <div>1</div>
+                <div>2</div>
 
-        </div>
-        <div class="box-left">
-          <a href="#"><img
-              src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d91bb6cf7da0947e8a6e50e03f4daf06.jpg?thumb=1&w=219&h=576&f=webp&q=90"
-              alt=""></a>
-        </div>
-        <div class="box-right">
-          <ul>
-            <li>
-              <a href="#">
-                <img
-                  src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
-                  alt="">
-                <h3>Redmi Not 12 Turbo</h3>
-                <p>狂暴引擎超强性能释放</p>
-                <p>1999起</p>
-              </a>
+              </div>
+            </section>
+          </span>
 
-            </li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
+          <span>
+            手表
+            <section>
+              <div>11</div>
+              <div><a><img
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                    alt="">
+                  <h3>Redmi Not 12 Turbo</h3>
+                  <p>狂暴引擎超强性能释放</p>
+                  <p>1999起</p>
+                </a>
+              </div>
+              <div><a>
+                  <img
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                    alt="">
+                  <h3>Redmi Not 12 Turbo</h3>
+                  <p>狂暴引擎超强性能释放</p>
+                  <p>1999起</p>
+                </a>
+              </div>
+              <div><a>
+                  <img
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                    alt="">
+                  <h3>Redmi Not 12 Turbo</h3>
+                  <p>狂暴引擎超强性能释放</p>
+                  <p>1999起</p>
+                </a>
+              </div>
+              <div>
+                <a>
+                  <img
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                    alt="">
+                  <h3>Redmi Not 12 Turbo</h3>
+                  <p>狂暴引擎超强性能释放</p>
+                  <p>1999起</p>
+                </a>
+              </div>
+              <div><a>
+                  <img
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                    alt="">
+                  <h3>Redmi Not 12 Turbo</h3>
+                  <p>狂暴引擎超强性能释放</p>
+                  <p>1999起</p>
+                </a>
+              </div>
+              <div><a>
+                  <img
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                    alt="">
+                  <h3>Redmi Not 12 Turbo</h3>
+                  <p>狂暴引擎超强性能释放</p>
+                  <p>1999起</p>
+                </a>
+              </div>
+              <div><a>
+                  <img
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b046feca0a7bb3f7b961a9690babb1b.jpg?thumb=1&w=188&h=188&f=webp&q=90"
+                    alt="">
+                  <h3>Redmi Not 12 Turbo</h3>
+                  <p>狂暴引擎超强性能释放</p>
+                  <p>1999起</p>
+                </a>
+              </div>
+              <div>
+                <div>1</div>
+                <div>2</div>
+
+              </div>
+            </section>
+          </span>
+
         </div>
       </div>
 
@@ -2285,7 +2533,15 @@ font-family: MIfont;
             <img src="https://i8.mifile.cn/b2c-mimall-media/74c4fcb4475af8308e9a670db9c01fdf.png" alt="手机APP"
               title="手机APP" class="icon h_icon">
             手机APP
-
+            <div>
+              <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/78c30d4f259ed43ab20e810a522a6249.png" alt="">
+              <span>
+                扫码领取新人
+              </span>
+              <span>
+                百元礼包
+              </span>
+            </div>
           </a>
 
 
