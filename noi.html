@@ -84,7 +84,7 @@
 <script id="ch0103/13">
 
   var a = prompt('请输入一个三位数'); g = a % 10, s = a / 10 % 10, b = a / 100
-  console.log('' + g, Math.floor(s), Math.floor(b))
+  console.log('' + g + '' + Math.floor(s) + Math.floor(b))
 </script>
 
 
@@ -198,10 +198,10 @@
 <script id="ch0104/04">
   var a = prompt('请输入一个数').charCodeAt()
   if (a % 2) {
-    console.log('yes')
+    console.log('YES')
   }
   else {
-    console.log('no')
+    console.log('NO')
   }
 
 </script>
@@ -255,10 +255,10 @@
 
   var a = prompt('请输入一个数') * 1
   if (a % 3 == 0 && a % 5 == 0) {
-    console.log('yes')
+    console.log('YES')
   }
   else {
-    console.log('no')
+    console.log('NO')
   }
 </script>
 
@@ -482,5 +482,22 @@
   else {
     console.log('Invalid operator!')
   }
+
+</script>
+
+
+<script id="ch0104/20">
+  var a = prompt('请输入一个数') * 1, b = prompt('请输入一个数') * 1, c = prompt('请输入一个数') * 1
+  x1 = (-b + Math.sqrt(b * b - 4 * a * c)) / (2 * a), x2 = (-b - Math.sqrt(b * b - 4 * a * c)) / (2 * a)
+  if (b2 = 4 * a * c) {
+    console.log('x1')
+  }
+
+</script>
+
+<script id="ch0104/21">
+  var n = prompt('请输入苹果数量') * 1, x = prompt('请输入虫子每小时吃几个苹果'), y = prompt('经过多少小时')
+  s = n - Math.ceil(y / x)
+  console.log(s)
 
 </script>
