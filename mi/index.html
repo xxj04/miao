@@ -200,7 +200,7 @@
               height: 100%;
               display: inline-block;
               text-align: center;
-              border-right: 1px solid;
+              border-right: 1px solid #d5d5d5;
               box-sizing: border-box;
               &:nth-child(6){
                 border: none;
@@ -223,7 +223,7 @@
         .bottom-nav>ul>li:nth-child(7):hover>div{
           transition: 0.2s;
           height: 200px;
-          z-index: 8;
+          z-index: 88888;
           border-top: 1px solid #c2c2c2;
 
 
@@ -427,165 +427,217 @@
 
 
 
-
-    .nav-right input {
-      display: none;
+    @keyframes bo {
+    from {
+      left: 0
     }
 
-    .nav-right form {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    .form label {
-      width: 10px;
-      height: 10px;
-
-    }
-
-    .pot {
-      width: 10000px;
-      height: 460px;
-      position: relative;
-      xtransition: 0.2s;
-      display: inline-block;
-      font-size: 0px;
-      xmargin-top: 35px;
-
-    }
-
-    .pot img {
-      /* position: absolute; */
-      width: 1000px;
-      height: 460px;
+    to {
       left: 100%;
-      z-index: 10;
-      xtransition: 0.2s;
     }
+  }
+
+  .nav-right input {
+    display: none;
+  }
+
+  .nav-right {
+    width: 1000px;
+    height: 460px;
+  }
+
+  .nav-right form {
+    width: 1000px;
+    height: 100%;
+    xoverflow: hidden;
+    position: relative;
+
+    display: flex;
+  }
+
+  .form label {
+    width: 10px;
+    height: 10px;
+
+  }
+
+  .pot {
+    width: 25%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    font-size: 0px;
+
+  }
+
+  .pot div {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+    left: -100%;
+    z-index: 10;
+    background-size: 400% 100%;
+    animation: bo 0.6s;
+
+    transition: 0.6s;
+  }
 
 
-    form :nth-child(1):checked~.pot {
-      margin-left: 0;
+  /* form :nth-child(1):checked~.pot {
+    margin-left: 0;
 
-      transition: 1s;
+    transition: 1s;
 
-    }
-
-
-
-
-    form :nth-child(2):checked~.pot {
-      margin-left: -1005px;
-
-      transition: 1s;
-    }
-
-    form :nth-child(3):checked~.pot {
-      margin-left: -2010px;
-      transition: 1s;
-    }
-
-    form :nth-child(4):checked~.pot {
-
-      transition: 1s;
-      margin-left: -3015px;
-    }
-
-
-    /* form :nth-child(1):checked~.pot :nth-child(1),
-    form :nth-child(2):checked~.pot :nth-child(2),
-    form :nth-child(3):checked~.pot :nth-child(3),
-    form :nth-child(4):checked~.pot :nth-child(4) {
-      transition: 0.2s;
-      left: 0;
-
-    } */
-
-    .left-arrows,
-    .right-arrows {
-      width: 40px;
-      height: 80px;
-      position: absolute;
-      background-color: #bababa35;
-
-    }
-
-    label h1 {
-      margin: 0px;
-      line-height: 80px;
-    }
-
-    .left-arrows label,
-    .right-arrows label {
-      width: 40px;
-      height: 80px;
-      position: absolute;
-
-      line-height: 50px;
-      text-align: center;
-      display: none;
-      cursor: pointer;
-    }
-
-    .left-arrows {
-      top: calc(50% - 40px);
-      left: -3px;
-    }
-
-    .right-arrows {
-      top: calc(50% - 40px);
-      right: 0px;
-    }
-
-    form :nth-child(1):checked~.left-arrows :nth-child(4),
-    form :nth-child(1):checked~.right-arrows :nth-child(2),
-    form :nth-child(2):checked~.left-arrows :nth-child(1),
-    form :nth-child(2):checked~.right-arrows :nth-child(3),
-    form :nth-child(3):checked~.left-arrows :nth-child(2),
-    form :nth-child(3):checked~.right-arrows :nth-child(4),
-    form :nth-child(4):checked~.left-arrows :nth-child(3),
-    form :nth-child(4):checked~.right-arrows :nth-child(1) {
-      display: block;
-    }
-
-    .button {
-      position: absolute;
-      z-index: 1111;
-      width: 50px;
-      height: 30px;
-      right: 25px;
-      bottom: 0;
-      font-size: 0;
-
-    }
-
-    .button>label {
-      font-size: 18px;
-      width: 5px;
-      height: 5px;
-      display: inline-block;
-      border: 2px solid rgb(114, 114, 114);
-      border-radius: 10px;
-      background-color: rgb(226, 226, 226);
-      cursor: pointer;
-      margin: 0 3px;
-
-    }
-
-
-    form :nth-child(1):checked~.button :nth-child(1),
-    form :nth-child(2):checked~.button :nth-child(2),
-    form :nth-child(3):checked~.button :nth-child(3),
-    form :nth-child(4):checked~.button :nth-child(4) {
-      background-color: rgb(97, 98, 97);
-    }
+  }
 
 
 
-    label:hover {
-      background-color: #4e4d4d66;
-    }
+
+  form :nth-child(2):checked~.pot {
+    margin-left: -1005px;
+
+    transition: 1s;
+  }
+
+  form :nth-child(3):checked~.pot {
+    margin-left: -2010px;
+    transition: 1s;
+  }
+
+  form :nth-child(4):checked~.pot {
+
+    transition: 1s;
+    margin-left: -3015px;
+  } */
+
+
+  form :nth-child(1):checked~.pot :nth-child(1),
+  form :nth-child(2):checked~.pot :nth-child(2),
+  form :nth-child(3):checked~.pot :nth-child(3),
+  form :nth-child(4):checked~.pot :nth-child(4) {
+    left: 0;
+    z-index: 88;
+    animation: none;
+  }
+
+  form :nth-child(5)>div:nth-child(1),
+  form :nth-child(5)>div:nth-child(2),
+  form :nth-child(5)>div:nth-child(3),
+  form :nth-child(5)>div:nth-child(4) {
+    background-position: 0%;
+  }
+
+  form :nth-child(6)>div:nth-child(1),
+
+  form :nth-child(6)>div:nth-child(2),
+  form :nth-child(6)>div:nth-child(3),
+  form :nth-child(6)>div:nth-child(4) {
+    background-position: 33.33%;
+  }
+
+  form :nth-child(7)>div:nth-child(1),
+  form :nth-child(7)>div:nth-child(2),
+  form :nth-child(7)>div:nth-child(3),
+  form :nth-child(7)>div:nth-child(4) {
+    background-position: 66.66%;
+  }
+
+  form :nth-child(8)>div:nth-child(1),
+  form :nth-child(8)>div:nth-child(2),
+  form :nth-child(8)>div:nth-child(3),
+  form :nth-child(8)>div:nth-child(4) {
+    background-position: 100%;
+  }
+
+
+
+
+  .left-arrows,
+  .right-arrows {
+    width: 40px;
+    height: 80px;
+    position: absolute;
+    background-color: #bababa35;
+    z-index: 1000;
+  }
+
+  label h1 {
+    margin: 0px;
+    line-height: 80px;
+  }
+
+  .left-arrows label,
+  .right-arrows label {
+    width: 40px;
+    height: 80px;
+    position: absolute;
+
+    line-height: 50px;
+    text-align: center;
+    display: none;
+    cursor: pointer;
+  }
+
+  .left-arrows {
+    top: calc(50% - 40px);
+    left: -3px;
+  }
+
+  .right-arrows {
+    top: calc(50% - 40px);
+    right: 0px;
+  }
+
+  form :nth-child(1):checked~.left-arrows :nth-child(4),
+  form :nth-child(1):checked~.right-arrows :nth-child(2),
+  form :nth-child(2):checked~.left-arrows :nth-child(1),
+  form :nth-child(2):checked~.right-arrows :nth-child(3),
+  form :nth-child(3):checked~.left-arrows :nth-child(2),
+  form :nth-child(3):checked~.right-arrows :nth-child(4),
+  form :nth-child(4):checked~.left-arrows :nth-child(3),
+  form :nth-child(4):checked~.right-arrows :nth-child(1) {
+    display: block;
+  }
+
+  .button {
+    position: absolute;
+    z-index: 1111;
+    width: 110px;
+    height: 30px;
+    right: 0px;
+    bottom: 0;
+    font-size: 0;
+
+  }
+
+  .button>label {
+    font-size: 18px;
+    width: 5px;
+    height: 5px;
+    display: inline-block;
+    border: 2px solid rgb(114, 114, 114);
+    border-radius: 10px;
+    background-color: rgb(226, 226, 226);
+    cursor: pointer;
+    margin: 0 3px;
+
+  }
+
+
+  form :nth-child(1):checked~.button :nth-child(1),
+  form :nth-child(2):checked~.button :nth-child(2),
+  form :nth-child(3):checked~.button :nth-child(3),
+  form :nth-child(4):checked~.button :nth-child(4) {
+    background-color: rgb(97, 98, 97);
+  }
+
+
+
+  label:hover {
+    background-color: #4e4d4d66;
+  }
 
 
 /* 服务 */
@@ -2517,17 +2569,71 @@
             <input type="radio" name="ckb" value="" class="ckb4" id="ckb4">
 
             <div class="pot">
-              <img
-                src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/08a9d7eec7b055bac247b5068f817b1d.jpg?thumb=1&w=1149&h=431&f=webp&q=90"
-                alt="">
-              <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d7c21d01bbe93eafc7d07d3796a3c59c.jpg?thumb=1&w=1149&h=431&f=webp&q=90
-              " alt="">
+              <div
+                style="background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/08a9d7eec7b055bac247b5068f817b1d.jpg?thumb=1&w=1149&h=431&f=webp&q=90);">
+              </div>
+              <div
+                style="background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d7c21d01bbe93eafc7d07d3796a3c59c.jpg?thumb=1&w=1149&h=431&f=webp&q=90);">
+              </div>
 
-              <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6494adc68900269b551de5ba96bd10a9.jpg?thumb=1&w=1149&h=431&f=webp&q=90
-                " alt="">
+              <div
+                style="background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6494adc68900269b551de5ba96bd10a9.jpg?thumb=1&w=1149&h=431&f=webp&q=90); ">
+              </div>
 
-              <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0d03df40a5e8ef760731a8f4f3f61172.jpg?w=2452&h=920"
-                alt="">
+              <div
+                style="background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0d03df40a5e8ef760731a8f4f3f61172.jpg?w=2452&h=920); ">
+              </div>
+
+            </div>
+            <div class="pot">
+              <div
+                style="background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/08a9d7eec7b055bac247b5068f817b1d.jpg?thumb=1&w=1149&h=431&f=webp&q=90);">
+              </div>
+              <div
+                style="background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d7c21d01bbe93eafc7d07d3796a3c59c.jpg?thumb=1&w=1149&h=431&f=webp&q=90);">
+              </div>
+
+              <div
+                style="background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6494adc68900269b551de5ba96bd10a9.jpg?thumb=1&w=1149&h=431&f=webp&q=90); ">
+              </div>
+
+              <div
+                style="background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0d03df40a5e8ef760731a8f4f3f61172.jpg?w=2452&h=920); ">
+              </div>
+
+            </div>
+            <div class="pot">
+              <div
+                style="background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/08a9d7eec7b055bac247b5068f817b1d.jpg?thumb=1&w=1149&h=431&f=webp&q=90);">
+              </div>
+              <div
+                style="background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d7c21d01bbe93eafc7d07d3796a3c59c.jpg?thumb=1&w=1149&h=431&f=webp&q=90);">
+              </div>
+
+              <div
+                style="background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6494adc68900269b551de5ba96bd10a9.jpg?thumb=1&w=1149&h=431&f=webp&q=90); ">
+              </div>
+
+              <div
+                style="background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0d03df40a5e8ef760731a8f4f3f61172.jpg?w=2452&h=920); ">
+              </div>
+
+            </div>
+            <div class="pot">
+              <div
+                style="background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/08a9d7eec7b055bac247b5068f817b1d.jpg?thumb=1&w=1149&h=431&f=webp&q=90);">
+              </div>
+              <div
+                style="background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d7c21d01bbe93eafc7d07d3796a3c59c.jpg?thumb=1&w=1149&h=431&f=webp&q=90);">
+              </div>
+
+              <div
+                style="background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6494adc68900269b551de5ba96bd10a9.jpg?thumb=1&w=1149&h=431&f=webp&q=90); ">
+              </div>
+
+              <div
+                style="background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0d03df40a5e8ef760731a8f4f3f61172.jpg?w=2452&h=920); ">
+              </div>
 
             </div>
 

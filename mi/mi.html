@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style type="text/less">
+    html{
+      font-size: calc(100vw *12 / 720);
+    }
+    *{
+      margin: 0px;
+      font-size: calc(100vw / 720 * 10);
+    }
+    .app {
+      width: 100%;
+    }
+
+    .head_nav{
+      margin: auto;
+      width: 100%;
+      height: calc(100vw * 74 / 720 );
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      xposition: fixed;
+      xtop:0;
+      background-color: red;
+      .logo{
+        text-align: center;
+        flex:1;
+        flex-shrink: 1;
+        border: 1px solid black;
+        box-sizing: border-box;
+        height: calc(100vw * 74 / 720 );
+
+      }
+      .search{
+        text-align: center;
+        flex: 3;
+        flex-shrink: 1;
+        border: 1px solid black;
+        box-sizing: border-box;
+        height: calc(100vw * 74 / 720 );
+      }
+      .login{
+        text-align: center;
+        flex:1;
+        flex-shrink: 1;
+        border: 1px solid black;
+        box-sizing: border-box;
+        height: calc(100vw * 74 / 720 );
+      }
+    }
+
+    .product_menu{
+      display: flex;
+      width: 100%;
+      height: calc(100vw * 60 / 720 );
+      div{
+        flex:1;
+        border:1px solid;
+        box-sizing: border-box;
+      }
+    }
+    .img{
+      height: calc(100vw * 360 / 720);
+      border:1px solid;
+      box-sizing: border-box;
+    }
+    .nav{
+      width: 100%;
+      height: calc(100vw * 305 / 720);
+
+      flex-wrap: wrap;
+      display: flex;
+      margin-bottom: 15px ;
+      div{
+        width: calc(100vw * 140 / 720);
+        border:1px solid;
+        box-sizing: border-box;
+        flex-grow:1;
+      }
+    }
+
+    .product{
+      display: flex;
+
+      flex-wrap: wrap;
+      width: 100%;
+      height: calc(100vw * 300 / 720);
+      gap: 15px;
+      div{
+
+        width: calc(100vw * 350 / 720);
+        border: 1px solid;
+        box-sizing: border-box;
+        flex-grow:1;
+
+      }
+    }
+
+    .nav_foot{
+      display: flex;
+      width: 100%;
+      height: calc(100vw * 95 / 720);
+      bottom: 0;
+      position: fixed;
+      background-color: red;
+      div{
+        flex:1;
+        border:1px solid;
+        box-sizing:border-box;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <div class="app">
+    <div class="head_nav">
+      <div class="logo">1</div>
+      <div class="search">1</div>
+      <div class="login">1</div>
+    </div>
+    <div class="product_menu">
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+    </div>
+    <div class="img"></div>
+
+
+    <div class="nav">
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+    </div>
+
+    <div class="product">
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+    </div>
+  </div>
+  <div class="nav_foot">
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+
+  </div>
+
+</body>
+<script src="./less.js"></script>
+
+</html>

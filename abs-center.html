@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
+    /* 行内  父元素无法放其他东西*/
     .box {
       background-color: aqua;
       width: 200px;
@@ -17,12 +18,17 @@
     }
 
     .box>div {
+      /* display: inline-block;
+      line-height: normal; */
+
+
       display: inline;
       border: 1px solid;
       background-color: rgb(255, 98, 0);
     }
 
 
+    /* flex  只需要设置父元素 里元素可以比外面大*/
     .box1 {
       display: flex;
       background-color: aqua;
@@ -36,8 +42,13 @@
     .box1>div {
       background-color: rgb(255, 98, 0);
       border: 1px solid;
+
+
+      /* margin: auto */
     }
 
+
+    /* 定位 */
     .box2 {
       position: relative;
       background-color: aqua;
@@ -56,6 +67,29 @@
       border: 1px solid;
     }
 
+    /* .box2>div{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 20px;
+      height: 20px;
+      margin: auto;
+    }
+
+    里外不需要宽高
+    里面可以比外面元素大
+    .box2>div {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); 自身宽度50%
+
+    }
+ */
+
+    /* grid */
     .box3 {
       display: grid;
       background-color: aqua;
@@ -71,6 +105,8 @@
       border: 1px solid;
     }
 
+
+    /* 表格 */
     .box4 {
 
       background-color: aqua;
@@ -87,8 +123,8 @@
       border: 1px solid;
       width: 20px;
       height: 20px;
-      display: inline-block;
-
+      /* display: inline-block; */
+      margin: auto;
     }
   </style>
 </head>
