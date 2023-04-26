@@ -794,3 +794,60 @@
 
 </script>
 
+
+<script id="ch0105/18">
+
+
+</script>
+
+<script id="ch0105/19">
+  var n = prompt('输入房顶数') * 1, a = 1, c = 0, s = 0
+  while (a < n + 1) {
+    var x = prompt('输入x坐标') * 1, y = prompt('输入y坐标') * 1,
+      r = prompt('输入人数') * 1
+    s += (Math.sqrt(x ** 2 + y ** 2)) / 50 * 2 + r + Math.ceil(r / 2)
+    a += 1
+  }
+  console.log(s)
+</script>
+
+
+<script id="ch0105/20">
+  debugger
+  var m = prompt('在几米高度') * 1, a = 1, c = m, b = 0, e = 0
+  while (a < 11) {
+    if (a == 1) {
+      a += 1
+    }
+    else {
+      b = m / (2 ** (a - 1))
+      e = m / (2 ** (a))
+      c += b * 2
+      a += 1
+    }
+  }
+  console.log(c.toFixed(4))
+  console.log(e.toFixed(7))
+</script>
+
+
+<script>
+  var a = prompt('输入一个数'), x = 1
+  while (x < 1000) {
+    var y = 0
+    if (y == 1) {
+      console.log('End')
+      break
+    }
+    if (a % 2 == 0) {
+      a /= 2
+      console.log('a' + '/' + '2' + '=' + (a / 2))
+      x += 1
+    }
+    else {
+      a = a * 3 + 1
+      console.log(a * 3 + 1=a)
+    }
+  }
+
+</script>
