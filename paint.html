@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>画图</title>
+  <style>
+    canvas {
+      border: 2px solid #f0f;
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas width="500" height="400"></canvas>
+</body>
+<script>
+  var canvas = document.querySelector('canvas')
+  canvas.style.imageRendering = 'pixelated' //放大时的插帧方式：不插帧，直接放大像素
+  var ctx = canvas.getContext('2d')
+
+  function dot(x, y, color = 'black') {
+    x = Math.trunc(x)
+    y = Math.trunc(y)
+    ctx.fillStyle = color
+    ctx.fillRect(x, y, 1, 1)
+  }
+  /**
+   * 你的任务：通过调用dot函数，实现：
+   * 需要注意，dot函数不能接收浮点数，如果参数为浮点数，会被转换为整数后绘制
+      * 在 坐标 (42, 42) 画出一个点
+      * 画一条水平实线，粗细为一个像素
+      * 画一条水平实线，粗细为一个像素
+      * 画一条一个实点一个空点的虚线
+      * 画一条两个实点两个空点的虚线
+      * 画一条三个实点两个空点的虚线
+      * 画一条45度的斜线
+      * 画一条30度的斜线（与x轴或y轴的夹角呈30度）
+      * 画一条跨越画布左上角和右下角的对角线
+      * 画一个空心矩形
+      * 画一个实心矩形
+      * 画两个空心的圆，圆心在画布中心：
+        * 一个半径为50像素
+        * 一个半径为200像素
+      * 画一个实心的圆，半径至少为100像素
+      * 画一个【大小位置都合适】的sin(x)的图像
+
+      * 画出rgb色彩空间的某一面（尺寸要大于100x100）
+      * 如果做出上一题后，尝试将其每个点的坐标乘以一个矩阵（如(2,0,0,2)或(1,0.27得到新的位置，即绘制出被线性变换后的色彩空间某一面
+        可以考虑如下几种矩阵：
+           2 0
+           0 2
+           ------
+           1  0.27
+           0  1
+           ------
+           0.5    0.87
+           -0.87  0.5
+
+   */
+</script>
+<script>
+  // 不可更改上面的代码
+  // 你的代码写在这里
+
+  var a = 42, b = 42
+  console.log(dot(a, b, 'red'))
+
+  var b = 5
+  for (var a = 0; a <= 200; a++) {
+    console.log(dot(a, b, 'red'))
+  }
+
+  var b = 10
+  for (var a = 0; a <= 300; a++) {
+    console.log(dot(a, b, 'yellow'))
+  }
+
+  var b = 15
+  for (var a = 0; a <= 300; a += 1) {
+    if (a % 2 == 0) {
+      console.log(dot(a, b, 'yellow'))
+    }
+  }
+
+
+  var b = 20
+  for (var a = 0; a <= 300; a += 4) {
+    console.log(dot(a, b, 'tan'))
+  }
+  for (var a = 1; a < 300; a += 4) {
+    console.log(dot(a, b, 'tan'))
+  }
+
+
+  var b = 25
+  for (var a = 0; a <= 300; a += 4) {
+    console.log(dot(a, b, 'tan'))
+  }
+  for (var a = 1; a < 300; a += 4) {
+    console.log(dot(a, b, 'tan'))
+  }
+
+  var b = 30
+  for (var a = 0; a <= 300; a += 5) {
+    console.log(dot(a, b, 'tan'))
+  }
+  for (var a = 1; a < 300; a += 5) {
+    console.log(dot(a, b, 'tan'))
+  }
+  for (var a = 1; a < 300; a += 5) {
+    console.log(dot(a, b, 'tan'))
+  }
+
+  var y = 0
+  for (var x = 0; x <= 100; x++) {
+    y = x
+    console.log(dot(x, y, 'black'))
+  }
+
+  var y = 0
+  for (var x = 0; x <= 100; x++) {
+    y = 1 / 2 * x
+    console.log(dot(x, y, 'rgb(255,44,44)'))
+  }
+
+  var y = 0
+  for (var x = 0; x <= 100; x++) {
+    y = Math.sqrt(3) * x
+    console.log(dot(x, y, 'rbg(233,55,11)'))
+  }
+
+
+  var y = 0
+  for (var x = 0; x <= 1000; x++) {
+    y = 4 / 5 * x
+    console.log(dot(x, y, 'rgb(33,144,144)'))
+  }
+
+  var x1 = 200, x2 = 250
+  for (i = 200; i <= 250; i++) {
+
+    console.log(dot(x1, i, 'rgb(222,104,144)'))
+    console.log(dot(x2, i, 'rgb(222,104,144)'))
+    console.log(dot(i, x1, 'rgb(222,104,144)'))
+    console.log(dot(i, x2, 'rgb(222,104,144)'))
+  }
+
+  var a = 300, b = 350, d = 0
+  for (var i = 300; i <= 350; i++) {
+
+    console.log(dot(a, i, 'rgb(222,104,144)'))
+    console.log(dot(b, i, 'rgb(222,104,144)'))
+    console.log(dot(i, a, 'rgb(222,104,144)'))
+    console.log(dot(i, b, 'rgb(222,104,144)'))
+  }
+  for (x = 300; x <= 350; x++) {
+    for (i = 300; i <= 350; i++) {
+      console.log(dot(x, i, 'rbg(100,100,100)'))
+    }
+  }
+
+
+
+
+
+</script>
+
+</html>
