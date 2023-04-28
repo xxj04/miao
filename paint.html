@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <canvas width="500" height="400"></canvas>
+  <canvas width="1200" height="960"></canvas>
 </body>
 <script>
   var canvas = document.querySelector('canvas')
@@ -30,15 +30,15 @@
   /**
    * 你的任务：通过调用dot函数，实现：
    * 需要注意，dot函数不能接收浮点数，如果参数为浮点数，会被转换为整数后绘制
-      * 在 坐标 (42, 42) 画出一个点
-      * 画一条水平实线，粗细为一个像素
-      * 画一条水平实线，粗细为一个像素
-      * 画一条一个实点一个空点的虚线
-      * 画一条两个实点两个空点的虚线
-      * 画一条三个实点两个空点的虚线
-      * 画一条45度的斜线
-      * 画一条30度的斜线（与x轴或y轴的夹角呈30度）
-      * 画一条跨越画布左上角和右下角的对角线
+      *1 在 坐标 (42, 42) 画出一个点
+      *2 画一条水平实线，粗细为一个像素
+      *3 画一条水平实线，粗细为一个像素
+      *4 画一条一个实点一个空点的虚线
+      *5 画一条两个实点两个空点的虚线
+      *6 画一条三个实点两个空点的虚线
+      *7 画一条45度的斜线
+      *8 画一条30度的斜线（与x轴或y轴的夹角呈30度）
+      *9 画一条跨越画布左上角和右下角的对角线
       * 画一个空心矩形
       * 画一个实心矩形
       * 画两个空心的圆，圆心在画布中心：
@@ -134,7 +134,7 @@
 
 
   var y = 0
-  for (var x = 0; x <= 1000; x++) {
+  for (var x = 0; x <= 1200; x++) {
     y = 4 / 5 * x
     console.log(dot(x, y, 'rgb(33,144,144)'))
   }
@@ -148,14 +148,9 @@
     console.log(dot(i, x2, 'rgb(222,104,144)'))
   }
 
-  var a = 300, b = 350, d = 0
-  for (var i = 300; i <= 350; i++) {
 
-    console.log(dot(a, i, 'rgb(222,104,144)'))
-    console.log(dot(b, i, 'rgb(222,104,144)'))
-    console.log(dot(i, a, 'rgb(222,104,144)'))
-    console.log(dot(i, b, 'rgb(222,104,144)'))
-  }
+
+  var a = 300, b = 350, d = 0
   for (x = 300; x <= 350; x++) {
     for (i = 300; i <= 350; i++) {
       console.log(dot(x, i, 'rbg(100,100,100)'))
@@ -164,6 +159,84 @@
 
 
 
+
+
+
+
+  var y = 0, x = 0, r = 50
+  for (x = -50; x <= r; x++) {
+    y = Math.sqrt(r ** 2 - x ** 2)
+    console.log(dot(x + 100, y + 250, 'rbg(100,100,100)'))
+    console.log(dot(-x + 100, -y + 250, 'rbg(100,100,100)'))
+  }
+
+
+  var y = 0, x = 0, r = 200
+  for (x = -200; x <= r; x++) {
+    y = Math.sqrt(r ** 2 - x ** 2)
+    console.log(dot(x + 250, y + 250, 'rbg(100,100,100)'))
+    console.log(dot(-x + 250, -y + 250, 'rbg(100,100,100)'))
+  }
+
+
+
+  var y = 0, x = 0, r = 100
+  for (var x = -100; x <= r; x++) {
+    for (var y = -100; y <= r; y++)
+      if (y ** 2 <= r ** 2 - x ** 2) {
+        console.log(dot(x + 600, y + 300, 'rbg(100,100,100)'))
+      }
+  }
+
+
+
+
+  var x = 0, y = 0
+  for (x = 0; x <= 70; x += 0.1) {
+    y = Math.sin(x)
+    console.log(dot(x * 10 - 10, (y * 10) + 400, 'rgb(33,33,222)'))
+  }
+
+
+
+
+  var c = 0
+  for (x = 1; x <= 255; x++) {
+    for (y = 1; y <= 255; y++) {
+      c = '' + ' rgb(' + x + "," + 255 + "," + y + ')'
+      console.log(dot(x + 700, y, c))
+    }
+  }
+
+  var a = 2, b = 0, g = 0, h = 2, c = 0, e = 0, d = 0
+  for (x = 1; x <= 255; x++) {
+    for (y = 1; y <= 255; y++) {
+      c = '' + ' rgb(' + x + "," + 255 + "," + y + ')'
+      d = a * x + b * y
+      e = g * x + h * y
+      console.log(dot(d + 700, e, c))
+    }
+  }
+
+  var a = 1, b = 0.27, g = 0.27, h = 1, c = 0, e = 0, d = 0
+  for (x = 1; x <= 255; x++) {
+    for (y = 1; y <= 255; y++) {
+      c = '' + ' rgb(' + x + "," + 255 + "," + y + ')'
+      d = a * x + b * y
+      e = g * x + h * y
+      console.log(dot(d, e + 500, c))
+    }
+  }
+
+  var a = 0.5, b = 0.87, g = -0.87, h = 0.5, c = 0, e = 0, d = 0
+  for (x = 1; x <= 255; x++) {
+    for (y = 1; y <= 255; y++) {
+      c = '' + ' rgb(' + x + "," + 255 + "," + y + ')'
+      d = a * x + b * y
+      e = g * x + h * y
+      console.log(dot(d + 500, e + 700, c))
+    }
+  }
 
 
 </script>

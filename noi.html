@@ -765,31 +765,28 @@
 
 
 <script id="ch0105/16">
+  debugger
   var N = prompt('请输入工资') * 1;
   K = prompt('请输入增长率') * 1;
-  a = 1;
+  a = 2;
   c = 0;
-  b = 0
+  b = N
   while (a < 22) {
-    if (a == 1) {
-      b += N
-      a += 1
-    }
-    else if (a > 1 && a < 21) {
+
+    if (a > 1 && a < 21) {
       c = 200 * ((1 + (K / 100)) ** (a - 1))
       b += N
       if (b > c) {
         console.log(a)
         break
       }
-      else {
-        a += 1
-      }
     }
     else {
       console.log('Impossible')
       break
     }
+    a += 1
+
   }
 </script>
 
@@ -822,8 +819,43 @@
 </script>
 
 
-<script id="ch0105/18">
 
+<script>
+  var n = prompt('输入') * 1
+  a = 0
+  b = 1
+  for (var i = 0; i <= n; i++) {
+
+    b = b + a
+    a = b - a
+
+
+  }
+  console.log(a)
+
+
+</script>
+
+
+<script id="ch0105/18">
+  var n = prompt('输入') * 1
+  var x = prompt('输入') * 1
+  var y = prompt('输入') * 1
+  var s = y / x
+  for (var i = 1; i < n; i++) {
+    var e = prompt('输入') * 1
+    var r = prompt('输入') * 1
+    var q = r / e
+    if (q - s > 0.05) {
+      console.log('better')
+    }
+    else if (s - q > 0.05) {
+      console.log('worse')
+    }
+    else {
+      console.log('same')
+    }
+  }
 
 </script>
 
@@ -858,10 +890,10 @@
 </script>
 
 
-<script id="ch0105/22">
+<script id="ch0105/21">
 
   var a = prompt('输入一个数'), x = 1
-  while (x < 1000) {
+  while (a != 1) {
 
     if (a == 2) {
       console.log('End')
@@ -870,7 +902,6 @@
     if (a % 2 == 0) {
       a /= 2
       console.log(a + '/' + '2' + '=' + (a / 2))
-      x += 1
     }
     else {
       a = a * 3 + 1
@@ -890,8 +921,8 @@
     c = c + 300 - b
 
     if ((c) >= 100) {
-      e += (Math.floor(c / 100)) * 100
-      c -= (Math.floor(c / 100)) * 100
+      e += (Math.floor(c / 100)) * 100   //c - c % 100
+      c -= (Math.floor(c / 100)) * 100     // c- c%100
     }
     if (c < 0) {
       console.log(-i)
@@ -958,6 +989,7 @@
       console.log(i)
       console.log('' + c + b + a)
       console.log('' + f + e + d)
+      break
     }
   }
 
@@ -1195,7 +1227,7 @@
     }
   }
 
-   
+
 
 
 </script>
