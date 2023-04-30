@@ -1369,3 +1369,67 @@
   }
 
 </script>
+
+<script id="narcissistics">
+  var i = prompt('') * 1, a = 0, b = 0, c = 0
+  g = i % 10
+  s = Math.floor(i / 10) % 10
+  b = Math.floor(i / 100) % 10
+  if (g ** 3 + s ** 3 + b ** 3 == i) {
+    console.log('YES')
+  }
+  else {
+    console.log('NO')
+  }
+
+
+</script>
+
+<script id="narcissistics">
+  var g = 0, s = 0, b = 0, q = 0, w = 0
+  for (i = 99; i <= 10000; i++) {
+    g = i % 10
+    s = Math.floor(i / 10) % 10
+    b = Math.floor(i / 100) % 10
+    q = Math.floor(i / 1000) % 10
+    w = Math.floor(i / 10000) % 10
+    if (g ** 3 + s ** 3 + b ** 3 + q ** 3 + w ** 3 == i) {
+      console.log(i)
+    }
+  }
+
+
+
+
+</script>
+
+
+
+<script id="palindrom">
+  debugger
+  var x = prompt("请输入一个整数：") * 1
+  if (x < 0 || x % 10 == 0 && x != 0) {
+    console.log("NO")
+  }
+
+
+  else {
+    var hou = 0
+    for (hou = 0; hou < x;) {
+      hou = hou * 10 + x % 10
+      x = Math.floor(x / 10)
+
+    }
+    if (x == hou || x == Math.floor(hou / 10)) {
+      console.log('YES')
+    }
+
+    else {
+      console.log("NO")
+    }
+
+  }
+
+
+
+</script>
