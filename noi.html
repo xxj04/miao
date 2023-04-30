@@ -1260,32 +1260,43 @@
 <script id="ch0105/42">
   debugger
   var x = prompt('') * 1, y = prompt('') * 1, n = prompt(''), m = prompt('') * 1, c = ''
-  for (var i = 1; i <= x; i++) {
 
-    if (m == 1) {
+
+  if (m == 1) {
+    for (var i = 1; i <= x; i++) {
       for (var j = 1; j <= y; j++) {
         c += n
       }
+      c += '\n'
     }
+  }
 
-    if (m == 0 && (i == 1 || i == x)) {
-      for (var j = 1; j <= y; j++) {
-        c += n
-      }
-    }
-    else {
-      for (var j = 1; j <= y; j++) {
-        if (j == y || j == 1) {
+
+  if (m == 0) {
+    for (var i = 1; i <= x; i++) {
+      if (i == 1 || i == x) {
+        for (var j = 1; j <= y; j++) {
           c += n
         }
-        else {
-          console.log('')
+
+      }
+
+      else {
+        for (var j = 1; j <= y; j++) {
+          if (j == y || j == 1) {
+            c += n
+          }
+          else {
+            c += '\u0020'
+          }
         }
       }
+      c += '\n'
     }
-
-    c += '\n'
   }
+
+
+
   console.log(c)
 </script>
 
