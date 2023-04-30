@@ -68,111 +68,84 @@
   var a = 42, b = 42
   console.log(dot(a, b, 'red'))
 
-  var b = 5
-  for (var a = 0; a <= 200; a++) {
-    console.log(dot(a, b, 'red'))
-  }
-
-  var b = 10
+  var b1 = 5, b2 = 10, b3 = 15
   for (var a = 0; a <= 300; a++) {
-    console.log(dot(a, b, 'yellow'))
-  }
-
-  var b = 15
-  for (var a = 0; a <= 300; a += 1) {
+    console.log(dot(a, b1, 'red'))
+    console.log(dot(a, b2, 'yellow'))
     if (a % 2 == 0) {
-      console.log(dot(a, b, 'yellow'))
+      console.log(dot(a, b3, 'yellow'))
     }
   }
 
 
+
   var b = 20
-  for (var a = 0; a <= 300; a += 4) {
+  for (var a = 0, a1 = 1; a <= 300, a1 < 300; a += 4, a1 += 4) {
     console.log(dot(a, b, 'tan'))
-  }
-  for (var a = 1; a < 300; a += 4) {
-    console.log(dot(a, b, 'tan'))
+    console.log(dot(a1, b, 'tan'))
   }
 
-
-  var b = 25
-  for (var a = 0; a <= 300; a += 4) {
-    console.log(dot(a, b, 'tan'))
-  }
-  for (var a = 1; a < 300; a += 4) {
-    console.log(dot(a, b, 'tan'))
-  }
 
   var b = 30
-  for (var a = 0; a <= 300; a += 5) {
+  for (var a = 0, a1 = 1, a2 = 2; a <= 300, a1 < 300, a2 < 300; a += 5, a1 += 5, a2 += 5) {
     console.log(dot(a, b, 'tan'))
-  }
-  for (var a = 1; a < 300; a += 5) {
-    console.log(dot(a, b, 'tan'))
-  }
-  for (var a = 1; a < 300; a += 5) {
-    console.log(dot(a, b, 'tan'))
+    console.log(dot(a1, b, 'tan'))
+    console.log(dot(a2, b, 'tan'))
   }
 
-  var y = 0
+
+
+
+  var y = 0, y1 = 0, y2 = 0
   for (var x = 0; x <= 100; x++) {
+    // 45度
     y = x
     console.log(dot(x, y, 'black'))
-  }
+    // 30度
+    y1 = 1 / 2 * x
+    console.log(dot(x, y1, 'rgb(255,44,44)'))
+    // 60度
+    y2 = Math.sqrt(3) * x
+    console.log(dot(x, y2, 'rbg(233,55,11)'))
 
-  var y = 0
-  for (var x = 0; x <= 100; x++) {
-    y = 1 / 2 * x
-    console.log(dot(x, y, 'rgb(255,44,44)'))
-  }
-
-  var y = 0
-  for (var x = 0; x <= 100; x++) {
-    y = Math.sqrt(3) * x
-    console.log(dot(x, y, 'rbg(233,55,11)'))
   }
 
 
-  var y = 0
+  var y3 = 0
   for (var x = 0; x <= 1200; x++) {
-    y = 4 / 5 * x
-    console.log(dot(x, y, 'rgb(33,144,144)'))
+    // 对角线
+
+    y3 = 4 / 5 * x
+    console.log(dot(x, y3, 'rgb(33,144,144)'))
   }
 
   var x1 = 200, x2 = 250
   for (i = 200; i <= 250; i++) {
-
+    // 正方形四条边
     console.log(dot(x1, i, 'rgb(222,104,144)'))
     console.log(dot(x2, i, 'rgb(222,104,144)'))
     console.log(dot(i, x1, 'rgb(222,104,144)'))
     console.log(dot(i, x2, 'rgb(222,104,144)'))
-  }
-
-
-
-  var a = 300, b = 350, d = 0
-  for (x = 300; x <= 350; x++) {
-    for (i = 300; i <= 350; i++) {
-      console.log(dot(x, i, 'rbg(100,100,100)'))
+    for (var j = 300; j <= 350; j++) {
+      // 实体正方形
+      console.log(dot(i, j, 'rbg(100,100,100)'))
     }
   }
-
-
 
 
 
 
 
   var y = 0, x = 0, r = 50
-  for (x = -50; x <= r; x++) {
+  for (var x = -50; x <= r; x++) {
     y = Math.sqrt(r ** 2 - x ** 2)
     console.log(dot(x + 100, y + 250, 'rbg(100,100,100)'))
     console.log(dot(-x + 100, -y + 250, 'rbg(100,100,100)'))
   }
 
 
-  var y = 0, x = 0, r = 200
-  for (x = -200; x <= r; x++) {
+  var y = 0, r = 200
+  for (var x = -200; x <= r; x++) {
     y = Math.sqrt(r ** 2 - x ** 2)
     console.log(dot(x + 250, y + 250, 'rbg(100,100,100)'))
     console.log(dot(-x + 250, -y + 250, 'rbg(100,100,100)'))
@@ -192,7 +165,7 @@
 
 
   var x = 0, y = 0
-  for (x = 0; x <= 70; x += 0.1) {
+  for (x = 0; x <= 40; x += 0.3) {
     y = Math.sin(x)
     console.log(dot(x * 10 - 10, (y * 10) + 400, 'rgb(33,33,222)'))
   }
@@ -200,43 +173,29 @@
 
 
 
-  var c = 0
+  var a = 2, b = 0, g = 0, h = 2, c = 0, e = 0, d = 0, a1 = 1, b1 = 0.27, g1 = 0.27, h1 = 1, e1 = 0, d1 = 0, a2 = 0.5, b2 = 0.87, g2 = -0.87, h2 = 0.5, e2 = 0, d2 = 0
   for (x = 1; x <= 255; x++) {
     for (y = 1; y <= 255; y++) {
       c = '' + ' rgb(' + x + "," + 255 + "," + y + ')'
+      c1 = '' + ' rgb(' + 255 + "," + x + "," + y + ')'
+      c2 = '' + ' rgb(' + x + "," + y + "," + 255 + ')'
+      d = a * x + b * y
+      e = g * x + h * y
+      d1 = a1 * x + b1 * y
+      e1 = g1 * x + h1 * y
+      d2 = a2 * x + b2 * y
+      e2 = g2 * x + h2 * y
+      console.log(dot(d2 + 500, e2 + 700, c2))
+      console.log(dot(d1, e1 + 500, c1))
+      console.log(dot(d + 700, e, c))
       console.log(dot(x + 700, y, c))
     }
   }
 
-  var a = 2, b = 0, g = 0, h = 2, c = 0, e = 0, d = 0
-  for (x = 1; x <= 255; x++) {
-    for (y = 1; y <= 255; y++) {
-      c = '' + ' rgb(' + x + "," + 255 + "," + y + ')'
-      d = a * x + b * y
-      e = g * x + h * y
-      console.log(dot(d + 700, e, c))
-    }
-  }
 
-  var a = 1, b = 0.27, g = 0.27, h = 1, c = 0, e = 0, d = 0
-  for (x = 1; x <= 255; x++) {
-    for (y = 1; y <= 255; y++) {
-      c = '' + ' rgb(' + x + "," + 255 + "," + y + ')'
-      d = a * x + b * y
-      e = g * x + h * y
-      console.log(dot(d, e + 500, c))
-    }
-  }
 
-  var a = 0.5, b = 0.87, g = -0.87, h = 0.5, c = 0, e = 0, d = 0
-  for (x = 1; x <= 255; x++) {
-    for (y = 1; y <= 255; y++) {
-      c = '' + ' rgb(' + x + "," + 255 + "," + y + ')'
-      d = a * x + b * y
-      e = g * x + h * y
-      console.log(dot(d + 500, e + 700, c))
-    }
-  }
+
+
 
 
 </script>
