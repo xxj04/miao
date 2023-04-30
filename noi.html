@@ -1433,3 +1433,71 @@
 
 
 </script>
+
+
+<script id="weekday">
+
+  var w = 0, y = prompt('') * 1, m = prompt("") * 1, c = Math.floor(y / 100), d = 1, y1 = 0
+  y1 = y % 100
+
+  if (m == 1 || m == 2) {
+    m = 12 + m
+  }
+
+  if (y >= 1583) {
+    w = ((c / 4) - 2 * c + y1 + (y1 / 4) + (13 * (m + 1) / 5)) % 7
+    console.log(Math.floor(w))
+  }
+
+  if (y < 1583) {
+    w = y + (y1 / 4) + (c / 4) - 2 * c + (13 * (m + 1) / 5) + d + 2
+    console.log(Math.floor(w))
+  }
+
+</script>
+
+
+<script id="complete-number">
+  n = prompt('') * 1, a = 1
+  for (i = 2; i < n; i++) {
+    if (n % i == 0) {
+      a += i
+    }
+
+  }
+  if (a == n) {
+    console.log('YES')
+  }
+  else {
+    console.log('NO')
+  }
+</script>
+
+
+<script id="complete-numbers">
+  var a = 1
+  for (var i = 5; i <= 1000; i++) {
+    for (var j = 2; j < i; j++) {
+      if (i % j == 0) {
+        a += j
+      }
+      if (a == i) {
+        console.log(i)
+        break
+      }
+    }
+
+    var a = 1
+
+  }
+
+
+</script>
+
+
+
+<script id="">
+
+
+
+</script>
