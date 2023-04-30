@@ -1279,7 +1279,7 @@
           c += n
         }
         else {
-          c += '\u0020'
+          console.log('')
         }
       }
     }
@@ -1327,6 +1327,29 @@
       break
     }
 
+  }
+
+</script>
+
+
+<script>
+  debugger
+  var n = prompt('') * 1, a = 0, b = 1, d = 0, e = 0
+
+
+  for (i = 1; ; i++) {
+    a += i * i
+    d += i
+    e = n - d
+    if (e == 0) {
+      console.log(a)
+      break
+    }
+    else if (e < 0) {
+      a += (i + e) * i - i * i
+      console.log(a)
+      break
+    }
   }
 
 </script>
