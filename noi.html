@@ -1263,19 +1263,19 @@
 
 
   if (m == 1) {
-    for (var i = 1; i <= x; i++) {
-      for (var j = 1; j <= y; j++) {
+    for (let i = 1; i <= x; i++) {
+      for (let j = 1; j <= y; j++) {
         c += n
       }
-      c += '\n'
-
+      console.log(c)
+      c = ''
     }
-    console.log(c)
+
   }
 
 
   if (m == 0) {
-    for (var i = 1; i <= x; i++) {
+    for (let i = 1; i <= x; i++) {
       if (i == 1 || i == x) {
         for (var j = 1; j <= y; j++) {
           c += n
@@ -1284,7 +1284,7 @@
       }
 
       else {
-        for (var j = 1; j <= y; j++) {
+        for (let j = 1; j <= y; j++) {
           if (j == y || j == 1) {
             c += n
           }
@@ -1292,11 +1292,12 @@
             c += '\u0020'
           }
         }
-      }
-      c += '\n'
 
+      }
+      console.log(c)
+      let c = ''
     }
-    console.log(c)
+
   }
 
 
