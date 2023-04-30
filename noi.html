@@ -891,17 +891,17 @@
 
 
 <script id="ch0105/21">
-
+  debugger
   var a = prompt('输入一个数'), x = 1
-  while (a != 1) {
+  while (a != 0) {
 
-    if (a == 2) {
+    if (a == 1) {
       console.log('End')
       break
     }
     if (a % 2 == 0) {
       a /= 2
-      console.log(a + '/' + '2' + '=' + (a / 2))
+      console.log(2 * a + '/' + '2' + '=' + a)
     }
     else {
       a = a * 3 + 1
@@ -1121,7 +1121,7 @@
       d += x3 / y3
     }
   }
-  console.log(d)
+  console.log(d.toFixed(4))
 
 
 
@@ -1186,7 +1186,7 @@
   for (var i = 0; i <= n; i++) {
     a += x ** (n - i)
   }
-  console.log(a)
+  console.log(a.toFixed(2))
 
 </script>
 
@@ -1293,7 +1293,7 @@
 <script id="ch0105/43">
   debugger
   n = prompt('') * 1, a = 0, b = 0
-  for (let i = 6; i <= n; i++) {
+  for (let i = 2; i <= n; i++) {
 
     if (n % i == 0) {
       a = n / i
