@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <canvas width="1200" height="960"></canvas>
+  <canvas width="1200" height="650"></canvas>
 </body>
 <script>
   var canvas = document.querySelector('canvas')
@@ -114,10 +114,13 @@
   var y3 = 0
   for (var x = 0; x <= 1200; x++) {
     // 对角线
-
-    y3 = 4 / 5 * x
+    y3 = 13 / 24 * x
     console.log(dot(x, y3, 'rgb(33,144,144)'))
   }
+
+
+
+
 
   var x1 = 200, x2 = 250
   for (i = 200; i <= 250; i++) {
@@ -175,7 +178,8 @@
 
   var a = 2, b = 0, g = 0, h = 2, c = 0, e = 0, d = 0,
     a1 = 1, b1 = 0.27, g1 = 0.27, h1 = 1, e1 = 0, d1 = 0,
-    a2 = 0.5, b2 = 0.87, g2 = -0.87, h2 = 0.5, e2 = 0, d2 = 0
+    a2 = 0.5, b2 = 0.87, g2 = -0.87, h2 = 0.5, e2 = 0, d2 = 0,
+    xx = 500, yy = 700
   for (x = 1; x <= 127; x++) {
     for (y = 1; y <= 127; y++) {
       c = '' + ' rgb(' + 2 * x + "," + 255 + "," + 2 * y + ')'
@@ -189,12 +193,12 @@
       d2 = a2 * x + b2 * y
       e2 = g2 * x + h2 * y
       // 旋转
-      console.log(dot(d2 + 500, e2 + 700, c2))
-      console.log(dot(d1, e1 + 500, c1))
+      console.log(dot(d2 + 950, e2 + 200, c2))
+      console.log(dot(d1 + 900, e1 + 273, c1))
       // 放大
-      console.log(dot(d + 700, e, c))
+      console.log(dot(d + yy, e, c))
       // 正
-      console.log(dot(x + 700, y, c))
+      console.log(dot(x + yy, y, c))
     }
   }
 
