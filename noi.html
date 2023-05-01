@@ -1488,6 +1488,10 @@
     if (a == i) {
       console.log(i)
     }
+    if (a > i) {
+      var a = 1
+      continue
+    }
     else {
       var a = 1
     }
@@ -1499,14 +1503,22 @@
 
 
 <script id="prime">
+  debugger
   var n = prompt('') * 1, a = ''
+  if (n == 1) {
+    console.log('NO')
+  }
+  if (n == 2 || n == 3 || n == 5 || n == 7) {
+    console.log('NO')
+  }
   for (i = 2; i <= n / 2; i++) {
+
     if (n % i == 0) {
-      a = 'YES'
+      a = 'NO'
 
     }
     else {
-      a = 'NO'
+      a = 'YES'
     }
   }
   console.log(a)
