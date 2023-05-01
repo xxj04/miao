@@ -1475,25 +1475,42 @@
 
 
 <script id="complete-numbers">
+  debugger
   var a = 1
-  for (var i = 2; i <= 1000; i++) {
-    for (var j = 2; j <= i / 2; j++) {
+  for (var i = 3; i <= 1000; i++) {
+    for (var j = 2; j < i; j++) {
       if (i % j == 0) {
         a += j
       }
-      if (a == i) {
-        console.log(i)
-        break
-      }
-    }
 
-    var a = 1
+
+    }
+    if (a == i) {
+      console.log(i)
+    }
+    else {
+      var a = 1
+    }
 
   }
 
 
 </script>
 
+
+<script id="primes">
+  var n = prompt('') * 1, a = ''
+  for (i = 2; i <= n / 2; i++) {
+    if (n % i == 0) {
+      a = 'YES'
+
+    }
+    else {
+      a = 'NO'
+    }
+  }
+  console.log(a)
+</script>
 
 
 <script id="primes">
