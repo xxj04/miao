@@ -1476,8 +1476,8 @@
 
 <script id="complete-numbers">
   var a = 1
-  for (var i = 5; i <= 1000; i++) {
-    for (var j = 2; j < i; j++) {
+  for (var i = 2; i <= 1000; i++) {
+    for (var j = 2; j <= i / 2; j++) {
       if (i % j == 0) {
         a += j
       }
@@ -1496,8 +1496,110 @@
 
 
 
-<script id="">
+<script id="primes">
+  debugger
+  var a = 0
+  for (var i = 2; i <= 100; i++) {
+    if (i == 2 || i == 3) {
+      console.log(i)
+    }
+    for (var j = 2; j < i / 2; j++) {
+      if (i % j == 0) {
+        a = 0
+        break
+      }
+      else {
+        a = 1
+      }
+    }
+    if (a == 1) {
+      console.log(i)
+    }
+  }
 
+
+</script>
+
+
+<script>
+  var n = 'hello'
+  var m = n.join()
+  console.log(m)
+
+
+</script>
+
+
+<script id="lcf&lcm">
+  debugger
+  var n = prompt('') * 1, m = prompt('') * 1, dg = 0, c = 0, xb = 0
+  if (n >= m && n % m == 0) {
+    dg = m
+    xb = n
+  }
+  if (n >= m && n % m != 0) {
+    dg = m
+    for (i = 1; i <= m; i++) {
+
+      dg -= 1
+      if (n % dg == 0 && m % dg == 0) {
+        break
+      }
+    }
+  }
+  if (n >= m && n % m != 0) {
+    xb = n
+    for (; ;) {
+      xb += 1
+      if (xb % n == 0 && xb % m == 0) {
+        break
+      }
+    }
+  }
+
+
+  if (m >= n && m % n == 0) {
+    dg = n
+    xb = m
+  }
+  if (m >= n && m % n != 0) {
+    dg = n
+    for (i = 1; i <= n; i++) {
+      dg -= 1
+      if (m % dg == 0 && n % dg == 0) {
+        break
+      }
+    }
+  }
+  if (m >= n && m % n != 0) {
+    xb = m
+    for (; ;) {
+      xb += 1
+      if (xb % n == 0 && xb % m == 0) {
+        break
+      }
+    }
+  }
+  console.log(dg)
+  console.log(xb)
+</script>
+
+
+
+<script id="sqrt">
+  var n = prompt('') * 1, x = 0, b = 0
+  for (var i = 0; ; i += 1) {
+    if (i ** 2 >= n) {
+      b = i - 1
+      break
+    }
+  }
+  for (b; b < b + 1; b += 0.001) {
+    if ((n / b).toFixed(3) == b.toFixed(3)) {
+      console.log(b.toFixed(3))
+      break
+    }
+  }
 
 
 </script>
