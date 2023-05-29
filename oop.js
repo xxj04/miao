@@ -1,101 +1,3 @@
-class Mymap {
-
-
-  constructor() {
-    this.length = 0
-    this.keys = []
-    this.vals = []
-  }
-
-  set(key, val) {
-    if (this.keys.includes(key)) {
-      return
-    }
-    else {
-      this.keys.push(key)
-      this.vals.push(val)
-      this.length++
-      return this
-    }
-
-
-  }
-  get(key) {
-    if (this.has(key)) {
-      var a = this.keys.indexOf(key)
-      return this.vals[a]
-    }
-
-  }
-  has(key) {
-    if (this.keys.includes(key)) {
-      return true
-    }
-    return false
-
-  }
-  delete(key) {
-    if (this.has(key)) {
-      var a = this.keys.indexOf(key)
-      this.keys.splice(a, 1)
-      this.vals.splice(a, 1)
-      this.length--
-      return true
-    }
-    return false
-  }
-  get size() {
-    return this.length
-
-  }
-
-
-}
-
-
-class Myset {
-
-  constructor() {
-    this.arr = []
-    this.len = 0
-
-  }
-  add(key) {
-    if (this.has(key)) {
-      return
-    }
-    else {
-      this.arr.push(key)
-      a.len++
-      return this
-    }
-  }
-  remove(key) {
-
-    if (this.has(key)) {
-      var a = this.arr.indexOf(key)
-      this.arr.splice(a, 1)
-      a.len--
-      return this
-    }
-
-  }
-  has(key) {
-    if (this.arr.includes(key)) {
-      return true
-    }
-    return false
-  }
-  delete(key) {
-    this.arr = []
-  }
-
-  get size() {
-    return this.len
-  }
-
-}
-
 
 class Vector {
 
@@ -290,18 +192,116 @@ class LinkedList {
       }
     }
     else if (idx < 0 && this.len >= -idx) {
-      var b = idx + this.len
+      var b = idx + this.len + 1
       while (p) {
-        if (b == idx) {
+        if (b == a) {
           return p.val
         }
         p = p.next
-        b += 1
+        a += 1
       }
     }
     return
   }
   get length() {
+    return this.len
+  }
+
+}
+
+class Mymap {
+
+
+  constructor() {
+    this.length = 0
+    this.keys = []
+    this.vals = []
+  }
+
+  set(key, val) {
+    if (this.keys.includes(key)) {
+      return
+    }
+    else {
+      this.keys.push(key)
+      this.vals.push(val)
+      this.length++
+      return this
+    }
+
+
+  }
+  get(key) {
+    if (this.has(key)) {
+      var a = this.keys.indexOf(key)
+      return this.vals[a]
+    }
+
+  }
+  has(key) {
+    if (this.keys.includes(key)) {
+      return true
+    }
+    return false
+
+  }
+  delete(key) {
+    if (this.has(key)) {
+      var a = this.keys.indexOf(key)
+      this.keys.splice(a, 1)
+      this.vals.splice(a, 1)
+      this.length--
+      return true
+    }
+    return false
+  }
+  get size() {
+    return this.length
+
+  }
+
+
+}
+
+
+class Myset {
+
+  constructor() {
+    this.arr = []
+    this.len = 0
+
+  }
+  add(key) {
+    if (this.has(key)) {
+      return
+    }
+    else {
+      this.arr.push(key)
+      a.len++
+      return this
+    }
+  }
+  remove(key) {
+
+    if (this.has(key)) {
+      var a = this.arr.indexOf(key)
+      this.arr.splice(a, 1)
+      a.len--
+      return this
+    }
+
+  }
+  has(key) {
+    if (this.arr.includes(key)) {
+      return true
+    }
+    return false
+  }
+  delete(key) {
+    this.arr = []
+  }
+
+  get size() {
     return this.len
   }
 
