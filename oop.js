@@ -205,7 +205,9 @@ class MyMap {
 
   set(key, val) {
     if (this.keys.includes(key)) {
-      return
+      var a = this.keys.indexOf(key)
+      this.vals[a] = val
+      return this
     }
     else {
       this.keys.push(key)
