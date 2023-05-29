@@ -203,7 +203,7 @@ class LinkedList {
     }
     return
   }
-  get length() {
+  get size() {
     return this.len
   }
 
@@ -277,16 +277,16 @@ class MySet {
     }
     else {
       this.arr.push(key)
-      a.len++
+      this.len++
       return this
     }
   }
-  remove(key) {
+  delete(key) {
 
     if (this.has(key)) {
       var a = this.arr.indexOf(key)
       this.arr.splice(a, 1)
-      a.len--
+      this.len--
       return this
     }
 
@@ -297,9 +297,7 @@ class MySet {
     }
     return false
   }
-  delete(key) {
-    this.arr = []
-  }
+
 
   get size() {
     return this.len
