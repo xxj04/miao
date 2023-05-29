@@ -5,16 +5,19 @@ class Vector {
     this.x = x
     this.y = y
 
+
   }
   plus(vector) {
+
     var x1 = this.x + vector.x
-    var x2 = this.y + vector.y
-    return new vector(x1, x2)
+    var y1 = this.y + vector.y
+
+    return new vector.constructor(x1, y1)
   }
   minus(vector) {
     var x1 = this.x - vector.x
-    var x2 = this.y - vector.y
-    return new vector(x1, x2)
+    var y1 = this.y - vector.y
+    return new vector.constructor(x1, y1)
   }
   get length() {
     return Math.sqrt(this.x ** 2 + this.y ** 2)
