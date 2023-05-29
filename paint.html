@@ -22,8 +22,8 @@
   var ctx = canvas.getContext('2d')
 
   function dot(x, y, color = 'black') {
-    x = Math.trunc(x)
-    y = Math.trunc(y)
+    x = Math.round(x)
+    y = Math.round(y)
     ctx.fillStyle = color
     ctx.fillRect(x, y, 1, 1)
   }
@@ -97,7 +97,7 @@
 
 
   var y = 0, y1 = 0, y2 = 0
-  for (var x = 0; x <= 100; x++) {
+  for (var x = 0; x <= 100; x += 0.5) {
     // 45度
     y = x
     console.log(dot(x, y, 'black'))
@@ -105,10 +105,27 @@
     y1 = 1 / 2 * x
     console.log(dot(x, y1, 'rgb(255,44,44)'))
     // 60度
-    y2 = Math.sqrt(3) * x
+    y = Math.sqrt(3) * x
     console.log(dot(x, y2, 'rbg(233,55,11)'))
 
+
   }
+
+  function lin(x1, y1, x2, y2) {
+    var dx = x1 - x2
+    var dy = y1 - y2
+    var s = dy / dx
+    var y = y1
+    for (x = x1; i <= x2; i++) {
+      dot(x, y)
+      y += s
+    }
+
+
+  }
+
+
+
 
 
   var y3 = 0
@@ -140,8 +157,13 @@
 
 
   var y = 0, x = 0, r = 50
-  for (var x = -50; x <= r; x++) {
+  for (var x = -50 * 0.7; x <= r; x += 1) {
     y = Math.sqrt(r ** 2 - x ** 2)
+    console.log(dot(x + 100, y + 250, 'rbg(100,100,100)'))
+    console.log(dot(-x + 100, -y + 250, 'rbg(100,100,100)'))
+  }
+  for (var y = -50 * 0.7; y <= r; y += 1) {
+    x = Math.sqrt(r ** 2 - y ** 2)
     console.log(dot(x + 100, y + 250, 'rbg(100,100,100)'))
     console.log(dot(-x + 100, -y + 250, 'rbg(100,100,100)'))
   }
@@ -153,6 +175,7 @@
     console.log(dot(x + 250, y + 250, 'rbg(100,100,100)'))
     console.log(dot(-x + 250, -y + 250, 'rbg(100,100,100)'))
   }
+
 
 
 
@@ -168,35 +191,41 @@
 
 
   var x = 0, y = 0
-  for (x = 0; x <= 40; x += 0.3) {
-    y = Math.sin(x)
-    console.log(dot(x * 10 - 10, (y * 10) + 400, 'rgb(33,33,222)'))
+  for (x = 0; x <= 300; x += 1) {
+    y = Math.sin(x / 10) * 10
+    console.log(dot(x, y + 400, 'rgb(33,33,222)'))
   }
 
 
 
 
-  var a = 2, b = 0, g = 0, h = 2, c = 0, e = 0, d = 0,
-    a1 = 1, b1 = 0.27, g1 = 0.27, h1 = 1, e1 = 0, d1 = 0,
-    a2 = 0.5, b2 = 0.87, g2 = -0.87, h2 = 0.5, e2 = 0, d2 = 0,
-    xx = 500, yy = 700
-  for (x = 1; x <= 127; x++) {
-    for (y = 1; y <= 127; y++) {
+  function 矩阵(x, y, a, b) {
+    d = a * x + b * y
+    return d
+  }
+
+
+
+  var xx = 500, yy = 700
+  for (var x = 1; x <= 127; x++) {
+    for (var y = 1; y <= 127; y++) {
       c = '' + ' rgb(' + 2 * x + "," + 255 + "," + 2 * y + ')'
       c1 = '' + ' rgb(' + 255 + "," + 2 * x + "," + 2 * y + ')'
       c2 = '' + ' rgb(' + 2 * x + "," + 2 * y + "," + 255 + ')'
 
-      d = a * x + b * y
-      e = g * x + h * y
-      d1 = a1 * x + b1 * y
-      e1 = g1 * x + h1 * y
-      d2 = a2 * x + b2 * y
-      e2 = g2 * x + h2 * y
+      矩阵1 = 矩阵(x, y, 2, 0)
+      矩阵2 = 矩阵(x, y, 0, 2)
+      矩阵3 = 矩阵(x, y, 1, 0.27)
+      矩阵4 = 矩阵(x, y, 0.27, 1)
+      矩阵5 = 矩阵(x, y, 0.5, 0.87)
+      矩阵6 = 矩阵(x, y, -0.87, 0.5)
+      
+
       // 旋转
-      console.log(dot(d2, e2 + xx, c2))
-      console.log(dot(d1 + xx, e1, c1))
+      console.log(dot(矩阵5, 矩阵6 + 550, c2))
+      console.log(dot(矩阵3 + xx, 矩阵4, c1))
       // 放大
-      console.log(dot(d + yy, e, c))
+      console.log(dot(矩阵1 + yy, 矩阵2, c))
       // 正
       console.log(dot(x + yy, y, c))
     }
