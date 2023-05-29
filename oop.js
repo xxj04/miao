@@ -27,35 +27,32 @@ class Vector {
 
 class Complex {
 
-  constructor(x, y) {
-    this.x = x
-    this.y = y
+  constructor(real, imag) {
+    this.real = real
+    this.imag = imag
   }
   plus(a) {
-    var x1 = this.x + a.x
-    var y1 = this.y + a.y
+    var x1 = this.real + a.real
+    var y1 = this.imag + a.imag
     return new Complex(x1, y1)
   }
   minus(a) {
-    var x1 = this.x - a.x
-    var y1 = this.y - a.y
+    var x1 = this.real - a.real
+    var y1 = this.imag - a.imag
     return new Complex(x1, y1)
   }
   mul(a) {
-    var x1 = this.x * a.x - this.y * a.y
-    var y1 = this.x * a.y - this.y * a.x
+    var x1 = this.real * a.real - this.imag * a.imag
+    var y1 = this.real * a.imag + this.imag * a.real
     return new Complex(x1, y1)
   }
   div(a) {
-    var b = new Complex(c.x, -c.y)
-    var c = this.mul(b)
-    var d = a.mul(b)
-    var x1 = c.x / d.x
-    var y1 = c.y / d.x
-    return new Complex(x1, y1)
-
-
-
+    var h = new Complex(a.real, -a.imag)
+    var u = this.mul(h)
+    var d = a.mul(h)
+    var x = u.real / d.real
+    var y = u.imag / d.real
+    return new Complex(x, y)
 
   }
 
