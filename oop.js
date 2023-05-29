@@ -45,9 +45,9 @@ class Complex {
   div(a) {
     var b = new Complex(c.x, -c.y)
     var c = this.mul(b)
-    var d = a.mul(b) // down的虚部应该是0
-    var x1 = up.real / down.real
-    var x2 = up.imag / down.real
+    var d = a.mul(b)
+    var x1 = up.x / down.x
+    var y1 = up.y / down.x
     return new Complex(x1, y1)
   }
 
@@ -180,28 +180,13 @@ class LinkedList {
   }
   // 返回链表第idx个元素
   at(idx) {
-    var a = 1
+    var a = 0
     var p = this.head
-    if (idx <= this.len && idx >= 0) {
-      while (p) {
-        if (a == idx) {
-          return p.val
-        }
-        p = p.next
-        a += 1
-      }
+    while (a < idx) {
+      p = p.next
+      a++
     }
-    else if (idx < 0 && this.len >= -idx) {
-      var b = idx + this.len + 1
-      while (p) {
-        if (b == a) {
-          return p.val
-        }
-        p = p.next
-        a += 1
-      }
-    }
-    return
+    return p.val
   }
   get size() {
     return this.len
