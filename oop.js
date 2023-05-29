@@ -209,7 +209,7 @@ class LinkedList {
 
 }
 
-class Mymap {
+class MyMap {
 
 
   constructor() {
@@ -264,7 +264,7 @@ class Mymap {
 }
 
 
-class Myset {
+class MySet {
 
   constructor() {
     this.arr = []
