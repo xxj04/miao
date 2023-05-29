@@ -4,16 +4,17 @@ class Vector {
   constructor(x, y) {
     this.x = x
     this.y = y
+
   }
-  plus(Vector) {
-    var x1 = this.x + Vector.x
-    var x2 = this.y + Vector.y
-    return new Vector(x1, x2)
+  plus(vector) {
+    var x1 = this.x + vector.x
+    var x2 = this.y + vector.y
+    return new vector(x1, x2)
   }
-  minus(Vector) {
-    var x1 = this.x - Vector.x
-    var x2 = this.y - Vector.y
-    return new Vector(x1, x2)
+  minus(vector) {
+    var x1 = this.x - vector.x
+    var x2 = this.y - vector.y
+    return new vector(x1, x2)
   }
   get length() {
     return Math.sqrt(this.x ** 2 + this.y ** 2)
@@ -46,9 +47,13 @@ class Complex {
     var b = new Complex(c.x, -c.y)
     var c = this.mul(b)
     var d = a.mul(b)
-    var x1 = up.x / down.x
-    var y1 = up.y / down.x
+    var x1 = c.x / d.x
+    var y1 = c.y / d.x
     return new Complex(x1, y1)
+
+
+
+
   }
 
 
