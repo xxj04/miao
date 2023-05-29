@@ -278,11 +278,31 @@ class LinkedList {
   }
   // 返回链表第idx个元素
   at(idx) {
-    var a = 0
-    while (this.head) {
-      if (a == idx)
+    var a = 1
+    var p = this.head
+    if (idx <= this.len && idx >= 0) {
+      while (p) {
+        if (a == idx) {
+          return p.val
+        }
+        p = p.next
+        a += 1
+      }
     }
+    else if (idx < 0 && this.len >= -idx) {
+      var b = idx + this.len
+      while (p) {
+        if (b == idx) {
+          return p.val
+        }
+        p = p.next
+        b += 1
+      }
+    }
+    return
   }
-  get length() { }
+  get length() {
+    return this.len
+  }
 
 }
