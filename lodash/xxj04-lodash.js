@@ -300,7 +300,7 @@ var xxj04 = {
         return i
       }
     }
-    return i
+    return -1
   }
   ,
 
@@ -337,10 +337,10 @@ var xxj04 = {
     values.forEach((it) => {
       array.forEach((item, i) => {
         if (typeof (iteratee) == 'function' && iteratee(it) == iteratee(item)) {
-          array.spice(i, 1)
+          array.splice(i, 1)
         }
         if (it[iteratee] == item[iteratee]) {
-          array.spice(i, 1)
+          array.splice(i, 1)
         }
       })
     })
