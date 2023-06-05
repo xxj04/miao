@@ -201,11 +201,7 @@ var xxj04 = {
   ,
   indexOf: function (array, value, fromIndex = 0) {
     if (fromIndex < 0) {
-      for (var i = array.length; 0 <= i; i--) {
-        if (array[i] == value) {
-          return i
-        }
-      }
+      fromIndex = fromIndex + array.length
     }
 
     for (var i = fromIndex; i < array.length; i++) {
@@ -241,7 +237,7 @@ var xxj04 = {
     var b = new Set
     arr.forEach((it) => {
       b.add(...(arrays).filter((item) => {
-        if (iteratee(item) == iteratee(it)) {
+        if (typeof (iterat) == 'functioan' && iteratee(item) == iteratee(it)) {
           return iteratee(it)
         }
         if (it[iteratee] != null && it[iteratee] == item[iteratee]) {
@@ -269,10 +265,10 @@ var xxj04 = {
 
 
   ,
-  join: function (array, separator = ',') {
+  join: function (array, a = ',') {
     var b = ''
     array.forEach((it) => {
-      b += it + separator
+      b += it + a
     })
     return b.slice(0, b.length - 1)
 
