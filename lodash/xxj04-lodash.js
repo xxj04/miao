@@ -135,7 +135,7 @@ var xxj04 = {
     return -1
   }
   ,
-  findLastIndex: function (array, [predicate = _.identity], [fromIndex = array.length - 1]) {
+  findLastIndex: function (array, predicate = _.identity, [fromIndex = array.length - 1]) {
     for (var i = array.length - 1; 0 <= i; i--) {
       if (array[i] == predicate(fromIndex)) {
         return i
