@@ -437,7 +437,7 @@ var xxj04 = {
         return mid
       }
     }
-    return right
+    return right + 1
 
   }
   ,
