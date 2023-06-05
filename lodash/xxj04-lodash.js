@@ -162,14 +162,15 @@ var xxj04 = {
     var a = []
     array.forEach((it) => {
       if (Array.isArray(it)) {
-        a = a.concat(flattenDeep(it))
+        a = a.concat(xxj04.flattenDeep(it))
       }
       else {
         a.push(it)
       }
-      return a
 
     })
+    return a
+
   }
   ,
 
@@ -184,7 +185,7 @@ var xxj04 = {
 
       if (Array.isArray(array[i])) {
         depth--
-        a = a.concat(flattenDepth(array[i], depth))
+        a = a.concat(xxj04.flattenDepth(array[i], depth))
       }
       else {
         a.push(array[i])
