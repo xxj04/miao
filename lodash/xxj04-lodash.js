@@ -237,7 +237,7 @@ var xxj04 = {
     var b = new Set
     arr.forEach((it) => {
       b.add(...(arrays).filter((item) => {
-        if (typeof (iterat) == 'functioan' && iteratee(item) == iteratee(it)) {
+        if (typeof (iteratee) == 'functioan' && iteratee(item) == iteratee(it)) {
           return iteratee(it)
         }
         if (it[iteratee] != null && it[iteratee] == item[iteratee]) {
@@ -260,7 +260,7 @@ var xxj04 = {
         }
       }))
     })
-    return [...b]
+    return b.filter(it => it)
   }
 
 
@@ -268,7 +268,7 @@ var xxj04 = {
   join: function (array, a = ',') {
     var b = ''
     array.forEach((it) => {
-      b += it + a
+      b += it + '' + a
     })
     return b.slice(0, b.length - 1)
 
