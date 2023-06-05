@@ -252,8 +252,11 @@ var xxj04 = {
         return
       }))
     })
-    return [...b]
-
+    var b = [...b]
+    if (b.includes(undefined)) {
+      b.splice(b.indexOf(undefined), 1)
+    }
+    return b
   }
 
   ,
@@ -266,7 +269,10 @@ var xxj04 = {
         }
       }))
     })
-    b = b.filter(it => it)
+    var b = [...b]
+    if (b.includes(undefined)) {
+      b.splice(b.indexOf(undefined), 1)
+    }
     return b
   }
 
@@ -369,6 +375,7 @@ var xxj04 = {
     })
 
     return a
+
   }
   ,
   remove: function (array, predicate = _.identity) {
