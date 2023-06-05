@@ -283,7 +283,7 @@ var xxj04 = {
   ,
   lastIndexOf: function (array, value, fromIndex = array.length - 1) {
     for (var i = fromIndex; 0 <= i; i--) {
-      if (array == value) {
+      if (array[i] == value) {
         return i
       }
     }
@@ -303,7 +303,7 @@ var xxj04 = {
     values.forEach((it) => {
       array.forEach((item, i) => {
         if (it == item) {
-          array.slice(i, 1)
+          array.splice(i, 1)
         }
       })
 
@@ -315,7 +315,7 @@ var xxj04 = {
 
   ,
   pull: function (array, values) {
-    remove(array, values.map((it) => (it)))
+    xxj0402.remove(array, values.map((it) => (it)))
     return array
   }
   ,
@@ -391,6 +391,7 @@ var xxj04 = {
       this.swap(array, i, j)
       j--
     }
+    return array
   },
   swap: function (array, i, j) {
     let a = array[i]
