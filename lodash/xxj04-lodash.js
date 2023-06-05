@@ -380,25 +380,25 @@ var xxj04 = {
   ,
   remove: function (array, predicate = _.identity) {
     var b = []
-    array.forEach((it, i) => {
-      if (typeof (predicate) == 'function' && predicate(it)) {
+
+    for (var i = 0; i < array.length; i++) {
+      if (typeof (predicate) == 'function' && predicate(array[i])) {
         b.push(array[i])
         array.splice(i, 1)
       }
       else {
-        b.push(predicate.filter((item) => {
-          return item != array
-        }))
-        array.forEach((it1) => {
-          predicate.forEach((item1) => {
-            if (it1 == item1) {
-              array.splice(i, 1)
-            }
-          })
-        })
+        for (var j = 0; j < predicate.length; j++) {
+          if (array[i] == predicate[j]) {
+            b.push(array[i])
+            array.splice(i, 1)
+          }
+        }
       }
-    })
-    return b
+
+    }
+    return array
+
+
   }
   ,
   reverse: function (array) {
