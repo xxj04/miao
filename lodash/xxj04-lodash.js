@@ -260,7 +260,8 @@ var xxj04 = {
         }
       }))
     })
-    return b.filter(it => it)
+    b = b.filter(it => it)
+    return b
   }
 
 
