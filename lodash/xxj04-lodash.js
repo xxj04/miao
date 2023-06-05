@@ -341,7 +341,7 @@ var xxj04 = {
     values.forEach((it) => {
       array.forEach((item, i) => {
         if (comparator(it, item)) {
-          array.splice(item, i)
+          array.splice(i, 1)
         }
       })
     })
