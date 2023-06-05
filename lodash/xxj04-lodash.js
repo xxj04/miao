@@ -395,14 +395,9 @@ var xxj04 = {
   ,
   sortedIndex: function (array, value) {
     var a = array.length >> 1
-    if (array[a] > value) {
-      array.length = a
-    }
-    if (array[a] < value) {
-      array.slice(a)
-    }
-    return a
-  }
+    var lfte=[]
+    var right=[]
+    if(array[a])
 
 }
 
