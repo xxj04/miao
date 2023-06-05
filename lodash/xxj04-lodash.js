@@ -447,10 +447,10 @@ var xxj04 = {
         if (iteratee(array[array.length - 1]) < iteratee(value[0])) {
           return array.length
         }
-        if (iteratee(array[0]) >= iteratee(value[0])) {
+        if (iteratee(array[0]) >= iteratee(value)) {
           return 0
         }
-        if (iteratee(array[i]) <= iteratee(value[0]) && iteratee(array[i + 1]) > iteratee(value[0])) {
+        if (iteratee(array[i]) <= iteratee(value) && iteratee(array[i + 1]) > iteratee(value)) {
           return i
         }
 
@@ -497,6 +497,63 @@ var xxj04 = {
       }
     }
     return right + 1
+  }
+  ,
+
+  sortedLastIndex: function (array, value) {
+    var left = 0
+    var right = array.length - 1
+
+    while (left <= right) {
+      var mid = (left + right) >> 1
+
+      if (array[mid] > value) {
+        if (right == 0) {
+          return 0
+        }
+        right = mid - 1
+      }
+      else if (array[mid] <= value) {
+        left = mid + 1
+      }
+      else {
+        return mid
+      }
+    }
+    return right + 1
+  }
+  ,
+
+  sortedLastIndexBy: function (array, value, iteratee = _.identity) {
+    for (var i = 0; i < array.length; i++) {
+      if (typeof (iteratee) == 'function') {
+        if (iteratee(array[array.length - 1]) < iteratee(value)) {
+          return array.length
+        }
+        if (iteratee(array[0]) == iteratee(value)) {
+          return 1
+        }
+        if (iteratee(array[i]) <= iteratee(value) && iteratee(array[i + 1]) > iteratee(value)) {
+          return i + 1
+        }
+
+
+      }
+      if (value[iteratee] != null) {
+
+        if ((array[array.length - 1][iteratee]) < (value[iteratee])) {
+          return array.length
+        }
+        if ((array[0][iteratee]) == (value[iteratee])) {
+          return 1
+        }
+        if ((array[i][iteratee][iteratee]) <= (value[iteratee]) && (array[i + 1][iteratee]) > (value[iteratee])) {
+          return i + 1
+        }
+
+
+      }
+    }
   }
 
 }
