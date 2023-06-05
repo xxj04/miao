@@ -23,7 +23,13 @@ var xxj04 = {
     var b = [...arguments]
     var aa = []
     for (var i = 0; i < b.length; i++) {
-      aa.push(...b[i])
+      if (Array.isArray(b[i])) {
+        aa.push(...b[i])
+
+      }
+      else {
+        aa.push(b[i])
+      }
     }
     return aa
   }
