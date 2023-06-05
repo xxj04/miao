@@ -29,13 +29,18 @@ var xxj04 = {
   }
 
   ,
-  difference: function (arr1, arr2) {
+  difference: function (arr1, ...arr2) {
+    var a = [...arr2]
+    var b = []
+    a.forEach((it) => {
+      b = b.concat(it)
+    })
     if (arr2 == null) {
       return arr1
     }
-    for (var i = 0; i < arr2.length; i++) {
+    for (var i = 0; i < b.length; i++) {
       for (j = 0; j < arr1.length; j++) {
-        if (arr2[i] == arr1[j]) {
+        if (b[i] == arr1[j]) {
           arr1.splice(j, 1)
         }
       }
@@ -44,15 +49,24 @@ var xxj04 = {
   }
   ,
   differenceBy: function (arr, arrays, iteratee = _.identity) {
+    var array = [...arguments]
+    var arrays = []
+    array.forEach((it, i) => {
+      if (0 > i && i < array.length - 1) {
+        arrays = arrays.concat(it)
+      }
+    })
     var b = new Set
     arr.forEach((it) => {
       b.add(...(arrays).filter((item) => {
-        if (typeof (iteratee) == 'function' && iteratee(item) != iteratee(it)) {
+        if (typeof (iteratee) == 'function' && iteratee(item) == iteratee(it)) {
           return iteratee(it)
         }
         if (it[iteratee] != null && it[iteratee] != item[iteratee]) {
           return it[iteratee]
+
         }
+        arr.splice(i, 1)
       }))
     })
     var b = [...b]
@@ -64,16 +78,16 @@ var xxj04 = {
   }
   ,
   differenceWith: function (arr, arrays, comparator) {
-    var b = new Set
-    arr.forEach((it) => {
-      b.add(...(arrays).filter((item) => {
+
+    arr.forEach((it, i) => {
+      arrays.filter((item) => {
         if (comparator(it, item)) {
-          return it
+          arr.splice(i, 1)
         }
-      }))
+      })
     })
 
-    return b
+    return arr
   }
   ,
 
@@ -98,7 +112,8 @@ var xxj04 = {
     if (a < 0) {
       return []
     }
-    return array.length = a
+    array.length = a
+    return array
   }
 
   ,
