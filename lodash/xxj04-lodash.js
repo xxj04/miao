@@ -237,7 +237,7 @@ var xxj04 = {
     var b = new Set
     arr.forEach((it) => {
       b.add(...(arrays).filter((item) => {
-        if (typeof (iteratee) == 'functioan' && iteratee(item) == iteratee(it)) {
+        if (typeof (iteratee) == 'function' && iteratee(item) == iteratee(it)) {
           return iteratee(it)
         }
         if (it[iteratee] != null && it[iteratee] == item[iteratee]) {
