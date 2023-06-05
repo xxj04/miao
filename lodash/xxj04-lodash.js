@@ -312,7 +312,7 @@ var xxj04 = {
   }
 
   ,
-  pullAll: function (array, ...values) {
+  pullAll: function (array, values) {
     values.forEach((it) => {
       array.forEach((item, i) => {
         if (it == item) {
@@ -423,14 +423,56 @@ var xxj04 = {
   }
   ,
   sortedIndex: function (array, value) {
-    var a = array.length >> 1
-    var lfte = []
-    var right = []
-    if (array[a] > value) {
-
+    var lfte = 0
+    var right = array.length - 1
+    while (left <= right) {
+      var mid = Math.floor((left + right) / 2)
+      if (array[mid] > value) {
+        right = mid - 1
+      }
+      else if (array[mid] < value) {
+        left = mid + 1
+      }
+      else {
+        return mid
+      }
     }
+    return right
 
   }
+  ,
+  sortedIndexBy: function (array, value, iteratee = _.identity) {
+    for (var i = 0; i < array.length; i++) {
+      if (typeof (iteratee) == 'function') {
+        if (iteratee(array[array.length - 1]) < iteratee(value[0])) {
+          return array.length
+        }
+        if (iteratee(array[0]) >= iteratee(value[0])) {
+          return 0
+        }
+        if (iteratee(array[i]) <= iteratee(value[0]) && iteratee(array[i + 1]) > iteratee(value[0])) {
+          return i
+        }
 
+
+      }
+      if (value[iteratee] != null) {
+
+        if ((array[array.length - 1][iteratee]) < (value[iteratee])) {
+          return array.length
+        }
+        if ((array[0][iteratee]) >= (value[iteratee])) {
+          return 0
+        }
+        if ((array[i][iteratee][iteratee]) <= (value[iteratee]) && (array[i + 1][iteratee]) > (value[iteratee])) {
+          return i
+        }
+
+
+      }
+    }
+
+
+  }
 }
 
