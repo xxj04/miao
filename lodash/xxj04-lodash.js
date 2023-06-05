@@ -1,4 +1,4 @@
-var user_name = {
+var xxj04 = {
   chunk: function (ary, size) {
     var b = []
     for (var i = 0; i < ary.length; i += size) {
@@ -385,6 +385,25 @@ var user_name = {
     array[i] = array[j]
     array[j] = a
   }
+  ,
+
+  slice: function (array, start = 0, end = array.length) {
+    array.filter((it, i) => {
+      return end > i && i >= start
+    })
+  }
+  ,
+  sortedIndex: function (array, value) {
+    var a = array.length >> 1
+    if (array[a] > value) {
+      array.length = a
+    }
+    if (array[a] < value) {
+      array.slice(a)
+    }
+    return a
+  }
+
 }
 
 
