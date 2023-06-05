@@ -325,10 +325,10 @@ var xxj04 = {
     values.forEach((it) => {
       array.forEach((item, i) => {
         if (typeof (iteratee) == 'function' && iteratee(it) == iteratee(item)) {
-          array.slice(i, 1)
+          array.spice(i, 1)
         }
         if (it[iteratee] == item[iteratee]) {
-          array.slice(i, 1)
+          array.spice(i, 1)
         }
       })
     })
