@@ -241,8 +241,8 @@ var xxj04 = {
   ,
   intersectionBy: function (arr, arrays, iteratee = _.identity) {
     var b = new Set
-    arr.forEach((it) => {
-      b.add(...(arrays).filter((item) => {
+    arrays.forEach((it) => {
+      b.add(...(arr).filter((item) => {
         if (typeof (iteratee) == 'function' && iteratee(item) == iteratee(it)) {
           return iteratee(it)
         }
@@ -328,7 +328,7 @@ var xxj04 = {
 
   ,
   pull: function (array, values) {
-    xxj0402.remove(array, values.map((it) => (it)))
+    xxj04.remove(array, values.map((it) => (it)))
     return array
   }
   ,
