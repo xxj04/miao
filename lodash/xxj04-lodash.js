@@ -423,7 +423,7 @@ var xxj04 = {
   }
   ,
   sortedIndex: function (array, value) {
-    var lfte = 0
+    var left = 0
     var right = array.length - 1
     while (left <= right) {
       var mid = Math.floor((left + right) / 2)
