@@ -314,7 +314,7 @@ var xxj04 = {
         if (typeof (iteratee) == 'function' && iteratee(it) == iteratee(item)) {
           array.slice(i, 1)
         }
-        else (it[iteratee] == item[iteratee]) {
+        if (it[iteratee] == item[iteratee]) {
           array.slice(i, 1)
         }
       })
@@ -395,11 +395,13 @@ var xxj04 = {
   ,
   sortedIndex: function (array, value) {
     var a = array.length >> 1
-    var lfte=[]
-    var right=[]
-    if(array[a])
+    var lfte = []
+    var right = []
+    if (array[a] > value) {
+
+    }
+
+  }
 
 }
-
-
 
