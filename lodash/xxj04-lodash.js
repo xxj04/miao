@@ -327,7 +327,7 @@ var xxj04 = {
   }
 
   ,
-  pull: function (array, values) {
+  pull: function (array, ...values) {
     xxj04.remove(array, values.map((it) => (it)))
     return array
   }
