@@ -355,11 +355,13 @@ var xxj04 = {
   }
   ,
 
-  pullAt: function (array, ...indexes) {
+  pullAt: function (array, indexes) {
     var a = []
-    indexes.forEach((it, j) => {
+    indexes.forEach((it) => {
       a.push(...array.filter((item, i) => {
-        return it == i
+        if (it == i) {
+          return item
+        }
       }))
     })
     a.forEach((it) => {
