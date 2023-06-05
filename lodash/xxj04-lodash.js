@@ -444,7 +444,7 @@ var xxj04 = {
   sortedIndexBy: function (array, value, iteratee = _.identity) {
     for (var i = 0; i < array.length; i++) {
       if (typeof (iteratee) == 'function') {
-        if (iteratee(array[array.length - 1]) < iteratee(value[0])) {
+        if (iteratee(array[array.length - 1]) < iteratee(value)) {
           return array.length
         }
         if (iteratee(array[0]) >= iteratee(value)) {
