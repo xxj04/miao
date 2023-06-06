@@ -427,7 +427,7 @@ var xxj04 = {
     var right = array.length - 1
     while (left <= right) {
       var mid = Math.floor((left + right) / 2)
-      if (array[mid] > value) {
+      if (array[mid] >= value) {
         right = mid - 1
       }
       else if (array[mid] < value) {
@@ -576,7 +576,7 @@ var xxj04 = {
         return mid
       }
     }
-    return right + 1
+    return right
   }
   ,
 
@@ -606,5 +606,84 @@ var xxj04 = {
     })
     return [...b]
   }
+  ,
+
+  tail: function (array) {
+    var a = array.filter((_, i) => {
+      return i != 0
+    })
+    return a
+  }
+
+  ,
+  take: function (array, n = 1) {
+    var a = array.filter((_, i) => {
+      return i + 1 <= n
+    })
+    return a
+  }
+
+  ,
+  takeRight: function (array, n = 1) {
+    if (n > array.length) {
+      return array
+    }
+    for (var i = array.length - 1; 0 <= i; i--) {
+      n--
+      if (n == 0) {
+        array.slice(i)
+      }
+    }
+  }
+  ,
+  union: function (...arrays) {
+    var a = new Set()
+    arrays = [...arrays]
+    arrays.forEach((item) => {
+      a.add(...(item).filter(it => it))
+    })
+    return [...a]
+  }
+  ,
+  unionBy: function (arrays, iteratee = _.identity) {
+    var a = new Set()
+    var b = new Set()
+    arrays = [...arguments]
+    if (typeof (iteratee) == 'function') {
+      arrays.forEach((item) => {
+        for (var i = 0; i < item.length; i++) {
+          if (a.has(iteratee(item[i]))) {
+            return
+          } else {
+            a.add(iteratee(item[i]))
+            b.add(item[i])
+          }
+        }
+
+      })
+    }
+
+    else {
+      arrays.forEach((item) => {
+
+        for (var i = 0; i < item.length; i++) {
+          if (a.has(item[i][iteratee])) {
+            return
+          } else {
+            a.add(item[i][iteratee])
+            b.add(item[i])
+          }
+        }
+      })
+    }
+
+    return [...b]
+  }
+  ,
+  unionWith: function ([arrays], [comparator]) {
+
+  }
+
+
 }
 
