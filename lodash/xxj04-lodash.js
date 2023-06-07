@@ -631,16 +631,17 @@ var xxj04 = {
     for (var i = array.length - 1; 0 <= i; i--) {
       n--
       if (n == 0) {
-        array.slice(i)
+        array = array.slice(i)
+        return
       }
     }
   }
   ,
   union: function (...arrays) {
     var a = new Set()
-    arrays = [...arrays]
+    arrays = xxj04.flattenDeep(arrays)
     arrays.forEach((item) => {
-      a.add(...(item).filter(it => it))
+      a.add(item)
     })
     return [...a]
   }
@@ -680,10 +681,50 @@ var xxj04 = {
     return [...b]
   }
   ,
-  unionWith: function ([arrays], [comparator]) {
+  unionWith: function (arrays, comparator) {
+    var array = [...arguments]
+    var comparator = arrays.pop()
+    var arrays = []
+    var arr = []
+    array.forEach((it) => {
+      arrays = arrays.concat(it)
+    })
+    for (var i = 0; i < arrays.length; i++) {
+      if (!(comparator(arrays[i], arrays[i + 1]))) {
+        arr.push(arrays[i])
+        arr.push(arrays[i + 1])
+      }
+    }
 
   }
-
+  ,
+  uniq: function (array) {
+    a = new Set()
+    array.forEach(it => {
+      a.add(it)
+    })
+    return a
+  }
+  ,
+  uniqBy: function (array, iteratee = _.identity) {
+    var a = new Set()
+    var b = new Set()
+    if (typeof (iteratee) == 'function') {
+      array.forEach((it) => {
+        if (!(a.has(iteratee(it)))) {
+          a.add(it[iteratee])
+          b.add(it)
+        }
+      })
+    }
+    array.forEach((it) => {
+      if (!(it[iteratee])) {
+        a.add(it[iteratee])
+        b.add(it)
+      }
+    })
+    return [...b]
+  }
 
 }
 
