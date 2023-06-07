@@ -1,0 +1,116 @@
+<style>
+  * {
+    font-size: 24px;
+  }
+
+  .re {
+    position: relative;
+    width: 400px;
+    height: 300px;
+
+    >textarea {
+      z-index: 10;
+    }
+
+    >pre,
+    >textarea {
+      position: absolute;
+      margin: 0px;
+      padding: 5px;
+      border: 2px solid;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      box-sizing: border-box;
+      white-space: break-spaces;
+      word-wrap: break-word;
+
+
+      >span:nth-child(even) {
+        background-color: aqua;
+      }
+
+      >span:nth-child(odd) {
+        background-color: rgb(97, 97, 254);
+      }
+    }
+  }
+
+
+
+  #Inputstr {
+    background-color: #ffffff00;
+  }
+</style>
+
+
+请输入正则:<br>
+<label for=""><input type="text" value="foo" name="" id="Strinput" oninput="run()"></label><button
+  onclick="run()">run</button><br>
+<label for=""><input id='chekg' type="checkbox" checked="checked">g</label>
+<label for=""><input id='chekm' type="checkbox">m</label>
+<label for=""><input id='cheki' type="checkbox">i</label>
+<label for=""><input id='cheky' type="checkbox">y</label>
+<label for=""><input id='cheku' type="checkbox">u</label>
+<label for=""><input id='cheks' type="checkbox">s</label>
+<label for=""><input id='chekd' type="checkbox">d</label><br>
+
+
+请输入字符串:<br>
+
+<div class="re">
+  <textarea name="" id="Inputstr" cols="30" rows="10" onkeyup="run() ">fooxxxxx</textarea>
+  <pre id="output"></pre>
+
+</div>
+<script>
+  function getchk() {
+    var chk = ''
+    if (chekg.checked) {
+      chk += 'g'
+    }
+    if (chekm.checked) {
+      chk += 'm'
+    }
+    if (cheki.checked) {
+      chk += 'i'
+    }
+    if (cheky.checked) {
+      chk += 'y'
+    }
+    if (cheku.checked) {
+      chk += 'u'
+    }
+    if (cheks.checked) {
+      chk += 's'
+    }
+    if (chekd.checked) {
+      chk += 'd'
+    }
+    return chk
+  }
+  function run() {
+    var reinput = Strinput.value
+    var chk = getchk()
+    var re = new RegExp(reinput, chk)
+    var a = Inputstr.value
+    var match
+    var lastindx = 0
+    var html = ''
+    while (match = re.exec(a)) {
+      html += a.slice(lastindx, match.index)
+      html += `<span>${match[0]}</span>`
+      lastindx = re.lastIndex
+      if (!re.global) {
+        lastindx = match[0].length + match.index
+        break
+      }
+    }
+    html += a.slice(lastindx)
+    output.innerHTML = html
+
+
+  }
+
+
+</script>

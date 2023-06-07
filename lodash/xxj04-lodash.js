@@ -632,7 +632,7 @@ var xxj04 = {
       n--
       if (n == 0) {
         array = array.slice(i)
-        return
+        return array
       }
     }
   }
