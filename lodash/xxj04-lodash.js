@@ -725,6 +725,112 @@ var xxj04 = {
     })
     return [...b]
   }
+  ,
 
+
+  uniqWith: function (array, [comparator]) {
+    var a = []
+    var b = array.shift()
+    var c = array.shift()
+    if (array.length == 0) {
+      return array
+    }
+    if (!comparator(b, c)) {
+      a.push(c)
+    }
+
+
+  }
+  ,
+  zip: function (arrays) {
+    var array = [...arguments]
+
+
+    if (array[0].length == 0) {
+      return []
+    }
+    var a = []
+    var b = []
+    array.forEach((it) => {
+      b.push(it.shift())
+    })
+    a.push(b)
+
+    a = a.concat(xxj04.zip(...array))
+    return a
+  }
+  ,
+  unzip: function (array) {
+    if (array[0].length == 0) {
+      return []
+    }
+    var a = []
+    var b = []
+    array.forEach((it) => {
+      b.push(it.shift())
+    })
+    a.push(b)
+
+    a = a.concat(xxj04.unzip(array))
+    return a
+  }
+
+  ,
+  unzipWith: function (array, [iteratee = _.identity]) {
+    var a = array.pop()
+    var aa = []
+    array.forEach((it) => {
+      a.forEach((item) => {
+        aa.push(iteratee(it, item))
+      })
+    })
+    return aa
+  }
+
+  ,
+
+
+  without: function (array, ...values) {
+    for (var i = 0; i < array.length; i++) {
+      for (var j = 0; j < values.length; j++) {
+        if (it == item) {
+          array.splice(i, 1)
+          i--
+
+        }
+      }
+    }
+    return array
+  }
+  ,
+  xor: function (...arrays) {
+    var a = arrays.pop()
+    arrays = xxj04.flattenDeep(arrays)
+    var b = {}
+    var c = []
+    for (var i = 0; i < arrays.length; i++) {
+      for (var j = 0; j < a.length; j++) {
+        if (a[j] in b) {
+          b[a[j]]++
+        }
+        if (arrays[i] in b) {
+          b[arrays[i]]++
+        }
+        if (!(arrays[i] in b)) {
+          b[arrays[i]] = 1
+        }
+        if (!(a[j] in b)) {
+          b[a[j]] = 1
+        }
+        i++
+      }
+    }
+    for (k in b) {
+      if (b[k] == 1) {
+        c.push(b[k])
+      }
+    }
+    return c
+  }
 }
 
