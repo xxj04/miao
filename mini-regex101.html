@@ -1,129 +1,215 @@
-<style>
-  * {
-    font-size: 24px;
-  }
+<!DOCTYPE html>
+<html lang="en">
 
-  .re {
-    position: relative;
-    width: 400px;
-    height: 300px;
-
-    >textarea {
-      z-index: 10;
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      font-size: 24px;
     }
 
-    >pre,
-    >textarea {
-      position: absolute;
-      margin: 0px;
-      padding: 5px;
-      border: 2px solid;
-      width: 100%;
-      height: 100%;
+    .re {
+      position: relative;
+      width: 350px;
+      height: 250px;
 
-      box-sizing: border-box;
-      white-space: break-spaces;
-      word-wrap: break-word;
-
-
-      >span:nth-child(even) {
-        background-color: aqua;
-
-
+      >textarea {
+        z-index: 10;
       }
 
+      >pre,
+      >textarea {
+        xposition: absolute;
+        margin: 0px;
+        padding: 5px;
+        border: 2px solid;
+        width: 100%;
+        height: 100%;
+
+        box-sizing: border-box;
+        white-space: break-spaces;
+        word-wrap: break-word;
 
 
-      >span:nth-child(odd) {
-        background-color: rgb(97, 97, 254);
-      }
 
-      >em {
-        border-left: 4px dotted violet;
-        margin-left: -2px;
-        margin-right: -2px;
-        filter: blur(0.5px);
-        position: relative;
-        top: 1px;
-        pointer-events: none;
-        height: 0.5em;
 
-        &:hover {
-          border-color: magenta;
-          box-shadow: 0 0 1px rgb(188, 188, 188);
+
+
+        >i:nth-of-type(even) {
+          background-color: aqua;
+
+
+        }
+
+        >i:nth-of-type(odd) {
+          background-color: rgb(97, 97, 254);
+        }
+
+        >em {
+          border-left: 4px dotted violet;
+          margin-left: -2px;
+          margin-right: -2px;
+          filter: blur(0.5px);
+          position: relative;
+          top: 1px;
+          pointer-events: none;
+          height: 0.5em;
+
+          :hover {
+            border-color: magenta;
+            box-shadow: 0 0 1px rgb(188, 188, 188);
+          }
         }
       }
+
+
     }
 
 
-  }
+    pre i:hover:not(:has(:hover))::before {
+      content: 'Match ' attr(match) '\A-------\AGroup ' attr(group) ': ' attr(group-content) '\A' 'Pos: ' attr(group-start-index) '-' attr(group-end-index);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translate(-50%);
+      white-space: pre;
+      background-color: black;
+      border-radius: 5px;
+      color: white;
+      font-size: 12px;
+      padding: 0.5em;
+      font-weight: normal;
+    }
 
-  #a1 {
-    background-color: rgb(111, 247, 206);
-    font-style: normal;
+    .a1 {
+      background-color: rgb(111, 247, 206);
+      font-style: normal;
 
-    z-index: 22;
-  }
+      z-index: 22;
+    }
 
-  #a2 {
-    background-color: rgb(246, 173, 173);
-    font-style: normal;
+    .a2 {
+      background-color: rgb(246, 173, 173);
+      font-style: normal;
 
-    z-index: 22;
-  }
+      z-index: 22;
+    }
 
-  #a3 {
-    background-color: rgb(185, 239, 123);
-    font-style: normal;
+    .a3 {
+      background-color: rgb(185, 239, 123);
+      font-style: normal;
 
-    z-index: 22;
-  }
+      z-index: 22;
+    }
 
-  #a4 {
-    background-color: rgb(133, 81, 238);
-    font-style: normal;
+    .a4 {
+      background-color: rgb(133, 81, 238);
+      font-style: normal;
 
-    z-index: 22;
-  }
+      z-index: 22;
+    }
 
-  #a5 {
-    background-color: rgb(244, 105, 176);
-    font-style: normal;
+    .a5 {
+      background-color: rgb(244, 105, 176);
+      font-style: normal;
 
-    z-index: 22;
-  }
+      z-index: 22;
+    }
+
+    .a6 {
+      background-color: rgb(88, 100, 0);
+      font-style: normal;
+
+      z-index: 22;
+    }
+
+    .a7 {
+      background-color: rgb(172, 5, 91);
+      font-style: normal;
+
+      z-index: 22;
+    }
+
+    .a8 {
+      background-color: rgb(204, 5, 108);
+      font-style: normal;
+
+      z-index: 22;
+    }
 
 
-  i {
-    font-style: normal;
+    i {
+      font-style: normal;
 
-  }
-
-  #Inputstr {
-    background-color: #ffffff00;
-  }
-</style>
+      :hover:not(:has(:hover)) {
+        z-index: 10;
+        box-shadow: 2px 1px 4px 2px rgb(103, 160, 185);
 
 
-请输入正则:<br>
-<label for=""><input type="text" value="foo(x)" name="" id="Strinput" oninput="run()"></label><button
-  onclick="run()">run</button><br>
-<label for=""><input id='chekg' type="checkbox" checked="checked">g</label>
-<label for=""><input id='chekm' type="checkbox">m</label>
-<label for=""><input id='cheki' type="checkbox">i</label>
-<label for=""><input id='cheky' type="checkbox">y</label>
-<label for=""><input id='cheku' type="checkbox">u</label>
-<label for=""><input id='cheks' type="checkbox">s</label>
-<label for=""><input id='chekd' type="checkbox">d</label><br>
+      }
 
-<p id="error"></p>
-请输入字符串:<br>
+      :hover:not(:has(:hover)) i {
+        background-color: #ffffff00;
+      }
+    }
 
-<div class="re">
-  <textarea name="" id="Inputstr" cols="30" rows="10" oninput="run() ">fooxxxxx</textarea>
-  <pre id="output"></pre>
+    #rep {
+      position: absolute;
+      width: 300px;
+      height: 200px;
+      top: -33px;
+      left: 400px;
 
-</div>
+      >input {
+        border: 2px solid;
+        border-bottom: 1px solid;
+      }
+
+      >textarea {
+        height: 210px;
+        border: 2px solid;
+      }
+
+    }
+
+    #Inputstr {
+      background-color: #ffffff00;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  请输入正则:<br>
+  <label for=""><input type="text" value="(f).(.(.(..)(..)))" name="" id="Strinput" oninput=run()></label><button
+    onclick=run()>run</button><br>
+  <label for=""><input oninput="run()" id='chekg' type="checkbox" checked="checked">g</label>
+  <label for=""><input oninput="run()" id='chekm' type="checkbox">m</label>
+  <label for=""><input oninput="run()" id='cheki' type="checkbox">i</label>
+  <label for=""><input oninput="run()" id='cheky' type="checkbox">y</label>
+  <label for=""><input oninput="run()" id='cheku' type="checkbox">u</label>
+  <label for=""><input oninput="run()" id='cheks' type="checkbox">s</label>
+
+
+  <p id="error"></p>
+  请输入字符串:<br>
+
+  <div class="re">
+    <pre id="output"></pre>
+    <textarea name="" id="Inputstr" cols="30" rows="10" oninput=run()>foo barbaz baa foobaa foobaa</textarea>
+    <div id="rep">
+      请输入替换字符:<br>
+      <input type="text" name="" id="tihuan" type="" oninput=run()>
+      <textarea name="" cols="30" rows="10" id="ti" type="" oninput=run()></textarea>
+    </div>
+  </div>
+
+
+</body>
 <script>
   function getchk() {
     var chk = ''
@@ -145,9 +231,7 @@
     if (cheks.checked) {
       chk += 's'
     }
-    if (chekd.checked) {
-      chk += 'd'
-    }
+
     return chk
   }
   function run() {
@@ -165,6 +249,7 @@
     var match
     var lastindx = 0
     var html = ''
+    var idx = 1
     while (match = re.exec(str, chk + 'd')) {
       html += str.slice(lastindx, match.index)
       lastindx = re.lastIndex
@@ -172,7 +257,7 @@
         html += '<em></em>'
         re.lastIndex++
       } else {
-        html += wrapOneMatch(match)
+        html += wrapOneMatch(match, idx++)
       }
 
 
@@ -182,9 +267,12 @@
       }
     }
     html += str.slice(lastindx)
+    error.innerHTML = ''
     output.innerHTML = html
+    ti.innerHTML = str.replace(re, tihuan.value)
 
-    function wrapOneMatch(match) {
+
+    function wrapOneMatch(match, idx) {
       var indices = match.indices.map(([s, e]) => {
         return [s - match.index, e - match.index]
       })
@@ -193,7 +281,7 @@
       var bb = Array(chars.length + 1).fill('')
       for (var i = 0; i < indices.length; i++) {
         var [str, end] = indices[i]
-        bb[str] += `<i id="${'a' + i}">`
+        bb[str] += `<i class="${'a' + i}"  match="${idx}" group="${i}" group-content="${match[i]}" group-start-index="${match.indices[i][0]}" group-end-index="${match.indices[i][1]}">`
         bb[end] += '</i>'
       }
       var result = ''
@@ -201,11 +289,12 @@
         result += bb[i] + chars[i]
       }
       result += bb[i]
-
-      return '<span>' + result + '</span>'
+      return `<i group="0" match="${idx}"group-content="${match[0]}" group-start-index="${match.indices[0][0]}" group-end-index="${match.indices[0][1]}">` + result + '</i>'
     }
 
   }
 
-
+  run()
 </script>
+
+</html>
