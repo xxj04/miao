@@ -296,3 +296,90 @@ class MySet {
   }
 
 }
+
+
+
+
+String.prototype.mymatch = function (re) {
+  if (re.global) {
+    var result = []
+    var m
+    while (m = re.exec(this)) {
+      result.push(m[0])
+    }
+    return result
+  }
+  return re.exec(this)
+}
+String.prototype.mymatchAll = function (re) {
+  if (re instanceof RegExp) {
+    if (!re.global)
+      throw new TypeError('  String.prototype.mymatchAll called with a non-global RegExp argumentat String.mymatchAll <anonymous> ')
+  }
+  if (typeof re == 'string') {
+    re = new RegExp(re + 'g')
+  }
+  var m
+  var result = []
+  while (m = re.exec(this)) {
+    result.push(m)
+  }
+  return result
+}
+String.prototype.myreplace = function (re, replace) {
+  if (re instanceof RegExp) {
+    if (re.global)
+      re.lastIndex = 0
+  }
+  var result = ''
+  var m
+  var lasidx = 0
+  while (m = re.exec(this)) {
+
+    result += this.slice(lasidx, m.index)
+    if (typeof replace == 'function') {
+
+      result += replace(...m, m.index, m.input)
+    }
+    else {
+      var rep = myreplace(/\$[1-9]\&/, (_, idx) => {
+        if (idx == '&') {
+          return m[0]
+        }
+        else {
+          return m[idx]
+        }
+      })
+      result += rep
+    }
+    lasidx = re.lastIndex
+    if (!m.global) {
+      lasidx = match.index + match[0]
+      break
+    }
+  }
+  result += this.slice(lasidx)
+  return result
+}
+String.prototype.myreplaceAll = function () {
+
+}
+String.prototype.mysearch = function (re) {
+  if (typeof re == 'string') {
+    return this.indexOf(re)
+  }
+  else {
+    if (re.exec(this)) {
+      return re.exec(this).index
+    }
+    return -1
+
+  }
+}
+
+RegExp.prototype.mytest = function (str) {
+  if (this.exec(str)) {
+    return true
+  }
+  return false
+}
