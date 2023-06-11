@@ -1,305 +1,3 @@
-
-class Vector {
-
-  constructor(x, y) {
-    this.x = x
-    this.y = y
-
-
-  }
-  plus(vector) {
-
-    var x1 = this.x + vector.x
-    var y1 = this.y + vector.y
-
-    return new vector.constructor(x1, y1)
-  }
-  minus(vector) {
-    var x1 = this.x - vector.x
-    var y1 = this.y - vector.y
-    return new vector.constructor(x1, y1)
-  }
-  get length() {
-    return Math.sqrt(this.x ** 2 + this.y ** 2)
-  }
-}
-
-
-class Complex {
-
-  constructor(real, imag) {
-    this.real = real
-    this.imag = imag
-  }
-  plus(a) {
-    var x1 = this.real + a.real
-    var y1 = this.imag + a.imag
-    return new Complex(x1, y1)
-  }
-  minus(a) {
-    var x1 = this.real - a.real
-    var y1 = this.imag - a.imag
-    return new Complex(x1, y1)
-  }
-  mul(a) {
-    var x1 = this.real * a.real - this.imag * a.imag
-    var y1 = this.real * a.imag + this.imag * a.real
-    return new Complex(x1, y1)
-  }
-  div(a) {
-    var h = new Complex(a.real, -a.imag)
-    var u = this.mul(h)
-    var d = a.mul(h)
-    var x = u.real / d.real
-    var y = u.imag / d.real
-    return new Complex(x, y)
-
-  }
-
-
-}
-
-
-class Stack {
-  constructor() {
-    this.head = null
-    this.len = 0
-  }
-
-  push(val) {
-    var node = { val: val, next: null }
-    if (this.head == null) {
-      this.head = node
-      this.len++
-      return this
-    }
-    else {
-      var p = this.head
-      this.head = node
-      node.next = p
-      this.len++
-      return this
-    }
-
-  }
-
-  pop() {
-    if (this.head != null) {
-      var p = this.head
-      this.head = this.head.next
-      this.len--
-      return p.val
-    }
-  }
-  get size() {
-    return this.len
-  }
-}
-
-
-
-class Queue {
-  constructor() {
-    this.head = null
-    this.tail = null
-    this.len = 0
-  }
-
-  add(val) {
-    var node = {
-      val: val,
-      next: null
-    }
-    if (this.head == null) {
-      this.head = node
-      this.tail = node
-      this.len++
-    }
-    else {
-
-      this.tail.next = node
-      this.tail = node
-      this.len++
-    }
-  }
-  pop() {
-    if (this.head == null) {
-      return
-    }
-    var p = this.head
-    this.head = this.head.next
-    p.next = null
-    if (this.head == null) {
-      this.tail = null
-    }
-    this.len--
-    return p.val
-  }
-  get size() {
-    return this.len
-  }
-
-
-}
-
-
-class LinkedList {
-
-  constructor() {
-    this.head = null
-    this.tail = null
-    this.len = 0
-  }
-  // 往链表的末尾增加一个元素
-  append(val) {
-    var node = { val: val, next: null }
-    if (this.head == null) {
-      this.head = node
-      this.tail = node
-      this.len++
-      return this
-    }
-    else {
-      this.tail.next = node
-      this.tail = node
-      this.len++
-      return this
-    }
-  }
-  // 往链表的头部增加一个元素
-  prepend(val) {
-    var node = { val: val, next: null }
-    if (this.head == null) {
-      this.head = node
-      this.tail = node
-      this.len++
-      return this
-    }
-    else {
-      var p = this.head
-      node.next = this.head
-      this.head = node
-      this.len++
-      return this
-    }
-  }
-  // 返回链表第idx个元素
-  at(idx) {
-    var a = 0
-    var p = this.head
-    while (a < idx) {
-      p = p.next
-      a++
-    }
-    return p.val
-  }
-  get size() {
-    return this.len
-  }
-
-}
-
-class MyMap {
-
-
-  constructor() {
-    this.length = 0
-    this.keys = []
-    this.vals = []
-  }
-
-  set(key, val) {
-    if (this.keys.includes(key)) {
-      var a = this.keys.indexOf(key)
-      this.vals[a] = val
-      return this
-    }
-    else {
-      this.keys.push(key)
-      this.vals.push(val)
-      this.length++
-      return this
-    }
-
-
-  }
-  get(key) {
-    if (this.has(key)) {
-      var a = this.keys.indexOf(key)
-      return this.vals[a]
-    }
-
-  }
-  has(key) {
-    if (this.keys.includes(key)) {
-      return true
-    }
-    return false
-
-  }
-  delete(key) {
-    if (this.has(key)) {
-      var a = this.keys.indexOf(key)
-      this.keys.splice(a, 1)
-      this.vals.splice(a, 1)
-      this.length--
-      return true
-    }
-    return false
-  }
-  get size() {
-    return this.length
-
-  }
-
-
-}
-
-
-class MySet {
-
-  constructor() {
-    this.arr = []
-    this.len = 0
-
-  }
-  add(key) {
-    if (this.has(key)) {
-      return
-    }
-    else {
-      this.arr.push(key)
-      this.len++
-      return this
-    }
-  }
-  delete(key) {
-
-    if (this.has(key)) {
-      var a = this.arr.indexOf(key)
-      this.arr.splice(a, 1)
-      this.len--
-      return this
-    }
-
-  }
-  has(key) {
-    if (this.arr.includes(key)) {
-      return true
-    }
-    return false
-  }
-
-
-  get size() {
-    return this.len
-  }
-
-}
-
-
-
-
 String.prototype.mymatch = function (re) {
   if (re.global) {
     var result = []
@@ -361,9 +59,7 @@ String.prototype.myreplace = function (re, replace) {
   result += this.slice(lasidx)
   return result
 }
-String.prototype.myreplaceAll = function () {
 
-}
 String.prototype.mysearch = function (re) {
   if (typeof re == 'string') {
     return this.indexOf(re)
@@ -420,3 +116,304 @@ String.prototype.mysplit = function (re) {
   return result
 
 }
+class Vector {
+
+  constructor(x, y) {
+    this.x = x
+    this.y = y
+
+
+  }
+  plus(vector) {
+
+    var x1 = this.x + vector.x
+    var y1 = this.y + vector.y
+
+    return new vector.constructor(x1, y1)
+  }
+  minus(vector) {
+    var x1 = this.x - vector.x
+    var y1 = this.y - vector.y
+    return new vector.constructor(x1, y1)
+  }
+  get length() {
+    return Math.sqrt(this.x ** 2 + this.y ** 2)
+  }
+}
+
+
+// class Complex {
+
+//   constructor(real, imag) {
+//     this.real = real
+//     this.imag = imag
+//   }
+//   plus(a) {
+//     var x1 = this.real + a.real
+//     var y1 = this.imag + a.imag
+//     return new Complex(x1, y1)
+//   }
+//   minus(a) {
+//     var x1 = this.real - a.real
+//     var y1 = this.imag - a.imag
+//     return new Complex(x1, y1)
+//   }
+//   mul(a) {
+//     var x1 = this.real * a.real - this.imag * a.imag
+//     var y1 = this.real * a.imag + this.imag * a.real
+//     return new Complex(x1, y1)
+//   }
+//   div(a) {
+//     var h = new Complex(a.real, -a.imag)
+//     var u = this.mul(h)
+//     var d = a.mul(h)
+//     var x = u.real / d.real
+//     var y = u.imag / d.real
+//     return new Complex(x, y)
+
+//   }
+
+
+// }
+
+
+// class Stack {
+//   constructor() {
+//     this.head = null
+//     this.len = 0
+//   }
+
+//   push(val) {
+//     var node = { val: val, next: null }
+//     if (this.head == null) {
+//       this.head = node
+//       this.len++
+//       return this
+//     }
+//     else {
+//       var p = this.head
+//       this.head = node
+//       node.next = p
+//       this.len++
+//       return this
+//     }
+
+//   }
+
+//   pop() {
+//     if (this.head != null) {
+//       var p = this.head
+//       this.head = this.head.next
+//       this.len--
+//       return p.val
+//     }
+//   }
+//   get size() {
+//     return this.len
+//   }
+// }
+
+
+
+// class Queue {
+//   constructor() {
+//     this.head = null
+//     this.tail = null
+//     this.len = 0
+//   }
+
+//   add(val) {
+//     var node = {
+//       val: val,
+//       next: null
+//     }
+//     if (this.head == null) {
+//       this.head = node
+//       this.tail = node
+//       this.len++
+//     }
+//     else {
+
+//       this.tail.next = node
+//       this.tail = node
+//       this.len++
+//     }
+//   }
+//   pop() {
+//     if (this.head == null) {
+//       return
+//     }
+//     var p = this.head
+//     this.head = this.head.next
+//     p.next = null
+//     if (this.head == null) {
+//       this.tail = null
+//     }
+//     this.len--
+//     return p.val
+//   }
+//   get size() {
+//     return this.len
+//   }
+
+
+// }
+
+
+// class LinkedList {
+
+//   constructor() {
+//     this.head = null
+//     this.tail = null
+//     this.len = 0
+//   }
+//   // 往链表的末尾增加一个元素
+//   append(val) {
+//     var node = { val: val, next: null }
+//     if (this.head == null) {
+//       this.head = node
+//       this.tail = node
+//       this.len++
+//       return this
+//     }
+//     else {
+//       this.tail.next = node
+//       this.tail = node
+//       this.len++
+//       return this
+//     }
+//   }
+//   // 往链表的头部增加一个元素
+//   prepend(val) {
+//     var node = { val: val, next: null }
+//     if (this.head == null) {
+//       this.head = node
+//       this.tail = node
+//       this.len++
+//       return this
+//     }
+//     else {
+//       var p = this.head
+//       node.next = this.head
+//       this.head = node
+//       this.len++
+//       return this
+//     }
+//   }
+//   // 返回链表第idx个元素
+//   at(idx) {
+//     var a = 0
+//     var p = this.head
+//     while (a < idx) {
+//       p = p.next
+//       a++
+//     }
+//     return p.val
+//   }
+//   get size() {
+//     return this.len
+//   }
+
+// }
+
+// class MyMap {
+
+
+//   constructor() {
+//     this.length = 0
+//     this.keys = []
+//     this.vals = []
+//   }
+
+//   set(key, val) {
+//     if (this.keys.includes(key)) {
+//       var a = this.keys.indexOf(key)
+//       this.vals[a] = val
+//       return this
+//     }
+//     else {
+//       this.keys.push(key)
+//       this.vals.push(val)
+//       this.length++
+//       return this
+//     }
+
+
+//   }
+//   get(key) {
+//     if (this.has(key)) {
+//       var a = this.keys.indexOf(key)
+//       return this.vals[a]
+//     }
+
+//   }
+//   has(key) {
+//     if (this.keys.includes(key)) {
+//       return true
+//     }
+//     return false
+
+//   }
+//   delete(key) {
+//     if (this.has(key)) {
+//       var a = this.keys.indexOf(key)
+//       this.keys.splice(a, 1)
+//       this.vals.splice(a, 1)
+//       this.length--
+//       return true
+//     }
+//     return false
+//   }
+//   get size() {
+//     return this.length
+
+//   }
+
+
+// }
+
+
+// class MySet {
+
+//   constructor() {
+//     this.arr = []
+//     this.len = 0
+
+//   }
+//   add(key) {
+//     if (this.has(key)) {
+//       return
+//     }
+//     else {
+//       this.arr.push(key)
+//       this.len++
+//       return this
+//     }
+//   }
+//   delete(key) {
+
+//     if (this.has(key)) {
+//       var a = this.arr.indexOf(key)
+//       this.arr.splice(a, 1)
+//       this.len--
+//       return this
+//     }
+
+//   }
+//   has(key) {
+//     if (this.arr.includes(key)) {
+//       return true
+//     }
+//     return false
+//   }
+
+
+//   get size() {
+//     return this.len
+//   }
+
+// }
+
+
+
+
