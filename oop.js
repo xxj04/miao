@@ -342,7 +342,7 @@ String.prototype.myreplace = function (re, replace) {
       result += replace(...m, m.index, m.input)
     }
     else {
-      var rep = myreplace(/\$[1-9]\&/, (_, idx) => {
+      var rep = this.myreplace(/\$[1-9]\&/, (_, idx) => {
         if (idx == '&') {
           return m[0]
         }
@@ -354,7 +354,7 @@ String.prototype.myreplace = function (re, replace) {
     }
     lasidx = re.lastIndex
     if (!m.global) {
-      lasidx = match.index + match[0]
+      lasidx = m.index + m[0]
       break
     }
   }
@@ -385,38 +385,38 @@ RegExp.prototype.mytest = function (str) {
 }
 
 
-// String.prototype.mysplit = function (re) {
-//   if (typeof re == 'string') {
-//     var result = []
-//     lasidx = 0
-//     while (true) {
-//       if (this.indexOf(re) == -1) {
-//         result.push(this)
-//         break
-//       }
+String.prototype.mysplit = function (re) {
+  if (typeof re == 'string') {
+    var result = []
+    lasidx = 0
+    while (true) {
+      if (this.indexOf(re) == -1) {
+        result.push(this)
+        break
+      }
 
-//       result.push(this.slice(lasidx, this.indexOf(re)))
+      result.push(this.slice(lasidx, this.indexOf(re)))
 
-//       this = this.substr(this.indexOf(re) + re.length, this.length)
-//     }
+      this = this.substr(this.indexOf(re) + re.length, this.length)
+    }
 
 
-//   }
-//   else {
-//     var result = []
-//     re.lastIndex = 0
-//     var m
-//     var lasidx = 0
-//     if (!re.global) {
-//       re = new RegExp(re.source, 'g' + re.fiags)
-//     }
-//     while (m = re.exec(this)) {
-//       result.push(this.slice(lasidx, m.index))
-//       result.push(...m.slice(1))
-//       lasidx = re.lastIndex
-//     }
-//     result.push(this.slice(lasidx))
-//   }
-//   return result
+  }
+  else {
+    var result = []
+    re.lastIndex = 0
+    var m
+    var lasidx = 0
+    if (!re.global) {
+      re = new RegExp(re.source, 'g' + re.fiags)
+    }
+    while (m = re.exec(this)) {
+      result.push(this.slice(lasidx, m.index))
+      result.push(...m.slice(1))
+      lasidx = re.lastIndex
+    }
+    result.push(this.slice(lasidx))
+  }
+  return result
 
-// }
+}
