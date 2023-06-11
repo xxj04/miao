@@ -116,30 +116,30 @@ String.prototype.mysplit = function (re) {
   return result
 
 }
-class Vector {
+// class Vector {
 
-  constructor(x, y) {
-    this.x = x
-    this.y = y
+//   constructor(x, y) {
+//     this.x = x
+//     this.y = y
 
 
-  }
-  plus(vector) {
+//   }
+//   plus(vector) {
 
-    var x1 = this.x + vector.x
-    var y1 = this.y + vector.y
+//     var x1 = this.x + vector.x
+//     var y1 = this.y + vector.y
 
-    return new vector.constructor(x1, y1)
-  }
-  minus(vector) {
-    var x1 = this.x - vector.x
-    var y1 = this.y - vector.y
-    return new vector.constructor(x1, y1)
-  }
-  get length() {
-    return Math.sqrt(this.x ** 2 + this.y ** 2)
-  }
-}
+//     return new vector.constructor(x1, y1)
+//   }
+//   minus(vector) {
+//     var x1 = this.x - vector.x
+//     var y1 = this.y - vector.y
+//     return new vector.constructor(x1, y1)
+//   }
+//   get length() {
+//     return Math.sqrt(this.x ** 2 + this.y ** 2)
+//   }
+// }
 
 
 // class Complex {
