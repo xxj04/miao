@@ -389,7 +389,7 @@ String.prototype.mysplit = function (re) {
   if (typeof re == 'string') {
     var result = []
     lasidx = 0
-    while (true) {
+    while (this) {
       if (this.indexOf(re) == -1) {
         result.push(this)
         break
