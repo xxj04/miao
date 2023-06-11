@@ -397,7 +397,7 @@ String.prototype.mysplit = function (re) {
 
       result.push(this.slice(lasidx, this.indexOf(re)))
 
-      this = this.substr(this.indexOf(re) + re.length, this.length)
+      this = this.substring(this.indexOf(re) + re.length, this.length)
     }
 
 
