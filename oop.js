@@ -114,8 +114,9 @@ String.prototype.mysplit = function (re) {
       lasidx = re.lastIndex
     }
     result.push(this.slice(lasidx))
+    return result
+
   }
-  return result
 
 }
 // class Vector {
