@@ -78,7 +78,9 @@ RegExp.prototype.mytest = function (str) {
     return true
   }
   return false
+  
 }
+
 
 
 String.prototype.mysplit = function (re) {
