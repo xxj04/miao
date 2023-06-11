@@ -78,7 +78,7 @@ RegExp.prototype.mytest = function (str) {
     return true
   }
   return false
-  
+
 }
 
 
@@ -87,10 +87,10 @@ String.prototype.mysplit = function (re) {
   if (typeof re == 'string') {
     var result = []
     lasidx = 0
-    while (this) {
+    while (true) {
       if (this.indexOf(re) == -1) {
         result.push(this)
-        break
+        return result
       }
 
       result.push(this.slice(lasidx, this.indexOf(re)))
