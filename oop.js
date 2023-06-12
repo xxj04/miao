@@ -60,6 +60,16 @@ String.prototype.myreplace = function (re, replace) {
   return result
 }
 
+String.prototype.myreplaceAll = function (re, replace) {
+  if (!re.global) {
+    throw new TypeError('xxx')
+  }
+  return this.myreplace(re, replacer)
+}
+
+
+
+
 String.prototype.mysearch = function (re) {
   if (typeof re == 'string') {
     return this.indexOf(re)
