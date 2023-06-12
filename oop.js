@@ -86,20 +86,17 @@ RegExp.prototype.mytest = function (str) {
 String.prototype.mysplit = function (re) {
   if (typeof re == 'string') {
     var result = []
-    lasidx = 0
-    while (true) {
-      if (this.indexOf(re) == -1) {
-        result.push(this)
-        return result
-      }
+    var fsidx = 0
+    var end = this.indexOf(re)
+    while (end != -1) {
 
-      result.push(this.slice(lasidx, this.indexOf(re)))
 
-      this = this.substring(this.indexOf(re) + re.length, this.length)
-      
+      result.push(this.slice(fsidx, end))
+      fsidx = end + this.length
+      end = this.indexOf(re, fsidx)
+
     }
-
-
+    result.push(this.slice(fsidx))
   }
   else {
     var result = []
