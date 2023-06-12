@@ -40,7 +40,7 @@ String.prototype.myreplace = function (re, replace) {
       result += replace(...m, m.index, m.input)
     }
     else {
-      var rep = replace.myreplace(/\$[1-9]\&/, (_, idx) => {
+      var rep = replace.myreplace(/\$([1-9\&])/g, (_, idx) => {
         if (idx == '&') {
           return m[0]
         }
