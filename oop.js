@@ -40,7 +40,7 @@ String.prototype.myreplace = function (re, replace) {
       result += replace(...m, m.index, m.input)
     }
     else {
-      var rep = this.myreplace(/\$[1-9]\&/, (_, idx) => {
+      var rep = replace.myreplace(/\$[1-9]\&/, (_, idx) => {
         if (idx == '&') {
           return m[0]
         }
@@ -51,7 +51,7 @@ String.prototype.myreplace = function (re, replace) {
       result += rep
     }
     lasidx = re.lastIndex
-    if (!m.global) {
+    if (!re.global) {
       lasidx = m.index + m[0]
       break
     }
