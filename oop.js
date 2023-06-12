@@ -104,7 +104,7 @@ String.prototype.mysplit = function (re) {
     var m
     var lasidx = 0
     if (!re.global) {
-      re = new RegExp(re.source, 'g' + re.fiags)
+      re = new RegExp(re.source, 'g' + re.flags)
     }
     while (m = re.exec(this)) {
       result.push(this.slice(lasidx, m.index))
