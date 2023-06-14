@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  </style>
+</head>
+
+<body>
+
+  <div id="box" style="
+                      margin: 100px 0 0 100px;
+                      width: 600px;
+                       height: 600px;
+                       background-color: black;
+                       border: 1px solid;
+                       position: relative;">
+    <div id="太阳" style="  position: absolute;
+                            width: 100px;
+                            height: 100px;
+                            border-radius: 100px;
+                            background-color: rgb(253, 194, 0);
+                            margin: 250px;">
+
+    </div>
+    <div id="地球" style=" width: 50px;
+                            height: 50px;
+                            background-color: rgb(26, 191, 252);
+                            border-radius: 100px;
+                            position: absolute;
+                            margin:200px;
+                            ">
+
+      <div id="月球" style=" width: 20px;
+                            height: 20px;
+                            background-color: rgb(252, 252, 31);
+                            position: absolute;
+                            border-radius: 100px;
+                            margin: 10px;
+                            ">
+      </div>
+
+    </div>
+
+  </div>
+  <script>
+    var 地球 = document.getElementById("地球");
+    var 月球 = document.getElementById("月球");
+    var angle = 0
+    var lastTime = null;
+    var angle2 = 0
+    function aa(time) {
+      time = Date.now()
+
+      if (lastTime != null)
+        angle += (time - lastTime) * 0.0001;
+      angle2 += (time - lastTime + 205) * 0.001;
+      lastTime = time;
+
+      地球.style.top = (Math.sin(angle) * 300) + "px";
+      地球.style.left = (Math.cos(angle) * 300) + "px";
+
+      月球.style.top = (Math.sin(angle2) * 50) + "px";
+      月球.style.left = (Math.cos(angle2) * 50) + "px";
+
+      setTimeout(aa, 100);
+    }
+
+    setTimeout(aa, 100);
+  </script>
+</body>
+
+</html>
