@@ -13,8 +13,8 @@
 
   <div id="box" style="
                       margin: 100px 0 0 100px;
-                      width: 600px;
-                       height: 600px;
+                      width:500px;
+                       height: 500px;
                        background-color: black;
                        border: 1px solid;
                        position: relative;">
@@ -23,7 +23,7 @@
                             height: 100px;
                             border-radius: 100px;
                             background-color: rgb(253, 194, 0);
-                            margin: 250px;">
+                            margin: 200px;">
 
     </div>
     <div id="地球" style=" width: 50px;
@@ -31,7 +31,7 @@
                             background-color: rgb(26, 191, 252);
                             border-radius: 100px;
                             position: absolute;
-                            margin:200px;
+                            margin:220px;
                             ">
 
       <div id="月球" style=" width: 20px;
@@ -60,8 +60,8 @@
       angle2 += (time - lastTime + 205) * 0.001;
       lastTime = time;
 
-      地球.style.top = (Math.sin(angle) * 300) + "px";
-      地球.style.left = (Math.cos(angle) * 300) + "px";
+      地球.style.top = (Math.sin(angle) * 200) + "px";
+      地球.style.left = (Math.cos(angle) * 200) + "px";
 
       月球.style.top = (Math.sin(angle2) * 50) + "px";
       月球.style.left = (Math.cos(angle2) * 50) + "px";
