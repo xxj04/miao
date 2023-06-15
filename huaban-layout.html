@@ -6,16 +6,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
+    /* html {
+      background-color: black;
+      overflow-y: scroll;
+    } */
+
+    body {
+      margin: 10px;
+    }
+
     div {
       display: flex;
       gap: 5px;
-      flex: 1;
+      align-items: flex-start;
+      margin: auto;
     }
 
     img {
       display: block;
       outline: 1px solid white;
       outline-offset: 1px;
+      margin-bottom: 10px;
+    }
+
+    span {
+      display: block;
+      flex: 1;
+
     }
   </style>
 
@@ -26,6 +43,7 @@
   <div id="huaban">
 
   </div>
+  <p>1121321</p>
   <script>
     var cats = [
       {
@@ -353,6 +371,9 @@
         "height": 1170
       }
     ]
+    cats = [...cats, ...cats]
+    cats = [...cats, ...cats]
+    cats = [...cats, ...cats]
 
     var div = document.getElementById('huaban')
     var width = 0
@@ -367,7 +388,37 @@
 
       var clo = Math.floor(window.innerWidth / 180)
       div.innerHtml = ''
+
+      for (var i = 0; i < clo; i++) {
+        div.append(document.createElement('span'))
+      }
+      var spans = [...div.querySelectorAll('span')]
+      var clowidth = spans[0].offsetWidth
+      var spanHeigth = Array(clo).fill(0)
+      var spanimg = Array(clo).fill(0).map(it => [])
+      for (cat of cats) {
+        var minspanheight = Math.min(...spanHeigth)
+        var idx = spanHeigth.indexOf(minspanheight)
+        var span = spans[idx]
+
+        var img = document.createElement('img')
+        img.src = cat.fullUrl
+        img.width = clowidth
+        img.height = clowidth * cat.height / cat.width
+
+        spanHeigth[idx] = img.height + 20
+        spanimg[idx].push(img)
+      }
+
+      spanimg.forEach((img, idx) => {
+        spans[idx].append(...img)
+
+      })
     }
+    run()
+    window.onresize = run
+
+
 
   </script>
 </body>
