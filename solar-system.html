@@ -34,42 +34,65 @@
                             margin:225px;
                             ">
 
-      <div id="月球" style=" width: 20px;
-                            height: 20px;
-                            background-color: rgb(252, 252, 31);
-                            position: absolute;
-                            border-radius: 100px;
-                            margin: 15px;
-                            ">
-      </div>
+
 
     </div>
-
+    <div id="月球" style=" width: 20px;
+                          height: 20px;
+                          background-color: rgb(252, 252, 31);
+                          position: absolute;
+                          border-radius: 100px;
+                          margin:240px;
+                          ">
+    </div>
   </div>
   <script>
+    var 太阳 = document.getElementById('太阳')
     var 地球 = document.getElementById("地球");
     var 月球 = document.getElementById("月球");
-    var angle = 0
-    var lastTime = null;
-    var angle2 = 0
-    function aa(time) {
-      time = Date.now()
+    // var angle = 0
+    // var lastTime = null;
+    // var angle2 = 0
+    // function aa(time) {
+    //   time = Date.now()
 
-      if (lastTime != null)
-        angle += (time - lastTime) * 0.0001;
-      angle2 += (time - lastTime + 205) * 0.001;
+    //   if (lastTime != null)
+    //     angle += (time - lastTime) * 0.0001;
+    //   angle2 += (time - lastTime + 205) * 0.001;
+    //   lastTime = time;
+
+    //   地球.style.top = (Math.sin(angle) * 200) + "px";
+    //   地球.style.left = (Math.cos(angle) * 200) + "px";
+
+    //   月球.style.top = (Math.sin(angle2) * 50) + "px";
+    //   月球.style.left = (Math.cos(angle2) * 50) + "px";
+
+    //   setTimeout(aa, 100);
+    // }
+
+    // setTimeout(aa, 100);
+
+
+
+    requestAnimationFrame(function aa(time) {
+
+      var angle = time / 800
+      var angle2 = time / 500
+      var angle3 = time / 200
       lastTime = time;
+      太阳.style.top = (Math.sin(angle) * 20) + "px";
+      太阳.style.left = (Math.cos(angle) * 20) + "px";
 
-      地球.style.top = (Math.sin(angle) * 200) + "px";
-      地球.style.left = (Math.cos(angle) * 200) + "px";
+      地球.style.top = parseFloat(太阳.style.top) + (Math.sin(angle2) * 200) + "px";
+      地球.style.left = parseFloat(太阳.style.left) + (Math.cos(angle2) * 200) + "px";
 
-      月球.style.top = (Math.sin(angle2) * 50) + "px";
-      月球.style.left = (Math.cos(angle2) * 50) + "px";
+      月球.style.top = parseFloat(地球.style.top) + (Math.sin(angle3) * 50) + "px";
+      月球.style.left = parseFloat(地球.style.left) + (Math.cos(angle3) * 50) + "px";
 
-      setTimeout(aa, 100);
+      requestAnimationFrame(aa)
     }
 
-    setTimeout(aa, 100);
+    )
   </script>
 </body>
 
