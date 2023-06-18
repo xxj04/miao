@@ -6,16 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    /* html {
-      background-color: black;
+    html {
+      background-color: rgb(94, 13, 1);
       overflow-y: scroll;
-    } */
+    }
 
     body {
       margin: 10px;
     }
 
-    div {
+    section {
       display: flex;
       gap: 5px;
       align-items: flex-start;
@@ -29,8 +29,7 @@
       margin-bottom: 10px;
     }
 
-    span {
-      display: block;
+    div {
       flex: 1;
 
     }
@@ -40,10 +39,9 @@
 </head>
 
 <body>
-  <div id="huaban">
+  <section id="huaban">
 
-  </div>
-  <p>1121321</p>
+  </section>
   <script>
     var cats = [
       {
@@ -372,11 +370,12 @@
       }
     ]
     cats = [...cats, ...cats]
-    cats = [...cats, ...cats]
-    cats = [...cats, ...cats]
 
-    var div = document.getElementById('huaban')
+
+    var section = document.getElementById('huaban')
     var width = 0
+
+
     function run() {
       if (window.innerWidth == width) {
         return
@@ -386,39 +385,72 @@
       }
 
 
-      var clo = Math.floor(window.innerWidth / 180)
-      div.innerHtml = ''
+      var clo = Math.floor((window.innerWidth) / 180)
+      section.innerHTML = ''
+
 
       for (var i = 0; i < clo; i++) {
-        div.append(document.createElement('span'))
+        section.append(document.createElement('div'))
       }
-      var spans = [...div.querySelectorAll('span')]
-      var clowidth = spans[0].offsetWidth
-      var spanHeigth = Array(clo).fill(0)
-      var spanimg = Array(clo).fill(0).map(it => [])
+      var divs = [...section.querySelectorAll('div')]
+      var clowidth = divs[0].offsetWidth
+      var divHeith = Array(clo).fill(0)
+      var divimg = Array(clo).fill(0).map(it => [])
+
+
       for (cat of cats) {
-        var minspanheight = Math.min(...spanHeigth)
-        var idx = spanHeigth.indexOf(minspanheight)
-        var span = spans[idx]
+        var mindivheight = Math.min(...divHeith)
+        var idx = divHeith.indexOf(mindivheight)
 
         var img = document.createElement('img')
         img.src = cat.fullUrl
         img.width = clowidth
         img.height = clowidth * cat.height / cat.width
 
-        spanHeigth[idx] = img.height + 20
-        spanimg[idx].push(img)
+        divHeith[idx] += img.height + 10
+        divimg[idx].push(img)
       }
 
-      spanimg.forEach((img, idx) => {
-        spans[idx].append(...img)
+      divimg.forEach((imgs, idx) => {
+        divs[idx].append(...imgs)
 
       })
+
     }
     run()
+
     window.onresize = run
 
+    var zIndex = 1
 
+    section.addEventListener('click', function (e) {
+
+      if (e.target.matches('section > div > img')) {
+        var img = e.target
+
+        if (img.style.transform == '') {
+          var box = img.getBoundingClientRect()
+          var x = box.left + box.width / 2
+          var y = box.top + box.height / 2
+          var wx = window.innerWidth / 2
+          var wy = window.innerHeight / 2
+
+          var zx = window.innerWidth / box.width
+          var zy = window.innerHeight / box.height
+          img.style.zIndex = zIndex++
+          img.style.transform = `translate(${wx - x}px, ${wy - y}px) scale(${Math.min(zx, zy)})`
+          img.style.boxShadow = '0 0 0 100px black'
+          document.documentElement.style.overflowY = 'hidden'
+          document.documentElement.style.paddingRight = '14px'
+        }
+        else {
+          img.style.transform = ''
+          img.style.boxShadow = ''
+          document.documentElement.style.overflowY = ''
+          document.documentElement.style.paddingRight = ''
+        }
+      }
+    })
 
   </script>
 </body>
