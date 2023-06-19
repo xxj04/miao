@@ -12,7 +12,7 @@
     }
 
     body {
-      margin: 2px;
+      margin: 10px;
     }
 
     section {
@@ -24,7 +24,8 @@
 
     img {
       display: block;
-
+      outline: 1px solid white;
+      outline-offset: 1px;
       margin-bottom: 10px;
     }
 
@@ -36,6 +37,7 @@
     span {
       width: 100vw;
       height: 100vh;
+      margin-left: -10px;
       background-color: black;
       z-index: 1;
       position: fixed;
@@ -458,6 +460,7 @@
           imgs.height = img.height
           imgs.style.zIndex = zIndex++
           imgs.style.transform = `scale(${Math.min(zx - 0.5, zy - 0.5)})`
+
         }
       }
     })
