@@ -12,7 +12,7 @@
     }
 
     body {
-      margin: 10px;
+      margin: 2px;
     }
 
     section {
@@ -24,14 +24,25 @@
 
     img {
       display: block;
-      outline: 1px solid white;
-      outline-offset: 1px;
+
       margin-bottom: 10px;
     }
 
     div {
       flex: 1;
 
+    }
+
+    span {
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+      z-index: 1;
+      position: fixed;
+      top: 0;
+      display: none;
+      justify-content: center;
+      align-items: center;
     }
   </style>
 
@@ -40,8 +51,9 @@
 
 <body>
   <section id="huaban">
-
   </section>
+  <span style=""></span>
+
   <script>
     var cats = [
       {
@@ -370,6 +382,7 @@
       }
     ]
     cats = [...cats, ...cats]
+    cats = [...cats, ...cats]
 
 
     var section = document.getElementById('huaban')
@@ -421,35 +434,41 @@
 
     window.onresize = run
 
-    var zIndex = 1
-
+    var zIndex = 10
+    var span = document.querySelector('span')
     section.addEventListener('click', function (e) {
 
-      if (e.target.matches('section > div > img')) {
+      if (e.target.matches('img')) {
         var img = e.target
 
         if (img.style.transform == '') {
           var box = img.getBoundingClientRect()
-          var x = box.left + box.width / 2
-          var y = box.top + box.height / 2
-          var wx = window.innerWidth / 2
-          var wy = window.innerHeight / 2
 
           var zx = window.innerWidth / box.width
           var zy = window.innerHeight / box.height
-          img.style.zIndex = zIndex++
-          img.style.transform = `translate(${wx - x}px, ${wy - y}px) scale(${Math.min(zx, zy)})`
-          img.style.boxShadow = '0 0 0 100px black'
+
           document.documentElement.style.overflowY = 'hidden'
-          document.documentElement.style.paddingRight = '14px'
-        }
-        else {
-          img.style.transform = ''
-          img.style.boxShadow = ''
-          document.documentElement.style.overflowY = ''
-          document.documentElement.style.paddingRight = ''
+          document.documentElement.style.overflowX = 'hidden'
+
+          span.style.display = 'flex'
+          span.append(document.createElement('img'))
+          var imgs = document.querySelector('span img')
+          imgs.src = img.src
+          imgs.width = img.width
+          imgs.height = img.height
+          imgs.style.zIndex = zIndex++
+          imgs.style.transform = `scale(${Math.min(zx - 0.5, zy - 0.5)})`
         }
       }
+    })
+
+    span.addEventListener('click', function () {
+
+
+      span.style.display = 'none'
+      span.innerHTML = ''
+      document.documentElement.style.overflowY = ''
+      document.documentElement.style.paddingRight = ''
     })
 
   </script>
