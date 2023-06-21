@@ -27,6 +27,7 @@
       outline: 1px solid white;
       outline-offset: 1px;
       margin-bottom: 10px;
+      /* flex: 1; */
     }
 
     div {
@@ -388,6 +389,7 @@
 
     var section = document.getElementById('huaban')
     var width = 0
+    var span = document.querySelector('span')
 
 
     function run() {
@@ -410,12 +412,9 @@
       var clowidth = divs[0].offsetWidth
       var divHeith = Array(clo).fill(0)
       var divimg = Array(clo).fill(0).map(it => [])
-
-
       for (cat of cats) {
         var mindivheight = Math.min(...divHeith)
         var idx = divHeith.indexOf(mindivheight)
-
         var img = document.createElement('img')
         img.src = cat.fullUrl
         img.width = clowidth
@@ -436,7 +435,6 @@
     window.onresize = run
 
     var zIndex = 10
-    var span = document.querySelector('span')
     section.addEventListener('click', function (e) {
 
       if (e.target.matches('img')) {
@@ -465,7 +463,6 @@
     })
 
     span.addEventListener('click', function () {
-
 
       span.style.display = 'none'
       span.innerHTML = ''
