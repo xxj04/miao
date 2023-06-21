@@ -470,6 +470,11 @@
       document.documentElement.style.paddingRight = ''
     })
 
+
+    addEventListener('scroll', function (e) {
+      console.log(document.body.scrollHeight, innerHeight, pageYOffset)
+    })
+
   </script>
 </body>
 
