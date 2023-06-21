@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,
+    body,
+    section {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      position: relative;
+    }
+
+    div {
+      border: 1px solid black;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+    }
+
+    .a {
+      background-color: aqua;
+
+    }
+
+    .b {
+      background-color: blueviolet;
+
+    }
+
+    .c {
+      background-color: aquamarine;
+
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <div class="a" style="  top: 10px; left: 10px;">1</div>
+    <div class="b" style="top: 20px;left: 20px;">2</div>
+    <div class="c" style="top: 30px;left: 30px;">3</div>
+  </section>
+  <script>
+    var section = document.querySelector('section')
+    var z = 2
+    var lastx
+    var lasty
+    var strX
+    var strY
+    var el
+    section.addEventListener('mousedown', function (e) {
+      if (event.which == 1) {
+        el = e.target
+        lastx = e.pageX
+        lasty = e.pageY
+        strX = parseInt(el.style.left)
+        strY = parseInt(el.style.top)
+        e.target.style.zIndex = z++
+        addEventListener('mousemove', moved)
+        e.preventDefault()
+        console.log('mousedown', e, lastx, lasty)
+      }
+    })
+
+    function moved(e) {
+      if (e.which != 1) {
+        removeEventListener('mousemove', moved)
+      } else {
+        var x = e.pageX - lastx
+        var y = e.pageY - lasty
+
+        el.style.top = strY + y + 'px'
+
+        el.style.left = strX + x + 'px'
+
+        if (parseInt(el.style.top) < 0) {
+          el.style.top = 0
+        }
+        if (parseInt(el.style.left) < 0) {
+          el.style.left = 0
+        }
+        if (parseInt(el.style.top) < 0) {
+          el.style.top = 0
+        }
+        if (parseInt(el.style.left) > window.innerWidth - 100) {
+          el.style.left = window.innerWidth - 100 + 'px'
+        }
+        if (parseInt(el.style.top) > window.innerHeight - 100) {
+          el.style.top = window.innerHeight - 100 + 'px'
+        }
+
+        console.log(window.innerHeight, el.style.top)
+
+
+
+      }
+
+    }
+  </script>
+</body>
+
+</html>
