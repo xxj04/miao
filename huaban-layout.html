@@ -16,14 +16,12 @@
     }
 
     section {
-      display: flex;
-      gap: 5px;
-      align-items: flex-start;
+      position: relative;
       margin: auto;
     }
 
     img {
-      display: block;
+      position: absolute;
       outline: 1px solid white;
       outline-offset: 1px;
       margin-bottom: 10px;
@@ -56,6 +54,7 @@
   <section id="huaban">
   </section>
   <span style=""></span>
+  <script src="https://unpkg.com/lodash"></script>
 
   <script>
     var cats = [
@@ -386,11 +385,19 @@
     ]
 
 
+    cats = [..._.cloneDeep(cats), ..._.cloneDeep(cats)]
+    cats = [..._.cloneDeep(cats), ..._.cloneDeep(cats)]
+
+    cats.forEach((it, idx) => {
+      it.idx = idx
+    })
+
 
     var section = document.getElementById('huaban')
     var width = 0
+    var a = 0
     var span = document.querySelector('span')
-
+    var 余量 = -100
 
     function run() {
       if (window.innerWidth == width) {
@@ -401,64 +408,157 @@
       }
 
 
-      var clo = Math.floor((window.innerWidth) / 180)
-      section.innerHTML = ''
-
-
-      for (var i = 0; i < clo; i++) {
-        section.append(document.createElement('div'))
-      }
-      var divs = [...section.querySelectorAll('div')]
-      var clowidth = divs[0].offsetWidth
-      var divHeith = Array(clo).fill(0)
-      var divimg = Array(clo).fill(0).map(it => [])
-      for (cat of cats) {
-        var mindivheight = Math.min(...divHeith)
-        var idx = divHeith.indexOf(mindivheight)
-        var img = document.createElement('img')
-        img.src = cat.fullUrl
-        img.width = clowidth
-        img.height = clowidth * cat.height / cat.width
-
-        divHeith[idx] += img.height + 10
-        divimg[idx].push(img)
+      var clo = Math.floor((window.innerWidth - 30) / 190)
+      if (clo == a) {
+        return
+      } else {
+        a = clo
       }
 
-      divimg.forEach((imgs, idx) => {
-        divs[idx].append(...imgs)
-
+      cats.forEach(it => {
+        it.show = false
       })
+      section.innerHTML = ''
+      section.style.width = clo * 190 + 'px'
+      // 创建适应屏幕列
+      var colHeight = Array(clo).fill(0)
+      var i = 0
+      for (cat of cats) {
+        // 获取最矮列和行
+        var mindivheight = Math.min(...colHeight)
+        var idx1 = colHeight.indexOf(mindivheight)
+        // 添加图片尺寸 移动位置
+        cat.left = idx1 * 190
+        cat.top = mindivheight
+        cat.Width = 180
+        cat.Height = Math.round(180 * cat.height / cat.width)
+        colHeight[idx1] += cat.Height + 10
+        console.log(cat, i, mindivheight)
+        i++
+      }
+      section.style.height = Math.max(...colHeight) + 'px'
 
+
+      console.log(cats)
+
+
+
+
+
+      cats.filter(cat => {
+        return cat.top + cat.Height + 10 >= window.pageYOffset - 余量
+          && cat.top + 10 <= window.pageYOffset + window.innerHeight + 余量
+      }).forEach(cat => {
+
+        cat.show = true
+        var img = document.createElement('img')
+        img.dataset.idx = cat.idx
+
+        img.src = cat.fullUrl
+        img.style.width = cat.Width + 'px'
+        img.style.height = cat.Height + 'px'
+        img.style.transform = `translate(${cat.left}px, ${cat.top}px)`
+        img.style.opacity = '0'
+
+        img.onload = () => {
+          img.style.opacity = '1'
+        }
+
+        console.log(img)
+        section.append(img)
+      })
     }
     run()
 
     window.onresize = run
 
+
+
+
+    var prevPageYOffset = 0
+
+    window.onscroll = (e) => {
+      if (Math.abs(window.pageYOffset - prevPageYOffset) < 100) {
+        return
+      }
+      var imgs = section.querySelectorAll('img')
+
+
+
+      var shownCat = cats.filter(cat => cat.show == true)
+
+      var toshow = cats.filter(cat => {
+        return cat.top + cat.Height + 10 >= window.pageYOffset - 余量
+          && cat.top + 10 <= window.pageYOffset + window.innerHeight + 余量
+      })
+      var leaveCats = _.difference(shownCat, toshow)
+
+
+      // 将它们标记为不再显示
+      leaveCats.forEach(it => {
+        it.show = false
+        var img = section.querySelector(`[data-idx="${it.idx}"]`)
+        img.remove()
+      })
+
+
+      var newCats = _.difference(toshow, shownCat)
+
+
+      newCats.forEach(cat => {
+        cat.show = true
+
+        var img = document.createElement('img')
+        img.dataset.idx = cat.idx
+        img.src = cat.fullUrl
+        img.style.width = cat.Width + 'px'
+        img.style.height = cat.Height + 'px'
+        img.style.transform = `translate(${cat.left}px, ${cat.top}px)`
+        img.style.opacity = '0'
+        img.onload = () => {
+          img.style.opacity = '1'
+        }
+
+        section.append(img)
+      })
+
+
+      prevPageYOffset = window.pageYOffset
+
+    }
+
+    function debounce(f, time) {
+      var taskId
+
+      return function (...args) {
+        clearTimeout(taskId)
+        taskId = setTimeout(() => {
+          f.call(this, ...args)
+        }, time)
+      }
+    }
+
+
     var zIndex = 10
     section.addEventListener('click', function (e) {
-
-      if (e.target.matches('img')) {
+      if (e.target.nodeName == 'IMG') {
         var img = e.target
 
-        if (img.style.transform == '') {
-          var box = img.getBoundingClientRect()
+        var box = img.getBoundingClientRect()
+        var zx = window.innerWidth / box.width
+        var zy = window.innerHeight / box.height
 
-          var zx = window.innerWidth / box.width
-          var zy = window.innerHeight / box.height
+        document.documentElement.style.overflowY = 'hidden'
+        document.documentElement.style.overflowX = 'hidden'
 
-          document.documentElement.style.overflowY = 'hidden'
-          document.documentElement.style.overflowX = 'hidden'
-
-          span.style.display = 'flex'
-          span.append(document.createElement('img'))
-          var imgs = document.querySelector('span img')
-          imgs.src = img.src
-          imgs.width = img.width
-          imgs.height = img.height
-          imgs.style.zIndex = zIndex++
-          imgs.style.transform = `scale(${Math.min(zx, zy)})`
-
-        }
+        span.style.display = 'flex'
+        span.append(document.createElement('img'))
+        var imgs = document.querySelector('span img')
+        imgs.src = img.src
+        imgs.style.width = parseInt(img.width) + 'px'
+        imgs.style.height = parseInt(img.height) + 'px'
+        imgs.style.zIndex = zIndex++
+        imgs.style.transform = `scale(${Math.min(zx, zy)})`
       }
     })
 
@@ -471,9 +571,6 @@
     })
 
 
-    addEventListener('scroll', function (e) {
-      console.log(document.body.scrollHeight, innerHeight, pageYOffset)
-    })
 
   </script>
 </body>
