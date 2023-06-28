@@ -726,20 +726,23 @@ var xxj04 = {
     return b
   }
   ,
-  unionWith: function (arrays, comparator) {
-    var array = [...arguments]
-    var comparator = arrays.pop()
-    var arrays = []
-    var arr = []
-    array.forEach((it) => {
-      arrays = arrays.concat(it)
-    })
-    for (var i = 0; i < arrays.length; i++) {
-      if (!(comparator(arrays[i], arrays[i + 1]))) {
-        arr.push(arrays[i])
-        arr.push(arrays[i + 1])
+  unionWith: function (...array) {
+
+    var comparator = array.pop()
+    array = array.flat()
+    var a = []
+    for (var i = 0; i < array.length; i++) {
+      var keep = true
+      for (j = 0; j < a.length; j++) {
+        if (comparator(array[i], a[j])) {
+          keep = false
+          break
+        }
       }
+      if (keep)
+        a.push(array[i])
     }
+    return a
 
   }
   ,
