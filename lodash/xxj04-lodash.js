@@ -396,14 +396,13 @@ var xxj04 = {
   ,
 
   pullAllBy: function (array, values, iteratee = _.identity) {
+    iteratee = xxj04.iteratee(iteratee)
     values.forEach((it) => {
       array.forEach((item, i) => {
-        if (typeof (iteratee) == 'function' && iteratee(it) == iteratee(item)) {
+        if (iteratee(it) == iteratee(item)) {
           array.splice(i, 1)
         }
-        if (it[iteratee] == item[iteratee]) {
-          array.splice(i, 1)
-        }
+
       })
     })
     return array
@@ -644,11 +643,8 @@ var xxj04 = {
 
 
   sortedUniq: function (array) {
-    var a = new Set()
-    array.forEach((it) => {
-      a.add(it)
-    })
-    return [...a]
+    return Array.from(new Set(array))
+
 
   }
 
@@ -666,7 +662,7 @@ var xxj04 = {
         b.add(it)
       }
     })
-    return [...b]
+    return Array.from(b)
   }
   ,
 
@@ -761,46 +757,41 @@ var xxj04 = {
   }
   ,
   uniq: function (array) {
-    a = new Set()
-    array.forEach(it => {
-      a.add(it)
-    })
-    return a
+    return Array.from(new Set(array))
+
   }
   ,
   uniqBy: function (array, iteratee = _.identity) {
     var a = new Set()
     var b = new Set()
-    if (typeof (iteratee) == 'function') {
-      array.forEach((it) => {
-        if (!(a.has(iteratee(it)))) {
-          a.add(it[iteratee])
-          b.add(it)
-        }
-      })
-    }
+    iteratee = xxj04.iteratee(iteratee)
+
     array.forEach((it) => {
-      if (!(it[iteratee])) {
-        a.add(it[iteratee])
+      if (!(a.has(iteratee(it)))) {
+        a.add(iteratee(it))
         b.add(it)
       }
     })
-    return [...b]
+
+    return Array.from(b)
   }
   ,
 
 
-  uniqWith: function (array, [comparator]) {
+  uniqWith: function (array, comparator) {
     var a = []
-    var b = array.shift()
-    var c = array.shift()
-    if (array.length == 0) {
-      return array
+    for (var i = 0; i < array.length; i++) {
+      var keep = true
+      for (j = 0; j < a.length; j++) {
+        if (comparator(array[i], a[j])) {
+          keep = false
+          break
+        }
+      }
+      if (keep)
+        a.push(array[i])
     }
-    if (!comparator(b, c)) {
-      a.push(c)
-    }
-
+    return a
 
   }
   ,
@@ -895,4 +886,3 @@ var xxj04 = {
     return c
   }
 }
-
