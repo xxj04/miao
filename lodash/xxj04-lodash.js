@@ -1,4 +1,65 @@
 var xxj04 = {
+  iteratee: function (predicate) {
+    var func = predicate
+    if (typeof func === 'string') {
+      func = xxj04.property(predicate)
+    }
+    else if (Array.isArray(predicate)) {
+      func = xxj04.matchesProperty(predicate)
+    }
+    else if (typeof predicate === 'object') {
+
+      func = xxj04.matches(predicate)
+    }
+    return func
+  }
+  ,
+  property: function (path) {
+    return function (object) {
+      return xxj04.get(object, path)
+    }
+  }
+  ,
+  matchesProperty: function (path, srcValue) {
+    return function (object) {
+      return xxj04.isMath(object[path], srcValue)
+    }
+  }
+  ,
+  matches: function (source) {
+    return function (object) {
+      return xxj04.isMath(object, source)
+    }
+  }
+  ,
+  get: function (obj, path, defaultValue) {
+    if (obj == undefined) {
+      return defaultValue
+    }
+    if (path.length == 0) {
+      return obj
+    }
+    return xxj04.get(obj[path[0]], path.slice(1))
+  }
+  ,
+
+  isMath: function (object, source) {
+    for (key of source) {
+      if (typeof source[key] === 'object') {
+        if (!xxj04.isMath(object[key], src[key])) {
+          return false
+        }
+      }
+      else {
+        if (object[key] !== src[key]) {
+          return false
+        }
+      }
+    }
+    return true
+  }
+
+  ,
   chunk: function (ary, size) {
     var b = []
     for (var i = 0; i < ary.length; i += size) {
@@ -55,48 +116,57 @@ var xxj04 = {
   }
   ,
   differenceBy: function (arr, arrays, iteratee = _.identity) {
-    var array = [...arguments]
-    var arrays = []
-    array.forEach((it, i) => {
-      if (0 > i && i < array.length - 1) {
-        arrays = arrays.concat(it)
+
+    var result = []
+
+    for (var itme of arr) {
+      var keep = true
+      for (var val of arrays) {
+        if (iteratee(itme) === iteratee(val)) {
+          keep = false
+          break
+        }
+
       }
-    })
-    var b = new Set
-    arr.forEach((it) => {
-      b.add(...(arrays).filter((item) => {
-        if (typeof (iteratee) == 'function' && iteratee(item) == iteratee(it)) {
-          return iteratee(it)
-        }
-        if (it[iteratee] != null && it[iteratee] != item[iteratee]) {
-          return it[iteratee]
-
-        }
-        arr.splice(i, 1)
-      }))
-    })
-    var b = [...b]
-    if (b.includes(undefined)) {
-      b.splice(b.indexOf(undefined), 1)
+      if (keep) {
+        result.push(itme)
+      }
     }
-    return b
-
+    return result
   }
   ,
   differenceWith: function (arr, arrays, comparator) {
 
-    arr.forEach((it, i) => {
-      arrays.filter((item) => {
-        if (comparator(it, item)) {
-          arr.splice(i, 1)
-        }
-      })
-    })
+    var result = []
 
-    return arr
+    for (var itme of arr) {
+      var keep = true
+      for (var val of arrays) {
+        if (comparator(itme, val)) {
+          keep = false
+          break
+        }
+
+      }
+      if (keep) {
+        result.push(itme)
+      }
+    }
+    return result
   }
   ,
 
+
+  sumBy: function (array, iteratee = _.identity) {
+    let result = []
+    iteratee = xxj04.iteratee(iteratee)
+
+    for (var i = 0; i < array.length; i++) {
+      result += iteratee(array[i])
+    }
+    return result
+  }
+  ,
   drop: function (array, n) {
     if (n == null) {
       n = 1
@@ -234,45 +304,37 @@ var xxj04 = {
         return it.includes(item)
       }))
     })
-    return [...b]
+    return Array.from(b)
 
 
   }
   ,
   intersectionBy: function (arr, arrays, iteratee = _.identity) {
-    var b = new Set
+    var b = []
+    iteratee = xxj04.iteratee(iteratee)
     arrays.forEach((it) => {
-      b.add(...(arr).filter((item) => {
-        if (typeof (iteratee) == 'function' && iteratee(item) == iteratee(it)) {
+      b.push(...(arr).filter((item) => {
+        if (iteratee(item) == iteratee(it)) {
           return iteratee(it)
         }
-        if (it[iteratee] != null && it[iteratee] == item[iteratee]) {
-          return it[iteratee]
-        }
+
         return
       }))
     })
-    var b = [...b]
-    if (b.includes(undefined)) {
-      b.splice(b.indexOf(undefined), 1)
-    }
     return b
   }
 
   ,
   intersectionWith: function (arr, arrays, comparator) {
-    var b = new Set()
+    var b = []
     arr.forEach((it) => {
-      b.add(...(arrays).filter((item) => {
+      b.push(...(arrays).filter((item) => {
         if (comparator(it, item)) {
           return it
         }
       }))
     })
-    var b = [...b]
-    if (b.includes(undefined)) {
-      b.splice(b.indexOf(undefined), 1)
-    }
+
     return b
   }
 
