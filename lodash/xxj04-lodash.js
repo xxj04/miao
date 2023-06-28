@@ -458,7 +458,7 @@ var xxj04 = {
       }
 
     }
-    return array
+    return b
 
 
   }
