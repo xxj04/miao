@@ -704,39 +704,26 @@ var xxj04 = {
     return [...a]
   }
   ,
-  unionBy: function (arrays, iteratee = _.identity) {
+  unionBy: function (...arrays) {
+
+    var itr = arrays.pop()
     var a = new Set()
-    var b = new Set()
-    arrays = [...arguments]
-    if (typeof (iteratee) == 'function') {
-      arrays.forEach((item) => {
-        for (var i = 0; i < item.length; i++) {
-          if (a.has(iteratee(item[i]))) {
-            return
-          } else {
-            a.add(iteratee(item[i]))
-            b.add(item[i])
-          }
+    var b = []
+    iteratee = xxj04.iteratee(itr)
+    arrays.forEach((item) => {
+      for (var i = 0; i < item.length; i++) {
+        if (a.has(iteratee(item[i]))) {
+          return
         }
+        a.add(iteratee(item[i]))
+        b.push(item[i])
+      }
 
-      })
-    }
+    })
 
-    else {
-      arrays.forEach((item) => {
 
-        for (var i = 0; i < item.length; i++) {
-          if (a.has(item[i][iteratee])) {
-            return
-          } else {
-            a.add(item[i][iteratee])
-            b.add(item[i])
-          }
-        }
-      })
-    }
 
-    return [...b]
+    return b
   }
   ,
   unionWith: function (arrays, comparator) {
