@@ -898,7 +898,29 @@ var xxj04 = {
 
 
 
-  xorBy: function (arrays, comparator) {
-    
+
+  xorWith: function (arrays, comparator) {
+    var array = [...arguments]
+    var comparator = array.pop()
+
+    var result = []
+    var arr = array.filter((it, idx) => idx != 0)
+    array = array[0].concat(...arr)
+    for (var i of array) {
+      var xx = 0
+      for (var j of array) {
+        if (comparator(i, j)) {
+          xx++
+
+        }
+
+      }
+      if (xx == 1) {
+        result.push(i)
+      }
+    }
+    return result
   }
+
+
 }
