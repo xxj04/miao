@@ -819,15 +819,17 @@ var xxj04 = {
   }
 
   ,
-  unzipWith: function (array, [iteratee = _.identity]) {
-    var a = array.pop()
-    var aa = []
-    array.forEach((it) => {
-      a.forEach((item) => {
-        aa.push(iteratee(it, item))
-      })
-    })
-    return aa
+  unzipWith: function (array, iteratee = _.identity) {
+    iteratee = xxj04.iteratee(iteratee)
+    var result = []
+    var arr = array[0]
+    var arr1 = array[1]
+    for (it of arr) {
+      for (itme of arr1) {
+        result.push(iteratee(it, itme))
+      }
+    }
+    return result
   }
 
   ,
@@ -836,7 +838,7 @@ var xxj04 = {
   without: function (array, ...values) {
     for (var i = 0; i < array.length; i++) {
       for (var j = 0; j < values.length; j++) {
-        if (it == item) {
+        if (array[i] == values[j]) {
           array.splice(i, 1)
           i--
 
@@ -847,32 +849,56 @@ var xxj04 = {
   }
   ,
   xor: function (...arrays) {
-    var a = arrays.pop()
-    arrays = xxj04.flattenDeep(arrays)
-    var b = {}
-    var c = []
-    for (var i = 0; i < arrays.length; i++) {
-      for (var j = 0; j < a.length; j++) {
-        if (a[j] in b) {
-          b[a[j]]++
-        }
-        if (arrays[i] in b) {
-          b[arrays[i]]++
-        }
-        if (!(arrays[i] in b)) {
-          b[arrays[i]] = 1
-        }
-        if (!(a[j] in b)) {
-          b[a[j]] = 1
-        }
-        i++
+    var result = []
+    var dict = new Map()
+    arrays = arrays.flat()
+    for (var x of arrays) {
+      if (dict.has(x)) {
+        let val = dict.get(x) + 1
+
+        dict.set(x, val)
+      }
+      else {
+        dict.set(x, 1)
       }
     }
-    for (k in b) {
-      if (b[k] == 1) {
-        c.push(b[k])
+    for (var i of dict) {
+      if (i[1] == 1) {
+        result.push(i[0] * 1)
       }
     }
-    return c
+
+    return result
+  }
+  ,
+
+  xorBy: function (arrays, iteratee = _.identity) {
+    var arrays = [...arguments]
+    var it = arrays.pop()
+    iteratee = xxj04.iteratee(it)
+    var result = []
+    arrays = arrays.flat()
+    for (var i of arrays) {
+      var xx = 0
+      for (var j of arrays) {
+        if (iteratee(i) == iteratee(j)) {
+          xx++
+
+        }
+
+      }
+      if (xx == 1) {
+        result.push(i)
+      }
+    }
+    return result
+  }
+
+  ,
+
+
+
+  xorBy: function (arrays, comparator) {
+    
   }
 }
