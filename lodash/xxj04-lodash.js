@@ -36,6 +36,7 @@ var xxj04 = {
     if (obj == undefined) {
       return defaultValue
     }
+
     if (path.length == 0) {
       return obj
     }
@@ -834,7 +835,41 @@ var xxj04 = {
 
   ,
 
+  zipObject: function (props = [], values = []) {
+    var result = {}
+    for (var k of props) {
+      for (var j of values) {
+        result[k] = j
+      }
+    }
+    return result
+  }
 
+  ,
+  zipObjectDeep: function (props = [], values = []) {
+
+
+  }
+  ,
+  zipWith: function (arrays, iteratee = _.identity) {
+
+
+  }
+  ,
+  toPath: function (pathString) {
+    if (typeof pathString == 'string') {
+      var result = pathString.split(/\.|   \[   |   \]   \.|   \]\[    |   \]/)
+      if (result.at(-1) == '') {
+        result.pop()
+      }
+      if (result.at(0) == '') {
+        result.shift()
+      }
+      return result
+    }
+    return pathString
+  }
+  ,
   without: function (array, ...values) {
     for (var i = 0; i < array.length; i++) {
       for (var j = 0; j < values.length; j++) {
@@ -921,6 +956,56 @@ var xxj04 = {
     }
     return result
   }
+  ,
+  countBy: function (collection, iteratee = _.identity) {
+    iteratee = xxj04.iteratee(iteratee)
+    var result = {}
+    for (var x of collection) {
+      if (result[iteratee(x)]) {
+        result[iteratee(x)]++
+      }
+      else {
+        result[iteratee(x)] = 1
+      }
+    }
+    return result
+  }
+
+  ,
 
 
+  forEach: function (collection, iteratee = _.identity) {
+    iteratee = xxj04.iteratee(iteratee)
+    if (Array.isArray(collection)) {
+
+      for (var i = 0; i < collection.length; i++) {
+        if (iteratee(collection[i])) {
+          return iteratee(collection[i])
+        }
+      }
+    }
+    else {
+      for (var k in collection) {
+        if (iteratee(k, collection[k])) {
+          return iteratee(k, collection[k])
+        }
+      }
+    }
+    return collection
+  }
+  ,
+
+
+
+  forEachRight: function (collection, iteratee = _.identity) {
+    iteratee = xxj04.iteratee(iteratee)
+
+    for (var i = collection.length - 1; 0 <= i; i--) {
+      if (iteratee(collection[i])) {
+        return iteratee(collection[i])
+      }
+    }
+
+    return collection
+  }
 }
