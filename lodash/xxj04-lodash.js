@@ -164,7 +164,7 @@ var xxj04 = {
     iteratee = xxj04.iteratee(iteratee)
 
     for (var i = 0; i < array.length; i++) {
-      result += iteratee(array[i])
+      result += iteratee(array[i]) * 1
     }
     return result
   }
@@ -838,10 +838,8 @@ var xxj04 = {
 
   zipObject: function (props = [], values = []) {
     var result = {}
-    for (var k of props) {
-      for (var j of values) {
-        result[k] = j
-      }
+    for (var i = 0; i < props.length; i++) {
+      result[props[i]] = values[i]
     }
     return result
   }
