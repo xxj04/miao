@@ -1008,4 +1008,8 @@ var xxj04 = {
 
     return collection
   }
+  ,
+  every: function (collection, predicate = _.identity) {
+    
+  }
 }
