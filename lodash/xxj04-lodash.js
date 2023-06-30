@@ -33,14 +33,15 @@ var xxj04 = {
   }
   ,
   get: function (obj, path, defaultValue) {
-    if (obj == undefined) {
-      return defaultValue
+    path = xxj04.toPath(path)
+    for (var key of path) {
+      if (obj != undefined) {
+        obj = obj[key]
+      } else {
+        return defaultValue
+      }
     }
-
-    if (path.length == 0) {
-      return obj
-    }
-    return xxj04.get(obj[path[0]], path.slice(1))
+    return obj ?? defaultValue
   }
   ,
 
@@ -1010,6 +1011,6 @@ var xxj04 = {
   }
   ,
   every: function (collection, predicate = _.identity) {
-    
+
   }
 }
