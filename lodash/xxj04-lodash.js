@@ -1,4 +1,50 @@
 var xxj04 = {
+  predicate: (predicate) => {
+    // 如果predicate是函数
+    if (typeof (predicate) == 'function') {
+      return predicate
+    }
+    // 如果predicate是数组
+    if (Array.isArray(predicate)) {
+      var key = predicate[0]
+      var value = predicate[1]
+      return obj => obj[key] == value
+    }
+    // 如果predicate是对象
+    if (typeof (predicate) == 'object') {
+      // 目标是返回一个函数
+      return obj => {
+        // 判断obj是否在predicate里面
+        for (let key in obj) {
+          var val1 = obj[key]
+          var val2 = predicate[key]
+          if (!(key in predicate)) {
+            return false
+          } else {
+            if (!(val1 == val2)) {
+              return false
+            }
+          }
+        }
+        for (let key in predicate) {
+          var val1 = obj[key]
+          var val2 = predicate[key]
+          if (!(key in obj)) {
+            return false
+          } else {
+            if (!(val1 == val2)) {
+              return false
+            }
+          }
+        }
+        return true
+      }
+    }
+    if (typeof (predicate) == 'string') {
+      return obj => obj[predicate]
+    }
+  }
+  ,
   iteratee: function (predicate) {
     var func = predicate
     if (typeof func === 'string') {
@@ -1009,6 +1055,24 @@ var xxj04 = {
   }
   ,
   every: function (collection, predicate = _.identity) {
+    predicate = xxj04.predicate(predicate)
+    for (var x of collection) {
+      if (!predicate(x)) {
+        return false
+      }
+    }
+    return true
+  }
 
+  ,
+  filter: function (collection, predicate = _.identity) {
+    predicate = xxj04.predicate(predicate)
+    var result = []
+    for (var x of collection) {
+      if (predicate(x)) {
+        result.push(x)
+      }
+    }
+    return result
   }
 }
