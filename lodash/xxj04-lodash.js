@@ -1075,4 +1075,46 @@ var xxj04 = {
     }
     return result
   }
+
+  ,
+
+
+  find: function (collection, predicate = _.identity, fromIndex = 0) {
+    var result = []
+    for (var i = fromIndex; i < collection.length; i++) {
+      if (predicate(collection[i])) {
+        result.push(collection[i])
+      }
+    }
+    if (result.length == 0) {
+      return undefined
+    }
+    return result
+  }
+
+  ,
+
+  findLast: function (collection, predicate = _.identity, fromIndex = collection.length - 1) {
+    for (var i = fromIndex; 0 <= i; i--) {
+      if (predicate(collection[i])) {
+        return collection[i]
+      }
+    }
+
+    return undefined
+
+  }
+
+  ,
+
+  flatMap: function (collection, iteratee = _.identity) {
+
+    var result = []
+    iteratee = xxj04.iteratee(iteratee)
+    for (var j of collection) {
+      result.push(iteratee(j))
+    }
+    return xxj04.flattenDeep(result)
+  }
+
 }
