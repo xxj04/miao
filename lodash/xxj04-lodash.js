@@ -1081,9 +1081,10 @@ var xxj04 = {
 
   find: function (collection, predicate = _.identity, fromIndex = 0) {
     var result = []
+    predicate = xxj04.predicate(predicate)
     for (var i = fromIndex; i < collection.length; i++) {
-      if (predicate(collection[i])) {
-        result.push(collection[i])
+      if (predicate(predicate[i])) {
+        result.push(predicate[i])
       }
     }
     if (result.length == 0) {
@@ -1116,5 +1117,83 @@ var xxj04 = {
     }
     return xxj04.flattenDeep(result)
   }
+  ,
 
+  flatMapDeep: function (collection, iteratee = _.identity) {
+    var result = []
+    iteratee = xxj04.iteratee(iteratee)
+    for (var j of collection) {
+      result.push(iteratee(j))
+    }
+    return xxj04.flattenDeep(result)
+  }
+
+  ,
+
+
+  flatMapDepth: function (collection, iteratee = _.identity, depth = 1) {
+    var result = []
+    iteratee = xxj04.iteratee(iteratee)
+    for (var j of collection) {
+      result.push(iteratee(j))
+    }
+    return xxj04.flattenDepth(result, depth)
+  }
+  ,
+
+
+  groupBy: function (collection, iteratee = _.identity) {
+    var result = {}
+    iteratee = xxj04.iteratee(iteratee)
+    for (var x of collection) {
+      if (result[iteratee(x)]) {
+        result[iteratee].push(x)
+      }
+      else {
+        result[iteratee(x)] = [x]
+      }
+    }
+    return result
+  }
+  ,
+
+  includes: function (collection, value, fromIndex = 0) {
+
+    if (typeof collection == 'string' || Array.isArray(collection)) {
+      if (fromIndex >= 0) {
+
+        for (var i = fromIndex; i < collection.length; i++) {
+          if (collection[i] == value) {
+            return true
+          }
+        }
+      }
+      else {
+        for (var i = fromIndex + collection.length; i >= 0; i--) {
+          if (collection[i] == value) {
+            return true
+          }
+        }
+      }
+    }
+    else {
+      for (var x in collection) {
+        if (collection[x] === value) {
+          return true
+        }
+      }
+    }
+    return false
+  }
+
+  ,
+
+  invokeMap: function (collection, path, args) {
+    path = xxj04.iteratee(path)
+    var result = []
+    for (var x of collection) {
+      result.push(path(x,args))
+    }
+    return result
+  }
 }
