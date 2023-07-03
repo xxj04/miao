@@ -1238,17 +1238,17 @@ var xxj04 = {
 
   partition: function (collection, predicate = _.identity) {
     predicate = xxj04.predicate(predicate)
-    var turelist = []
+    var truelist = []
     var falselist = []
     for (let x of collection) {
       if (predicate(x)) {
-        turelist.push(x)
+        truelist.push(x)
         continue
       }
       falselist.push(x)
     }
 
-    return [turelist, falselist]
+    return [truelist, falselist]
   }
 
   ,
@@ -1323,12 +1323,67 @@ var xxj04 = {
   shuffle: function (collection) {
     var result = []
     var idx
-    var c = collection.map(it=>it)
+    var c = collection.map(it => it)
     while (c.length) {
       idx = Math.floor(Math.random() * c.length)
       result.push(c[idx])
       c.splice(idx, 1)
     }
     return result
+  }
+  ,
+
+  size: function (collection) {
+    var result = 0
+    if (Array.isArray(collection)) {
+      for (var i of collection) {
+        result++
+      }
+    }
+    else {
+      for (var j of collection) {
+        result++
+      }
+    }
+    return result
+  }
+
+  ,
+
+
+  some: function (collection, predicate = _.identity) {
+    predicate = xxj04.predicate(predicate)
+    for (var x of collection) {
+      if (predicate(x)) {
+        return true
+      }
+    }
+    return false
+  }
+  ,
+  sortBy: function (collection, iteratees = [_.identity]) {
+    iteratee = xxj04.iteratee(iteratees)
+    for (var i = 0; i < collection.length; i++) {
+      for (var j = collection.length; i < j; j--) {
+        if (iteratee(collection[i]) > iteratee(collection[j])) {
+          xxj04.swap(collection, i, j)
+        }
+      }
+    }
+    return collection
+  }
+  ,
+  curry: function (fun) {
+    return function curriedFn(...args) {
+
+      if (args.length < fun.length) {
+        return function () {
+          return curriedFn(...args.concat(Array.from(arguments)))
+        }
+      }
+      return fun(...args)
+    }
+
+
   }
 }
