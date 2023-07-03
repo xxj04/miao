@@ -1147,7 +1147,7 @@ var xxj04 = {
     iteratee = xxj04.iteratee(iteratee)
     for (var x of collection) {
       if (result[iteratee(x)]) {
-        result[iteratee].push(x)
+        result[iteratee(x)].push(x)
       }
       else {
         result[iteratee(x)] = [x]
@@ -1192,8 +1192,51 @@ var xxj04 = {
     path = xxj04.iteratee(path)
     var result = []
     for (var x of collection) {
-      result.push(path(x,args))
+      result.push(path(x, args))
     }
     return result
+  }
+
+  ,
+
+
+
+  keyBy: function (collection, iteratee = _.identity) {
+    iteratee = xxj04.iteratee(iteratee)
+    var result = {}
+    for (var x of collection) {
+      result[iteratee(x)] = x
+    }
+    return result
+  }
+
+  ,
+
+
+  map: function (collection, iteratee = _.identity) {
+    iteratee = xxj04.iteratee(iteratee)
+    var result = []
+    if (Array.isArray(collection)) {
+
+      for (var i = 0; i < collection.length; i++) {
+        result.push(iteratee(collection[i]))
+      }
+    }
+    else {
+
+      for (var x in collection) {
+        result.push(iteratee(collection[x]))
+      }
+    }
+
+
+    return result
+  }
+
+  ,
+
+
+  orderBy: function (collection, iteratees = [_.identity], orders) {
+    iteratees = xxj04.iteratee(iteratees)
   }
 }
