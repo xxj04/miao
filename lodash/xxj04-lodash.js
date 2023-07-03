@@ -1219,13 +1219,13 @@ var xxj04 = {
     if (Array.isArray(collection)) {
 
       for (var i = 0; i < collection.length; i++) {
-        result.push(iteratee(collection[i]))
+        result.push(iteratee(collection[i], i, collection))
       }
     }
     else {
 
       for (var x in collection) {
-        result.push(iteratee(collection[x]))
+        result.push(iteratee(collection[x], x, collection))
       }
     }
 
@@ -1236,7 +1236,99 @@ var xxj04 = {
   ,
 
 
-  orderBy: function (collection, iteratees = [_.identity], orders) {
-    iteratees = xxj04.iteratee(iteratees)
+  partition: function (collection, predicate = _.identity) {
+    predicate = xxj04.predicate(predicate)
+    var turelist = []
+    var falselist = []
+    for (let x of collection) {
+      if (predicate(x)) {
+        turelist.push(x)
+        continue
+      }
+      falselist.push(x)
+    }
+
+    return [turelist, falselist]
+  }
+
+  ,
+
+  reduce: function (collection, iteratee = _.identity, accumulator) {
+    iteratee = xxj04.iteratee(iteratee)
+    var result = accumulator
+    if (Array.isArray(collection)) {
+
+      for (var i = 0; i < collection.length; i++) {
+        result = iteratee(result, collection[i], i, collection)
+      }
+    }
+    else {
+
+      for (var x in collection) {
+        result = (iteratee(result, collection[x], x))
+      }
+    }
+
+
+    return result
+  }
+  ,
+  reduceRight(collection, iteratee = _.identity, accumulator) {
+    iteratee = xxj04.iteratee(iteratee)
+    var result = accumulator
+    for (var i = collection.length; 0 <= i; i--) {
+      result = iteratee(result, collection[i], i, collection)
+    }
+    return result
+
+  }
+  ,
+  reject: function (collection, predicate = _.identity) {
+    predicate = xxj04.predicate(predicate)
+    var result = []
+    for (let x of collection) {
+      if (!predicate(x)) {
+        result.push(x)
+      }
+    }
+    return result
+  }
+  ,
+
+
+  sample: function (collection) {
+    var idx = Math.floor(Math.random() * collection.length)
+    return collection[idx]
+  }
+  ,
+
+  sampleSize: function (collection, n = 1) {
+    var result = []
+    var idx
+    if (n > collection.length) {
+      n = collection.length
+    }
+    while (n) {
+      idx = Math.floor(Math.random() * collection.length)
+
+      result.push(collection[idx])
+      n--
+    }
+    return result
+  }
+
+
+  ,
+
+  shuffle: function (collection) {
+    var result = []
+    var idx
+    var c = collection.map(it=>it)
+    while (c.length) {
+      idx = Math.floor(Math.random() * c.length)
+      result.push(c[idx])
+      c.splice(idx, 1)
+    }
+    return result
   }
 }
