@@ -94,12 +94,12 @@ var xxj04 = {
   isMath: function (object, source) {
     for (key of source) {
       if (typeof source[key] === 'object') {
-        if (!xxj04.isMath(object[key], src[key])) {
+        if (!xxj04.isMath(object[key], source[key])) {
           return false
         }
       }
       else {
-        if (object[key] !== src[key]) {
+        if (object[key] !== source[key]) {
           return false
         }
       }
