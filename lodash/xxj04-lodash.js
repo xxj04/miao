@@ -206,7 +206,7 @@ var xxj04 = {
 
 
   sumBy: function (array, iteratee = _.identity) {
-    let result = []
+    let result = 0
     iteratee = xxj04.iteratee(iteratee)
 
     for (var i = 0; i < array.length; i++) {
@@ -1422,6 +1422,16 @@ var xxj04 = {
 
   ,
   ceil: function (number, precision = 0) {
+    if (precision == 0) {
+      number = Math.floor(number) + 1
+    }
+    if (precision > 0) {
+      number = number.toFixed(precision) * 1 + 1 / (10 ** precision)
+    }
+    if (precision < 0) {
+      number = Math.floor((number / (10 ** Math.abs(precision)) + 1)) * (10 ** Math.abs(precision))
+    }
+    return number
 
 
   }
@@ -1429,6 +1439,66 @@ var xxj04 = {
 
 
   ,
+
+  floor: function (number, precision = 0) {
+    return Math.floor(number * Math.pow(10, precision)) / Math.pow(10, precision);
+  }
+  ,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   parseJSON: function (str) {
     var i = 0
