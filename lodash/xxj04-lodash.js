@@ -1395,7 +1395,7 @@ var xxj04 = {
 
   conformsTo: function (object, source) {
     predicate = xxj04.predicate(source)
-
+    
 
     var val = true
     if (!predicate(object)) {

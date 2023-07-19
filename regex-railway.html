@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <input type="text" name="" id="input" value="aaa">
+  <button onclick="run()">run</button>
+  <button onclick="download()">download</button>
+  <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="1000" height="1000">
+  </svg>
+
+  <script>
+    var hash = location.hash.slice(1)
+    var svg = document.querySelector("svg")
+    if (hash) {
+      input.value = decodeURIComponent(hash)
+      console.log(input.value)
+    }
+    function run() {
+
+      svg.innerHTML = ''
+      var node = 解析(input.value)
+      var graph = drawRegularExpression(node)
+      console.log(graph)
+      var box = graph.getBBox()
+
+      svg.setAttribute('width', box.width)
+      svg.setAttribute('height', box.height)
+
+      location.hash = encodeURIComponent(input.value)
+    }
+
+    function 解析(node) {
+      var str = node
+      var i = 0
+      var idx = 1
+      var 内容=分解内容()
+
+      return {
+        type: 'RegularExpression',
+        start: 0,
+        end: input.length,
+        raw: input,
+        branches: branches,
+      }
+    }
+    function drawRegularExpression(node) {
+      return node
+    }
+  </script>
+</body>
+
+</html>
