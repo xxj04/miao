@@ -19,7 +19,7 @@
           downloadImgSync(x.fullUrl, (e) => {
 
             var img = new Image
-            $(img).attr('src', e.fullUrl).css('width', e.width).css('height', e.height)
+            img.src = e.responseURL
 
 
           })
