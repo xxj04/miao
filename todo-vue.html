@@ -18,7 +18,7 @@
     <div>
       <input type="checkbox" id="toggle-all" @click="toggleAll()"
         :checked="todos.length && todos.every(it => it.completed)">
-      <input type="text" id="todo-input" placeholder="what needs to be done?" >
+      <input type="text" id="todo-input" placeholder="what needs to be done?" @keyup.enter="append($event)">
     </div>
 
 
@@ -111,7 +111,16 @@
             })
           }
         },
-        app
+        append(e) {
+          var text = e.target.value.trim()
+          if (text != '') {
+            this.todos.push({
+              content: text,
+              completed: false,
+            })
+          }
+          e.target.value = ''
+        }
       }
     });
 
