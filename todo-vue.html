@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+
+</style>
+
+<body>
+
+  <div id="box">
+
+    <h1>todos</h1>
+    <div>
+      <input type="checkbox" id="toggle-all" @click="toggleAll()"
+        :checked="todos.length && todos.every(it => it.completed)">
+      <input type="text" id="todo-input" placeholder="what needs to be done?" >
+    </div>
+
+
+    <ul id="todo-list" :class="`visible-${visibleTodos}`">
+      <li :class="todo.completed ? 'completed' : 'active'" v-for="(todo, idx) of 计算出需要显示的(todos)">
+        <input data-index="0" type="checkbox" :checked="todo.completed" @change="changeTodoState(idx)">
+
+        <span v-show="editIdx !== idx" @dblclick="edit(idx)">{{ todo.content }}</span>
+
+
+
+        <input @keyup.enter="todo.content = $event.target.value.trim();editIdx = -1"
+          @blur="todo.content = $event.target.value.trim();editIdx = -1" @keyup.escape="editIdx = -1"
+          v-show="editIdx == idx" type="text" :value="todo.content">
+        <button @click="deleteTodo(idx)">&times;</button>
+      </li>
+    </ul>
+
+
+    <div>
+      <span><em></em> items left</span>
+      <div class="visible-select">
+        <label><input type="radio" value="all" name="visible-todos" checked> All</label>
+        <label><input type="radio" value="active" name="visible-todos"> Active</label>
+        <label><input type="radio" value="completed" name="visible-todos"> Completed</label>
+      </div>
+      <button class="clear-completed" hidden>Clear completed</button>
+    </div>
+
+
+  </div>
+
+  <script src="./vue-2.7.14.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#box',
+
+      data: {
+        todos: JSON.parse(localStorage.getItem('todos')) ?? [{
+          content: 'eat',
+          completed: false,
+        }, {
+          content: 'drink',
+          completed: true,
+        }, {
+          content: 'sleep',
+          completed: true,
+        }
+        ],
+        visibleTodos: 'all',
+        editIdx: -1,
+      },
+      watch: {
+        todos: {
+          deep: true,
+          handler: function () {
+            localStorage.setItem('todos', JSON.stringify(this.todos))
+          },
+        }
+      },
+      methods: {
+        计算出需要显示的() {
+          if (this.visibleTodos == 'completed') {
+            return this.todos.filter(it => it.completed)
+          } else if (this.visibleTodos == 'active') {
+            return this.todos.filter(it => !it.completed)
+          }
+          return this.todos
+        },
+        edit(idx) {
+          this.editIdx = idx
+        },
+        deleteTodo(idx) {
+          this.todos.splice(idx, 1)
+        }
+        ,
+        changeTodoState(idx) {
+
+          this.todos[idx].completed = !this.todos[idx].completed
+
+        },
+        toggleAll() {
+          if (this.todos.every(it => it.completed)) {
+            this.todos.forEach(it => {
+              it.completed = false
+            })
+          } else {
+            this.todos.forEach(it => {
+              it.completed = true
+            })
+          }
+        },
+        app
+      }
+    });
+
+
+  </script>
+</body>
+
+</html>

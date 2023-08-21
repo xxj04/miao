@@ -14,16 +14,10 @@
   <input type="button" onclick="run2()" style="width: 100px;height: 100px; font-size: 40px;" value="run2"></input>
   <script>
     function run() {
-      downloadImgSync('https://xieranmaya.github.io/images/cats/cats.json', (e) => {
+      download('https://xieranmaya.github.io/images/cats/cats.json', (e) => {
         var list = JSON.parse(e.responseText)
         for (var x of list) {
-          downloadImgSync(x.fullUrl, (e) => {
-
-            var img = new Image
-            img.src = e.responseURL
-
-
-          })
+          downloadImgSync(x.fullUrl)
         }
       })
 
@@ -34,19 +28,7 @@
     function run2(value = 3) {
       downloadImgSync('https://xieranmaya.github.io/images/cats/cats.json', (e) => {
         var list = JSON.parse(e.responseText)
-        for (var i = 0; i < list.length; i = i + value) {
-          var a = value
-          var ii = i
-          while (a) {
-            downloadIm(list[ii].fullUrl, (e) => {
 
-              var img = new Image
-              img.src = e.responseURL
-            })
-            a--
-            ii++
-          }
-        }
 
 
       })
@@ -63,13 +45,146 @@
       rep.send();
     }
 
-    function downloadImgSync(url, callback) {
+    function download(url, callback) {
       var xhr = new XMLHttpRequest()
       xhr.open('get', url, false)
       xhr.send()
       callback(xhr)
 
     }
+
+    function downloadImgSync(url) {
+      var xhr = new XMLHttpRequest()
+      xhr.open('get', url, false)
+
+      xhr.send()
+    }
+  </script>
+
+
+  <script>
+    var catsUrl = 'https://xieranmaya.github.io/images/cats/cats.json'
+
+    function get(url, callback) {
+      var xhr = new XMLHttpRequest()
+      xhr.open('GET', url)
+
+      xhr.onload = () => {
+        callback(xhr.responseText)
+      }
+
+      xhr.send()
+    }
+
+    function downloadImg(url, callback) {
+      var img = new Image()
+      img.onload = () => {
+        callback()
+      }
+      img.src = url
+    }
+
+
+
+    // 同步下载一张图片，返回时已经下完了
+    // 下载过程中页面会无响应
+    function downloadImgSync(url) {
+      var xhr = new XMLHttpRequest()
+      xhr.open('get', url, false)
+      xhr.send()
+    }
+
+
+    function downloadMax() {
+      get(catsUrl, (data) => {
+        var cats = JSON.parse(data).slice(0, 13)
+
+        for (var cat of cats) {
+          downloadImg(cat.fullUrl, () => { })
+        }
+
+      })
+    }
+
+    function downloadMax3() {
+      get(catsUrl, (data) => {
+        var cats = JSON.parse(data).slice(0, 13)
+
+        var i = 0
+        var complete = 0 // 记录下载完成的数量
+
+        download3()
+
+
+        function download3(x = 3) {
+          for (var n = 0; n < 3; n++) {
+            downloadOne()
+          }
+        }
+
+        // 调用一次启动一张的下载，下载完后会自动再启动一张的下载
+        function downloadOne() {
+          if (i < cats.length) {
+            downloadImg(cats[i++].fullUrl, () => {
+              complete++
+              downloadOne()
+              if (complete === cats.length) {
+                console.log('下载完成')
+              }
+            })
+          }
+        }
+
+
+
+
+      })
+    }
+
+
+    // 异步
+    function downloadOneByOne() {
+      get(catsUrl, data => {
+        var cats = JSON.parse(data)
+
+        cats = cats.slice(0, 5)
+
+        var i = 0 // 下一次应该下载第几张
+
+        downloadOneImg()
+
+        function downloadOneImg() {
+          if (i < cats.length) {
+            downloadImg(cats[i++].fullUrl, () => {
+              downloadOneImg()
+            })
+          } else { // 如果i等于长度的时候，说明已经没得下了，就结束
+            console.log('串行下载完成！')
+          }
+        }
+
+        // downloadImg(cats[0].fullUrl, () => {
+        //   downloadImg(cats[1].fullUrl, () => {
+        //     downloadImg(cats[2].fullUrl, () => {
+        //       downloadImg(cats[3].fullUrl, () => {
+        //         downloadImg(cats[4].fullUrl, () => {
+        //           downloadImg(cats[5].fullUrl, () => {
+        //             downloadImg(cats[6].fullUrl, () => {
+
+        //             })
+        //           })
+        //         })
+        //       })
+        //     })
+        //   })
+        // })
+
+      })
+
+
+    }
+
+
   </script>
 
 </body>
