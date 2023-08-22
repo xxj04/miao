@@ -39,11 +39,14 @@
 
 
     <div>
-      <span><em></em> items left</span>
+      <span><em>{{todolen()}}</em> items left</span>
       <div class="visible-select">
-        <label><input type="radio" value="all" name="visible-todos" checked> All</label>
-        <label><input type="radio" value="active" name="visible-todos"> Active</label>
-        <label><input type="radio" value="completed" name="visible-todos"> Completed</label>
+        <label><input type="radio" value="all" name="visible-todos" @click="visibleTodos = $event.target.value">
+          All</label>
+        <label><input type="radio" value="active" name="visible-todos" @click="visibleTodos = $event.target.value">
+          Active</label>
+        <label><input type="radio" value="completed" name="visible-todos" @click="visibleTodos = $event.target.value">
+          Completed</label>
       </div>
       <button class="clear-completed" hidden>Clear completed</button>
     </div>
@@ -120,6 +123,22 @@
             })
           }
           e.target.value = ''
+        },
+        todolen() {
+          let len = 0
+          for (let todo of this.todos) {
+            if (todo.completed == false) {
+              len++
+            }
+          }
+          return len
+        },
+        activelist() {
+          this.todos.map((item, index) => {
+            if (item.completed == true) {
+              this.todos.splice(index, 1)
+            }
+          })
         }
       }
     });
