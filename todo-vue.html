@@ -23,8 +23,9 @@
 
 
     <ul id="todo-list" :class="`visible-${visibleTodos}`">
-      <li :class="todo.completed ? 'completed' : 'active'" v-for="(todo, idx) of 计算出需要显示的(todos)">
-        <input data-index="0" type="checkbox" :checked="todo.completed" @change="changeTodoState(idx)">
+      <li :class="todo.completed ? 'completed' : 'active'" v-for="(todo, idx) of 计算出需要显示的(todos)" :key="todo.content"
+        :id="todo.id">
+        <input data-index="0" type="checkbox" :checked="todo.completed" v-model="todo.completed">
 
         <span v-show="editIdx !== idx" @dblclick="edit(idx)">{{ todo.content }}</span>
 
@@ -38,14 +39,15 @@
     </ul>
 
 
-    <div>
+    <div id="box1">
       <span><em>{{todolen()}}</em> items left</span>
       <div class="visible-select">
-        <label><input type="radio" value="all" name="visible-todos" @click="visibleTodos = $event.target.value">
+        <label><input type="radio" value="all" name="visible-todos" @click="visibleTodos = $event.target.value ; "
+            checked>
           All</label>
-        <label><input type="radio" value="active" name="visible-todos" @click="visibleTodos = $event.target.value">
+        <label><input type="radio" value="active" name="visible-todos" @click="visibleTodos = $event.target.value ; ">
           Active</label>
-        <label><input type="radio" value="completed" name="visible-todos" @click="visibleTodos = $event.target.value">
+        <label><input type="radio" value="completed" name="visible-todos" @click="visibleTodos = $event.target.value ">
           Completed</label>
       </div>
       <button class="clear-completed" hidden>Clear completed</button>
@@ -58,7 +60,9 @@
   <script>
     var app = new Vue({
       el: '#box',
-
+      beforeUpdate() {
+        debugger
+      },
       data: {
         todos: JSON.parse(localStorage.getItem('todos')) ?? [{
           content: 'eat',
@@ -66,9 +70,11 @@
         }, {
           content: 'drink',
           completed: true,
+
         }, {
           content: 'sleep',
           completed: true,
+
         }
         ],
         visibleTodos: 'all',
@@ -133,13 +139,7 @@
           }
           return len
         },
-        activelist() {
-          this.todos.map((item, index) => {
-            if (item.completed == true) {
-              this.todos.splice(index, 1)
-            }
-          })
-        }
+
       }
     });
 
